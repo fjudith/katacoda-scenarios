@@ -1,14 +1,19 @@
 #!/bin/bash
 
-sudo grep -i "done" /opt/katacoda-background-finished &> /dev/null
-if [[ "$?" -eq 0 ]]; then
-exit
-fi
+wait_file() {
+  local file="$1"; shift
+  local wait_seconds="${1:-10}"; shift # 10 seconds as default timeout
 
-while true; do sudo grep -i "done" /opt/katacoda-finished > /dev/null && break || sleep 2; done
+  until test $((wait_seconds--)) -eq 0 -o -e "$file" ; do sleep 1; done
 
-echo "Everything ready... Finalise the deployment"
+  ((++wait_seconds))
+}
+
+wait_file docker-compose.yaml
+wait_file Dockerfile
+
+echo "done" >> /root/katacoda-finished
 
 /usr/local/bin/deploy.sh
 
-echo "done" | sudo tee /root/katacoda-background-finished
+echo "done" >> /root/katacoda-background-finished
