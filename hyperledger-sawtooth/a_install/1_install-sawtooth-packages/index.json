@@ -1,0 +1,34 @@
+{
+    "title": "install-sawtooth-packages",
+    "description": "Install Sawtooth Packages",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Add the Hyperledger Sawtooth package repository",
+                "text": "step1.md"
+            },
+            {
+                "title": "Check available packages for Hyperledger Sawtooth",
+                "text": "step2.md"
+            },
+            {
+                "title": "Install Hyperledger Sawtooth",
+                "text": "step3.md"
+            }
+        ],
+        "intro": {
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "uilayout": "terminal"
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    }
+}
