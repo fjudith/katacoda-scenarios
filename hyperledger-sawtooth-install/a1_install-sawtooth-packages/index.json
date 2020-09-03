@@ -7,9 +7,7 @@
         "steps": [
             {
                 "title": "Add the Hyperledger Sawtooth package repository",
-                "text": "step1.md",
-                "courseData": "background.sh",
-                "code": "foreground.sh"
+                "text": "step1.md"
             },
             {
                 "title": "Check available packages for Hyperledger Sawtooth",
@@ -28,7 +26,9 @@
             ]
         },
         "intro": {
-            "text": "intro.md"
+            "text": "intro.md",
+            "courseData": "background.sh",
+            "code": "foreground.sh"
         },
         "finish": {
             "text": "finish.md"
