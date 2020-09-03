@@ -11,6 +11,11 @@
             "course_id": "a2_start-component-services",
             "title": "Start component services",
             "description": "Learn how to start Sawtooth base services using Systemd"
+        },
+        {
+            "course_id": "a3_generate-keys",
+            "title": "Generate Keys",
+            "description": "Learn how to generate Validator and User keys"
         }
     ]
 }
