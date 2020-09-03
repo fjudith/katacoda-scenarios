@@ -4,10 +4,10 @@
     "courses" : [
         {
             "pathway_id": "fjudith",
-            "id": "1_intall-sawtooth-packages",
-            "course_id": "a_install/1_install-sawtooth-packages",
-            // "id": "a_install/1_install-sawtooth-packages",
-            // "course_id": "1_install-sawtooth-packages",
+            // "id": "1_intall-sawtooth-packages",
+            // "course_id": "a_install/1_install-sawtooth-packages",
+            "id": "a_install/1_install-sawtooth-packages",
+            "course_id": "1_install-sawtooth-packages",
             "title": "Install Sawtooth packages",
             "description": "Learn how to install Hyperledger Sawtooth v1.0.5 packages on Ubuntu 16.04 (Xenial)"
         }
