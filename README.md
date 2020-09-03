@@ -4,7 +4,6 @@
 
 Visit https://www.katacoda.com/fjudith to view the profile and interactive scenarios
 
-
 ## Scenarios
 
 * [Hyperledger Sawtooth](./hyperledger-sawtooth)
