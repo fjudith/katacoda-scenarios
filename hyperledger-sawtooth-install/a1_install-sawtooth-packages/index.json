@@ -21,8 +21,8 @@
         "assets": {
             "host01": [
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
-                {"file": "Dockerfile", "target": "/root", "chmod": "+r"},
-                {"file": "deploy.sh", "target": "/usr/local/bin", "chmod": "+x"}
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"}
             ]
         },
         "intro": {
