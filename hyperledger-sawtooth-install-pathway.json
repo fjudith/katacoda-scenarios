@@ -6,6 +6,11 @@
             "course_id": "a1_install-sawtooth-packages",
             "title": "Install Sawtooth packages",
             "description": "Learn how to install Hyperledger Sawtooth v1.0.5 packages on Ubuntu 16.04 (Xenial)"
+        },
+        {
+            "course_id": "a2_start-component-services",
+            "title": "Start component services",
+            "description": "Learn how to start Sawtooth base services using Systemd"
         }
     ]
 }
