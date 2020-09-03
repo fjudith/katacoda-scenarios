@@ -6,7 +6,7 @@ Run the following command to open an interactive shell session in the `chsa-a3-0
 docker exec -it -u sysops chsa-a3-00 bash
 ```{{execute}}
 
-* Create Validator keys.
+* Create Validator keys-pair.
 
 ```bash
 sudo -u sawtooth sawadm keygen

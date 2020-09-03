@@ -1,14 +1,36 @@
+
 # Step 3 - Enable, start and check services startup
 
-User key-pair is also known as **Transaction Signer** keys .
+User key-pair is also known as **Transaction Signer** keys.
 
-* Geneate user public and private keys
+* Enable base services.
 
 ```bash
-sawtooth keygen --key-dir "/home/sysops/.sawtooth/keys/" sysops
+sudo systemctl enable \
+sawtooth-validator \
+sawtooth-settings-tp \
+sawtooth-rest-api
 ```{{execute}}
 
-> Notice: Sawtooth Validator **failed** to start because validator keys and genesis bloc were not generated in the scenario.
+* Start base services.
+
+```bash
+sudo systemctl start \
+sawtooth-validator \
+sawtooth-settings-tp \
+sawtooth-rest-api
+```{{execute}}
+
+* Check services logs.
+
+```bash
+sudo journalctl start \
+-u sawtooth-validator \
+-u sawtooth-settings-tp \
+-u sawtooth-rest-api
+```{{execute}}
+
+> Notice: Sawtooth Validator **failed** genesis block was not generated in the scenario.
 
 ```text
 writing file: /home/sysops/.sawtooth/keys/sysops.priv
