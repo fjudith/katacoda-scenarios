@@ -26,7 +26,7 @@
                 {"file": "Dockerfile", "target": "/root", "chmod": "+r"},
                 {"file": "deploy.sh", "target": "/usr/local/bin", "chmod": "+x"}
             ]
-        }
+        },
         "intro": {
             "text": "intro.md"
         },
