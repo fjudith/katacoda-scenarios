@@ -1,6 +1,6 @@
 {
     "title": "Hyperledger Sawtooth installation",
-    "description": "Install Hyperledger Sawtooth"
+    "description": "Install Hyperledger Sawtooth",
     "courses" : [
         {
             "course_id": "a1_install-sawtooth-packages",
