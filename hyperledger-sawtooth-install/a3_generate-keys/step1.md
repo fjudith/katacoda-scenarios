@@ -9,7 +9,7 @@ docker exec -it -u sysops chsa-a3-00 bash
 * Create Validator keys-pair.
 
 ```bash
-sudo -u sawtooth sawadm keygen
+sudo sawadm keygen
 ```{{ execute }}
 
 ```text

@@ -3,10 +3,10 @@
 
 User key-pair is also known as **Transaction Signer** keys .
 
-* Geneate user public and private keys.
+* Generate user public and private keys.
 
 ```bash
-sawtooth keygen --key-dir "/home/sysops/.sawtooth/keys/" sysops
+sawtooth keygen
 ```{{execute}}
 
 > Notice: Sawtooth Validator **failed** to start because validator keys and genesis bloc were not generated in the scenario.
