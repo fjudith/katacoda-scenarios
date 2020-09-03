@@ -28,7 +28,7 @@ python3-sawtooth-sdk | Sawtooth Python SDK
 **python3-sawtooth-settings** | **Sawtooth Settings Transaction Processor**
 **python3-sawtooth-signing** | **Sawtooth Signing Library**
 **python3-sawtooth-validator** | **Sawtooth Validator**
-**python3-sawtooth-xo** | Sawtooth XO Example**
+**python3-sawtooth-xo** | **Sawtooth XO Example**
 **sawtooth** | **Hyperledger Sawtooth Distributed Ledger**
 sawtooth-intkey-tp-go | Sawtooth Intkey TP Go
 sawtooth-noop-tp-go | Sawtooth Noop TP Go
