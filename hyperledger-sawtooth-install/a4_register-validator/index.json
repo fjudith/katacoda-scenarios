@@ -22,6 +22,7 @@
             "host01": [
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "assets", "target": "/root/", "chmod": "+r"},
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
             ]
