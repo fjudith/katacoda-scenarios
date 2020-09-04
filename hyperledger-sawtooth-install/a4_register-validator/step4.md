@@ -17,7 +17,7 @@ sawtooth peer list
 
 > **Notice**: Only the `chsa-a4-01` appears twice.
 
-```text
+```
 tcp://chsa-a4-01:8800,tcp://chsa-a4-01:8800,tcp://chsa-a4-02:8800
 ```
 
@@ -51,7 +51,7 @@ sawtooth peer list
 
 > **Notice**: Peer communication is now established with `chsa-a4-02`.
 
-```text
+```
 tcp://chsa-a4-02:8800,tcp://chsa-a4-01:8800,tcp://chsa-a4-02:8800,tcp://chsa-a4-01:8800
 ```
 

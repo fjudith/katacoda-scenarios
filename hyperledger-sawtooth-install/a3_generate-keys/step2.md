@@ -9,7 +9,7 @@ User key-pair is also known as **Transaction Signer** keys .
 sawtooth keygen
 ```{{execute}}
 
-```text
+```
 writing file: /home/sysops/.sawtooth/keys/sysops.priv
 writing file: /home/sysops/.sawtooth/keys/sysops.pub
 ```

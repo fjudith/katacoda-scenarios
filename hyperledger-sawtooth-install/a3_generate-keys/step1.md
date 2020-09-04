@@ -12,7 +12,7 @@ docker exec -it -u sysops chsa-a3-00 bash
 sudo sawadm keygen
 ```{{ execute }}
 
-```text
+```
 writing file: /etc/sawtooth/keys/validator.priv
 writing file: /etc/sawtooth/keys/validator.pub
 ```

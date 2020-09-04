@@ -26,7 +26,7 @@ sudo journalctl \
 -u sawtooth-settings-tp
 ```{{execute}}
 
-```text
+```
 -- Logs begin at Fri 2020-09-04 16:35:46 UTC, end at Fri 2020-09-04 16:38:08 UTC. --
 Sep 04 16:37:45 chsa-a4-02 systemd[1]: Started Sawtooth Validator Server.
 Sep 04 16:37:45 chsa-a4-02 systemd[1]: Started Sawtooth TP Settings.

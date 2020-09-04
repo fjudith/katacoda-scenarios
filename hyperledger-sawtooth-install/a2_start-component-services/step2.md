@@ -11,7 +11,7 @@ sudo journalctl \
 
 > Notice: Sawtooth Validator **failed** to start because validator keys and genesis bloc were not generated in the scenario.
 
-```text
+```
 -- Logs begin at Thu 2020-09-03 21:52:38 UTC, end at Thu 2020-09-03 21:53:10 UTC. --
 Sep 03 21:52:58 chsa-a2-00 systemd[1]: Started Sawtooth Validator Server.
 Sep 03 21:52:58 chsa-a2-00 systemd[1]: Started Sawtooth TP Settings.
