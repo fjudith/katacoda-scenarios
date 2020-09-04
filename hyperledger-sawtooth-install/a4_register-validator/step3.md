@@ -1,4 +1,3 @@
-
 # Step 3 - Enable, start and check services startup
 
 Only **Validator** and **Settings** transactation processor are required.

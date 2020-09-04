@@ -1,4 +1,3 @@
-
 # Step 4 - Update and check Validator peering
 
 The `chsa-a4-00` Validator is the only host to run the REST API service and own the `sysops` key-pair.
