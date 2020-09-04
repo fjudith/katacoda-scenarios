@@ -3,7 +3,7 @@
 Run the following command to open an interactive shell session in the `chsa-a4-02` container.
 
 ```bash
-docker exec -it -u sysops chsa-a4-00 bash
+docker exec -it -u sysops chsa-a4-02 bash
 ```{{execute}}
 
 * Create Validator keys-pair.
