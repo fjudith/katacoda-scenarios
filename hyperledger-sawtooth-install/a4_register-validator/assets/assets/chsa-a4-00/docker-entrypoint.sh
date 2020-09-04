@@ -14,7 +14,7 @@ if [ ! -f /home/${USER}/.sawtooth/keys/${USER}.priv ]; then
 fi
 
 if [ ! -f config-genesis.batch ]; then
-    sudo sawset genesis \
+    sudo sawset genesis --key /home/${USER}/.sawtooth/keys/${USER}.priv \
     -o config-genesis.batch
 fi
 
