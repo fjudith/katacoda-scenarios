@@ -1,5 +1,5 @@
 
-# Step 3 - Check Validator peering
+# Step 4 - Check and update Validator peering
 
 The `chsa-a4-00` Validator is the only host to run the REST API service and own the `sysops` key-pair.
 Thus all checks have to be performed from it.
@@ -50,6 +50,14 @@ sudo systemctl restart sawtooth-validator
 sawtooth peer list
 ```{{execute}}
 
+> **Notice**: Peer communication is now established with `chsa-a4-02`.
+
 ```text
-output
+tcp://chsa-a4-02:8800,tcp://chsa-a4-01:8800,tcp://chsa-a4-01:8800
 ```
+
+* Exit the terminal session as `chsa-a4-01` peer list also need an update.
+
+```bash
+exit
+```{{execute}}
