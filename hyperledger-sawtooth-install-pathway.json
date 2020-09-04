@@ -21,6 +21,11 @@
             "course_id": "a4_register-validator",
             "title": "Register Validator",
             "description": "Learn how to register a Validator in Sawtooth Network"
+        },
+        {
+            "course_id": "a5_configure_peering",
+            "title": "Configure Peering",
+            "description": "Learn how to configure Dynamic peering"
         }
     ]
 }

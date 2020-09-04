@@ -1,0 +1,55 @@
+{
+    "title": "Configure peering",
+    "description": "Configure Sawtooth Network dynamic peering",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Configure the initial node",
+                "text": "step1.md"
+            },
+            {
+                "title": "Configure the second node",
+                "text": "step2.md"
+            },
+            {
+                "title": "Configure the third node",
+                "text": "step3.md"
+            },
+            {
+                "title": "Check validator peering",
+                "text": "step4.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "assets/chsa-a5-00/docker-entrypoint.sh", "target": "/root/assets/chsa-a5-00/", "chmod": "+r"},
+                {"file": "assets/chsa-a5-00/validator.toml", "target": "/root/assets/chsa-a5-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-a5-01/docker-entrypoint.sh", "target": "/root/assets/chsa-a5-01/", "chmod": "+r"},
+                {"file": "assets/chsa-a5-01/validator.toml", "target": "/root/assets/chsa-a5-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-a5-02/docker-entrypoint.sh", "target": "/root/assets/chsa-a5-02/", "chmod": "+r"},
+                {"file": "assets/chsa-a5-02/validator.toml", "target": "/root/assets/chsa-a5-02/", "chmod": "a+rw"},
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md",
+            "courseData": "background.sh",
+            "code": "foreground.sh"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "hideintro": false,
+        "uilayout": "terminal"
+      },
+      "backend": {
+        "imageid": "ubuntu"
+      }
+}
