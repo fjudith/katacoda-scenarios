@@ -8,13 +8,30 @@ The second node needs to be configured in order to collect the list of peers fro
 docker exec -it -u sysops chsa-a5-01 bash
 ```{{execute}}
 
-* Add the following line to the Validator service environment file `/etc/default/sawtooth-validator`.
+* Change the settings in the Validator configuration file `/etc/sawtooth/validator.toml`.
 
 ```bash
-echo "SAWTOOTH_VALIDATOR_ARGS=--peering dynamic --bind network:tcp://eth0:8800 --endpoint tcp://chsa-a5-01:8800 --seed tcp://chsa-a5-00:8800" | sudo tee -a /etc/default/sawtooth-validator
-```{{ execute }}
+sudo vim /etc/sawtooth/validator.toml
+```{{execute}}
 
-* Enable and start required services.
+* Type `i` to activate the `-- INSTERT --` mode, then Change the values as described below.
+
+```toml
+...
+bind = [
+    "network:tcp://eth0:8800",
+    "component:tcp://127.0.0.1:4004"
+]
+...
+endpoint = "tcp://chsa-a5-01:8800"
+...
+peering = "dynamic"
+...
+seeds = ["tcp://chsa-a5-00:8800"]
+...
+```
+
+* To save the change, type `ESC` > `:wq` > `Enter`, then restart the Validator service.
 
 ```bash
 sudo systemctl enable sawtooth-validator sawtooth-settings-tp sawtooth-rest-api
