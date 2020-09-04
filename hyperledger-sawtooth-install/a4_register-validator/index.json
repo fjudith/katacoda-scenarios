@@ -16,6 +16,10 @@
             {
                 "title": "Enable, start and check services startup",
                 "text": "step3.md"
+            },
+            {
+                "title": "Check Validator peering",
+                "text": "step4.md"
             }
         ],
         "assets": {

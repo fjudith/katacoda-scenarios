@@ -8,7 +8,7 @@ Only **Validator** and **Settings** transactation processor are required.
 ```bash
 sudo systemctl enable \
 sawtooth-validator \
-sawtooth-settings-tp \
+sawtooth-settings-tp
 ```{{execute}}
 
 * Start base services.
@@ -16,7 +16,7 @@ sawtooth-settings-tp \
 ```bash
 sudo systemctl start \
 sawtooth-validator \
-sawtooth-settings-tp \
+sawtooth-settings-tp
 ```{{execute}}
 
 * Check services logs.
@@ -24,16 +24,21 @@ sawtooth-settings-tp \
 ```bash
 sudo journalctl \
 -u sawtooth-validator \
--u sawtooth-settings-tp \
+-u sawtooth-settings-tp
 ```{{execute}}
 
-> **Notice**: Sawtooth Validator raised an **insecure warning** because it started with the default configuration, which does not include `network_public_key` and `network_private_key` configuration parameters.
-
 ```text
--- Logs begin at Thu 2020-09-03 22:40:22 UTC, end at Thu 2020-09-03 22:43:39 UTC. --
-Sep 03 22:43:19 chsa-a3-00 systemd[1]: Started Sawtooth Validator Server.
-Sep 03 22:43:19 chsa-a3-00 systemd[1]: Started Sawtooth TP Settings.
-Sep 03 22:43:19 chsa-a3-00 systemd[1]: Started Sawtooth REST API.
-Sep 03 22:43:19 chsa-a3-00 sawtooth-validator[72]: [2020-09-03 22:43:19.632 WARNING  cli] Network key pair is not configured, Network communications between validators will not be authenticated or encrypted.
-Sep 03 22:43:19 chsa-a3-00 settings-tp[73]: [2020-09-03 22:43:19.736 INFO     core] register attempt: OK
+-- Logs begin at Fri 2020-09-04 00:13:17 UTC, end at Fri 2020-09-04 00:22:22 UTC. --
+Sep 04 12:21:47 chsa-a4-02 systemd[1]: Started Sawtooth Validator Server.
+Sep 04 12:21:47 chsa-a4-02 systemd[1]: Started Sawtooth TP Settings.
+Sep 04 12:21:47 chsa-a4-02 systemd[1]: Started Sawtooth Validator Server.
+Sep 04 12:21:47 chsa-a4-02 settings-tp[76]: [2020-09-04 00:21:47.695 INFO     core] register attempt: OK
+Sep 04 12:21:51 chsa-a4-02 systemd[1]: Started Sawtooth Validator Server.
+Sep 04 12:21:51 chsa-a4-02 systemd[1]: Started Sawtooth TP Settings.
+```
+
+* Exit the terminal session.
+
+```bash
+exit
 ```
