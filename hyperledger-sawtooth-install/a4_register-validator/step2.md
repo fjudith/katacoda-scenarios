@@ -8,10 +8,16 @@ Since the `chsa-a4-02` Validator needs to access the network, the `network` and 
 * Copy the validator configuration example file.
 
 ```bash
-sudo -u sawtooth cp /etc/sawtooth/validator.toml.example /etc/sawtooth/validator.toml
+sudo cp /etc/sawtooth/validator.toml.example /etc/sawtooth/validator.toml
 ```{{execute}}
 
-* Edit the Validator configuration file in order to:
+* Update the permissions to allow the Validator service to read the configuration file.
+
+```bash
+sudo chown root:sawtooth /etc/sawtooth/validator.toml
+```
+
+* Type <i> to activate the `-- INSTERT --` mode, then Edit the Validator configuration file in order to:
 
 1. Expose the validator
     * Change the `network` listening interface
@@ -19,7 +25,7 @@ sudo -u sawtooth cp /etc/sawtooth/validator.toml.example /etc/sawtooth/validator
 2. Fill the list of network `peers`.
 
 ```bash
-sudo -u sawtooth vim /etc/sawtooth/validator.toml
+sudo vim /etc/sawtooth/validator.toml
 ```{{execute}}
 
 * Change the values as described below:
@@ -35,7 +41,7 @@ bind = [
 ]
 ...
 # Advertised network endpoint URL.
-endpoint = "tcp://127.0.0.1:8800"
+endpoint = "tcp://chsa-a4-02:8800"
 ...
 # A list of peers to attempt to connect to in the format tcp://hostname:port.
 # It defaults to None.
@@ -43,4 +49,4 @@ peers = ["tcp://chsa-a4-00:8800","tcp://chsa-a4-01:8800"]
 ...
 ```
 
-* Save changes `<ESC>` > `wq` > `<Enter>`.
+* To save the change, type `<ESC>` > `:wq` > `<Enter>`.
