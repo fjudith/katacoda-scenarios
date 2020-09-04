@@ -18,8 +18,12 @@
                 "text": "step3.md"
             },
             {
-                "title": "Check Validator peering",
+                "title": "Update and check Validator peering",
                 "text": "step4.md"
+            },
+            {
+                "title": "Update Validator peering for full network mesh",
+                "text": "step5.md"
             }
         ],
         "assets": {

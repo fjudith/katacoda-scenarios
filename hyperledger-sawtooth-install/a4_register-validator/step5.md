@@ -1,5 +1,5 @@
 
-# Step 5 - Update Validator peering and check the network
+# Step 5 - Update Validator peering for full network mesh
 
 The `chsa-a4-01` Validator configuration needs to be updated in order to form a full network mesh.
 
@@ -28,18 +28,6 @@ peers = ["tcp://chsa-a4-00:8800","tcp://chsa-a4-02:8800"]
 ```bash
 sudo systemctl restart sawtooth-validator
 ```{{execute}}
-
-* Check the list of peers from `chsa-a4-00` REST API.
-
-```bash
-sawtooth peer list --url http://chsa-a4-00:8008
-```{{execute}}
-
-> **Notice**: Peer communication is now established with `chsa-a4-02`.
-
-```text
-tcp://chsa-a4-02:8800,tcp://chsa-a4-01:8800,tcp://chsa-a4-01:8800
-```
 
 * Exit the terminal session as `chsa-a4-01` peer list also need an update.
 
