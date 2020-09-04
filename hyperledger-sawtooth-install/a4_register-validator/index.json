@@ -23,11 +23,11 @@
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "assets/chsa-a4-00/docker-entrypoint.sh", "target": "/root/assets/chsa-a4-00/", "chmod": "+r"},
-                {"file": "assets/chsa-a4-00/validator.toml", "target": "/root/assets/chsa-a4-00/", "chmod": "+r"},
+                {"file": "assets/chsa-a4-00/validator.toml", "target": "/root/assets/chsa-a4-00/", "chmod": "+rw"},
                 {"file": "assets/chsa-a4-01/docker-entrypoint.sh", "target": "/root/assets/chsa-a4-01/", "chmod": "+r"},
-                {"file": "assets/chsa-a4-01/validator.toml", "target": "/root/assets/chsa-a4-01/", "chmod": "+r"},
+                {"file": "assets/chsa-a4-01/validator.toml", "target": "/root/assets/chsa-a4-01/", "chmod": "+rw"},
                 {"file": "assets/chsa-a4-02/docker-entrypoint.sh", "target": "/root/assets/chsa-a4-02/", "chmod": "+r"},
-                {"file": "assets/chsa-a4-02/validator.toml", "target": "/root/assets/chsa-a4-02/", "chmod": "+r"},
+                {"file": "assets/chsa-a4-02/validator.toml", "target": "/root/assets/chsa-a4-02/", "chmod": "+rw"},
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
             ]

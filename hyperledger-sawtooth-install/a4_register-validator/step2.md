@@ -1,9 +1,9 @@
 # Step 2 - Configure the validator
 
 Sawtooth installation pachage provides various configuration examples in the `/etc/sawtooth` directory.
-By defaut these configuration are configured only for local component communications.
+By defaut these are configured to establish only **local** component communications.
 
-Since the Validator needs to access the network, we must expose the `network` and `endpoint` to enable connectivity with other validators.
+Since the `chsa-a4-02` Validator needs to access the network, the `network` and `endpoint` ports have to be exposed to enable connectivity with other validators.
 
 * Copy the validator configuration example file.
 
@@ -17,6 +17,12 @@ sudo -u sawtooth cp /etc/sawtooth/validator.toml.example /etc/sawtooth/validator
     * Change the `network` listening interface
     * Change the `endpoint` listening insterface
 2. Fill the list of network `peers`.
+
+```bash
+sudo -u sawtooth vim /etc/sawtooth/validator.toml
+```{{execute}}
+
+* Change the values as described below:
 
 ```toml
 ...
@@ -35,6 +41,6 @@ endpoint = "tcp://127.0.0.1:8800"
 # It defaults to None.
 peers = ["tcp://chsa-a4-00:8800","tcp://chsa-a4-01:8800"]
 ...
-```{{ execute }}
+```
 
-* Save changes `<ESC>` > `wq` > <Enter>.
+* Save changes `<ESC>` > `wq` > `<Enter>`.
