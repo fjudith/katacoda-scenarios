@@ -16,6 +16,11 @@
             "course_id": "a3_generate-keys",
             "title": "Generate Keys",
             "description": "Learn how to generate Validator and User keys"
+        },
+        {
+            "course_id": "a4_register-validator",
+            "title": "Register Validator",
+            "description": "Learn how to register a Validator in Sawtooth Network"
         }
     ]
 }
