@@ -1,0 +1,28 @@
+env:
+  global:
+  # Docker Repository
+  - REPO=fjudith/draw.io
+  # Compute docker tag
+  - TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - ALPINE_TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "alpine"; else echo $TRAVIS_BRANCH-alpine ; fi`
+  
+sudo: required
+services:
+  - docker
+
+before_install:
+  # Install Katacoda  CLI
+  - npm install -g katacoda-cli
+
+jobs:
+  include:
+  - stage: Build a1
+    env:
+      - PATHWAY=hyperledger-sawtooth-install
+      - SCENARIO=a1
+    script: 
+      - pushd ${PATHWAY}/${SCENARIO}*/
+      - docker-compose up -d --build
+    after_success:
+      - echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin;
+      - docker-compose push

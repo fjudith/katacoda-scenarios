@@ -4,7 +4,7 @@ services:
   chsa-a3-00:
     build: 
       context: ./
-    image: chsa-exercises/ubuntu:16.04-a3
+    image: chsaexercises/systemd-a3-00:1.0.8-xenial
     container_name: chsa-a3-00
     hostname: chsa-a3-00
     security_opt:
