@@ -9,14 +9,6 @@
                 "title": "Check the networking",
                 "text": "step1.md"
             },
-            {
-                "title": "Check the logs",
-                "text": "step2.md"
-            },
-            {
-                "title": "Fix and validate",
-                "text": "step3.md"
-            }
         ],
         "assets": {
             "host01": [
