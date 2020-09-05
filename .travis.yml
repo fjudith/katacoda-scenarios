@@ -19,7 +19,7 @@ jobs:
   - stage: Build Hyperledger Sawtooth Install
     env:
       - PATHWAY=hyperledger-sawtooth-install
-      - SCENARIOS=(a1 a2 a3 a4 a5 a6)
+      - SCENARIOS=\(a1 a2 a3 a4 a5 a6\)
     script: 
       - for i in ${SCENARIOS[@]}; do pushd ${PATHWAY}/${i}*/assets/ && docker-compose up -d --build; done
     after_success:
