@@ -19,15 +19,17 @@ jobs:
     env:
       - PATHWAY=hyperledger-sawtooth-install
     script: >-
-      for i in ${CHSA_INSTALL_SCENARIOS[@]}; do 
-        pushd ${PATHWAY}/${i}*/assets/ && 
+      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq .courses[].course_id); do 
+        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
         docker-compose up -d --build
+        popd
       done
     after_success: >-
       echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
-      for i in ${CHSA_INSTALL_SCENARIOS[@]}; do 
-        pushd ${PATHWAY}/${i}*/assets/ && 
-        docker-compose up -d --build
+      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq .courses[].course_id); do 
+        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+        docker-compose push
+        popd
       done
 
   # - stage: Build a1
