@@ -3,7 +3,7 @@ env:
   # Docker Repository
   - REPO=docker.io/chsaexercises
   # Certified Hyperledger Sawtooth install exercises
-  - CHSA_INSTALL_SCENARIOS=(a1 a2 a3 a4 a5 a6)
+  - CHSA_INSTALL_SCENARIOS="(a1 a2 a3 a4 a5 a6)"
   
 sudo: required
 services:
