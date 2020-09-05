@@ -12,13 +12,19 @@ RUN sed -i 's/# deb/deb/g' /etc/apt/sources.list
 # Install packages
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
+    software-properties-common \
+    apt-transport-https \
+    nano \
+    emacs \
+    vim \
+    curl \
+    netcat \
     dbus \
     systemd \
     systemd-cron \
     rsyslog \
     iproute2 \
-    sudo \
-    software-properties-common && \
+    sudo && \
     apt-get clean && \
     rm -rf /usr/share/doc/* /usr/share/man/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -46,13 +52,9 @@ RUN groupadd --gid ${GROUPID} ${GROUP} && \
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7AF1F1091A5FD && \
     sudo add-apt-repository 'deb http://repo.sawtooth.me/ubuntu/1.0/stable xenial universe' && \
     sudo apt-get update -y && \
-    sudo apt-get install -y \
-    sawtooth  \
-    nano \
-    emacs \
-    vim && \
+    sudo apt-get install -y sawtooth  python3-sawtooth-identity && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /usr/share/doc/* /usr/share/man/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG ASSET_PATH
 
@@ -62,9 +64,7 @@ COPY ${ASSET_PATH}/*.toml /etc/sawtooth/
 # Add Entrypoint
 COPY ${ASSET_PATH}/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh && \
-    chown ${USERID}:${GROUPID} /docker-entrypoint.sh  
-
-VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
+    chown ${USERID}:${GROUPID} /docker-entrypoint.sh
 
 STOPSIGNAL SIGRTMIN+3
 

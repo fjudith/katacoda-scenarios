@@ -12,13 +12,19 @@ RUN sed -i 's/# deb/deb/g' /etc/apt/sources.list
 # Install packages
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
+    software-properties-common \
+    apt-transport-https \
+    nano \
+    emacs \
+    vim \
+    curl \
+    netcat \
     dbus \
     systemd \
     systemd-cron \
     rsyslog \
     iproute2 \
-    sudo \
-    software-properties-common && \
+    sudo && \
     apt-get clean && \
     rm -rf /usr/share/doc/* /usr/share/man/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -42,11 +48,13 @@ RUN groupadd --gid ${GROUPID} ${GROUP} && \
     useradd --uid ${USERID} --gid ${GROUPID} --shell /bin/bash --create-home ${USER} && \
     echo "sysops ALL=(ALL:ALL) NOPASSWD:ALL" | tee -a /etc/sudoers.d/${USER}
 
-VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
+# VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
 
 STOPSIGNAL SIGRTMIN+3
 
 # Activate custom user
 USER ${USER}
+
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
 
 CMD ["/sbin/init", "--log-target=journal"]
