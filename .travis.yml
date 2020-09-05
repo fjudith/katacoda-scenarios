@@ -2,9 +2,8 @@ env:
   global:
   # Docker Repository
   - REPO=docker.io/chsaexercises
-  # Compute docker tag
-  - TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - ALPINE_TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "alpine"; else echo $TRAVIS_BRANCH-alpine ; fi`
+  # Certified Hyperledger Sawtooth install exercises
+  - CHSA_INSTALL_SCENARIOS=(a1 a2 a3 a4 a5 a6)
   
 sudo: required
 services:
@@ -19,12 +18,17 @@ jobs:
   - stage: Build Hyperledger Sawtooth Install
     env:
       - PATHWAY=hyperledger-sawtooth-install
-      - SCENARIOS=\(a1 a2 a3 a4 a5 a6\)
-    script: 
-      - for i in ${SCENARIOS[@]}; do pushd ${PATHWAY}/${i}*/assets/ && docker-compose up -d --build; done
-    after_success:
-      - echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin;
-      - for i in ${SCENARIOS[@]}; do pushd ${PATHWAY}/${i}*/assets/ && docker-compose push; done
+    script: >-
+      for i in ${CHSA_INSTALL_SCENARIOS[@]}; do 
+        pushd ${PATHWAY}/${i}*/assets/ && 
+        docker-compose up -d --build
+      done
+    after_success: >-
+      echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
+      for i in ${CHSA_INSTALL_SCENARIOS[@]}; do 
+        pushd ${PATHWAY}/${i}*/assets/ && 
+        docker-compose up -d --build
+      done
 
   # - stage: Build a1
   #   env:
