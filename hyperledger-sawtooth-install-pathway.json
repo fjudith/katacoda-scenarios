@@ -26,6 +26,11 @@
             "course_id": "a5_configure-peering",
             "title": "Configure Peering",
             "description": "Learn how to configure Dynamic peering"
+        },
+        {
+            "course_id": "a6_verify-install-and-fix-if-necessary",
+            "title": "Verify install and fix if necessary",
+            "description": "Learn how to troubleshoot a Sawtooth network"
         }
     ]
 }
