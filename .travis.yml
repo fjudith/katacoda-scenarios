@@ -17,7 +17,7 @@ jobs:
     env:
       - PATHWAY=hyperledger-sawtooth-install
     script: >-
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id)
+      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
       do 
         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
         docker-compose up -d --build
@@ -25,7 +25,7 @@ jobs:
       done
     after_success: >-
       echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id)
+      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
       do 
         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
         docker-compose push
