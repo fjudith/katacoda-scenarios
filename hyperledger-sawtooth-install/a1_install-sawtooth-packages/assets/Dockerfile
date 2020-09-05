@@ -55,6 +55,4 @@ STOPSIGNAL SIGRTMIN+3
 # Activate custom user
 USER ${USER}
 
-ENTRYPOINT [ "/docker-entrypoint.sh" ]
-
 CMD ["/sbin/init", "--log-target=journal"]
