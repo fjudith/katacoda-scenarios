@@ -8,6 +8,12 @@ The third node needs to be configured in same way as the `chsa-a5-01`. Expect th
 docker exec -it -u sysops chsa-a5-02 bash
 ```{{execute}}
 
+* Create Validator key-pair
+
+```bash
+sudo sawadm keygen
+```{{execute}}
+
 * Change the settings in the Validator configuration file `/etc/sawtooth/validator.toml`.
 
 ```bash

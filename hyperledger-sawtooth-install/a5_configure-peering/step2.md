@@ -8,6 +8,12 @@ The second node needs to be configured in order to collect the list of peers fro
 docker exec -it -u sysops chsa-a5-01 bash
 ```{{execute}}
 
+* Create Validator key-pair
+
+```bash
+sudo sawadm keygen
+```{{execute}}
+
 * Change the settings in the Validator configuration file `/etc/sawtooth/validator.toml`.
 
 ```bash
