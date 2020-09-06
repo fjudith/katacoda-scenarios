@@ -1,0 +1,65 @@
+{
+    "title": "Verify install and fix if necessary",
+    "description": "Troubleshoot a Sawtooth network",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Check the networking",
+                "text": "step1.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+
+                {"file": "assets/chsa-c4-00/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-00/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-00/validator.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-00/cli.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-00/rest_api.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
+                
+                {"file": "assets/chsa-c4-01/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-01/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-01/validator.toml", "target": "/root/assets/chsa-c4-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-01/cli.toml", "target": "/root/assets/chsa-c4-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-01/rest_api.toml", "target": "/root/assets/chsa-c4-01/", "chmod": "a+rw"},
+
+                {"file": "assets/chsa-c4-02/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-02/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-02/validator.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-02/cli.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-02/rest_api.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
+                
+                {"file": "assets/chsa-c4-grafana/dasboards.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-grafana/datasources.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-grafana/sawtooth_performance.json", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
+
+                {"file": "assets/chsa-c4-influxdb/influxdb.conf", "target": "/root/assets/chsa-c4-influxdb/", "chmod": "+r"},
+
+                {"file": "assets/chsa-c4-loadgen/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-loadgen/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-loadgen/validator.toml", "target": "/root/assets/chsa-c4-loadgen/", "chmod": "a+rw"},
+
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md",
+            "courseData": "background.sh",
+            "code": "foreground.sh"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "showvisualise": true,
+        "scope": "docker run --name=scope -d --net=host --pid=host --privileged -v /var/run/docker.sock:/var/run/docker.sock:rw weaveworks/scope:1.9.1 --probe.docker=true",
+        "scopePort": 4040,
+        "hideintro": false,
+        "uilayout": "terminal"
+      },
+      "backend": {
+        "imageid": "ubuntu"
+      }
+}
