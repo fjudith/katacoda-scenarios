@@ -69,3 +69,15 @@ services:
       - /run/lock
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+  chsa-a6-loadgen:
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-a6-loadgen
+    image: chsaexercises/systemd-a6-loadgen:1.0.8-xenial
+    container_name: chsa-a6-loadgen
+    hostname: chsa-a6-loadgen
+    volumes:
+      - ./assets/chsa-a6-loadgen/loadgen.priv:/home/loadgen/.sawtooth/keys/loadgen.priv
+      - ./assets/chsa-a6-loadgen/loadgen.pub:/home/loadgen/.sawtooth/keys/loadgen.pub
