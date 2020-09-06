@@ -20,9 +20,9 @@ sawtooth-xo-tp-python.service               disabled
 
 * Then check the list of running services
 
-```
+```bash
 docker exec -it -u sysops chsa-a6-00 bash -c 'sudo systemctl list-units | grep sawtooth'
-```
+```{{execute}}
 
 ```
 sawtooth-rest-api.service       loaded active running Sawtooth REST API
