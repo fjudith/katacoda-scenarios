@@ -48,7 +48,7 @@ seeds = ["tcp://127.0.0.1:8801"]
 
 # A list of peers to attempt to connect to in the format tcp://hostname:port.
 # It defaults to None.
-peers = ["tcp://chsa-a6-00:8800"]
+peers = ["tcp://chsa-a6-00:8800","tcp://chsa-a6-02:8800"]
 
 # The type of scheduler to use. The choices are 'serial' or 'parallel'.
 scheduler = 'serial'

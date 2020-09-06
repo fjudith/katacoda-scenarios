@@ -66,6 +66,8 @@ COPY ${ASSET_PATH}/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh && \
     chown ${USERID}:${GROUPID} /docker-entrypoint.sh
 
+VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
+
 STOPSIGNAL SIGRTMIN+3
 
 # Activate custom user
