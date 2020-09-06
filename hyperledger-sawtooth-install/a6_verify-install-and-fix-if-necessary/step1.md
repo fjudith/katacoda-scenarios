@@ -8,6 +8,4 @@ To investigate efficiently, it is recommended to send commands instead of openin
 docker exec -it -u sysops chsa-a6-00 bash -c 'sawtooth peer list'
 ```{{execute}}
 
-```
-
-```
+> **Notice**: The list of peers is empty.
