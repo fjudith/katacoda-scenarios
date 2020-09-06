@@ -24,9 +24,6 @@
                 {"file": "assets/chsa-a6-02/docker-entrypoint.sh", "target": "/root/assets/chsa-a6-02/", "chmod": "+r"},
                 {"file": "assets/chsa-a6-02/validator.toml", "target": "/root/assets/chsa-a6-02/", "chmod": "a+rw"},
 
-                {"file": "assets/chsa-a6-loadgen/loadgen.priv", "target": "/root/assets/chsa-a6-loadgen/", "chmod": "+r"},
-                {"file": "assets/chsa-a6-loadgen/loadgen.pub", "target": "/root/assets/chsa-a6-loadgen/", "chmod": "+r"},
-
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
             ]
