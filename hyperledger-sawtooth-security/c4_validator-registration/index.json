@@ -1,6 +1,6 @@
 {
-    "title": "Verify install and fix if necessary",
-    "description": "Troubleshoot a Sawtooth network",
+    "title": "Validator registration",
+    "description": "Register a validator in an active network",
     "difficulty": "easy",
     "time": "4 minutes",
     "details": {
