@@ -6,9 +6,26 @@
     "details": {
         "steps": [
             {
-                "title": "Check the networking",
+                "title": "Check the peering",
                 "text": "step1.md"
+            },
+            {
+                "title": "Check the interconnection",
+                "text": "step2.md"
+            },
+            {
+                "title": "Check services consistency",
+                "text": "step3.md"
+            },
+            {
+                "title": "Check services consistency (continue)",
+                "text": "step4.md"
+            },
+            {
+                "title": "Check services consistency (continue)",
+                "text": "step4.md"
             }
+        ],
         ],
         "assets": {
             "host01": [

@@ -1,4 +1,4 @@
-# Checks from Initial node
+# Check the peering
 
 To investigate efficiently, it is recommended to send commands instead of opening terminal sessions.
 
