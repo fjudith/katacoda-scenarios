@@ -7,7 +7,7 @@ services:
       context: ./
       args:
         ASSET_PATH: assets/chsa-b1-00
-    image: chsaexercises/ubuntu:16.04-b100
+    image: chsaexercises/systemd-b1-00:1.0.8-xenial
     container_name: chsa-b1-00
     hostname: chsa-b1-00
     expose:
@@ -31,7 +31,7 @@ services:
       context: ./
       args:
         ASSET_PATH: assets/chsa-b1-01
-    image: chsaexercises/ubuntu:16.04-b101
+    image: chsaexercises/systemd-b1-01:1.0.8-xenial
     container_name: chsa-b1-01
     hostname: chsa-b1-01
     expose:
@@ -55,7 +55,7 @@ services:
       context: ./
       args:
         ASSET_PATH: assets/chsa-b1-02
-    image: chsaexercises/ubuntu:16.04-b102
+    image: chsaexercises/systemd-b1-02:1.0.8-xenial
     container_name: chsa-b1-02
     hostname: chsa-b1-02
     expose:
