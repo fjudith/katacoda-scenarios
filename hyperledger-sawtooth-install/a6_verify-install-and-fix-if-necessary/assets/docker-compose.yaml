@@ -29,7 +29,7 @@ services:
       context: ./
       args:
         ASSET_PATH: assets/chsa-a6-01
-    image: chsaexercises/systemd-a6-00:1.0.8-xenial
+    image: chsaexercises/systemd-a6-01:1.0.8-xenial
     container_name: chsa-a6-01
     hostname: chsa-a6-01
     expose:
@@ -52,7 +52,7 @@ services:
       context: ./
       args:
         ASSET_PATH: assets/chsa-a6-02
-    image: chsaexercises/systemd-a6-00:1.0.8-xenial
+    image: chsaexercises/systemd-a6-02:1.0.8-xenial
     container_name: chsa-a6-02
     hostname: chsa-a6-02
     expose:
