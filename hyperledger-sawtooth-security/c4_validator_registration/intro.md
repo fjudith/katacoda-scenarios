@@ -1,9 +1,18 @@
-# Configure Peering
+# Validator registration
 
-This exercise demonstrates how to configure Validator dynamic peering.
+This exercise demonstrates how to add a Validator in an existing network governed by policies.
 
-The stack includes by 3 hosts `chsa-a5-00`, `chsa-a5-01` and `chsa-a5-02`.
+The stack includes the following hosts:
 
-The `validator`, `settings-tp` and `rest-api` services are already installed and running only on `chsa-a5-00`.
+host | services
+---- | --------
+`chsa-c4-00` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
+`chsa-c4-01` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
+`chsa-c4-02` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
+`chsa-c4-influxdb` | InfluxDB time series database
+`chsa-c4-grafana` | Grafana monitoring visualization <http://localhost:53000> (u:admin/p:admin)
+`chsa-c4-loadgen` | Intkey load generator
 
-The goal is to add `chsa-a5-01` and `chsa-a5-02` to the network with the exact same set of services.
+The `chsa-c4-00`, `chsa-c4-01` and `chsa-c4-02` are currently forming the network. The goal is to add the `chsa-c4-03` host.
+
+The **influxdb/grafana** stack allows to quickly observe the effect on the network.
