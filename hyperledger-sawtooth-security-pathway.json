@@ -1,0 +1,11 @@
+{
+  "title": "Hyperledger Sawtooth Security",
+  "description": "Secure Hyperledger Sawtooth",
+  "courses": [
+    {
+      "course_id": "c4_validator-registration",
+      "title": "Validator Registration",
+      "description": "Register a Validator in an existing active network"
+    }
+  ]
+}
