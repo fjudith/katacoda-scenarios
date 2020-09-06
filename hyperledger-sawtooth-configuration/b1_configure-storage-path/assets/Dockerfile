@@ -49,8 +49,7 @@ RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8AA7A
     sudo apt-get install -y \
     sawtooth  \
     nano \
-    emacs \
-    vim && \
+        vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

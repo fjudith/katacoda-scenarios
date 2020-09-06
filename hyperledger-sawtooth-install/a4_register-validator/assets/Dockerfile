@@ -15,7 +15,6 @@ RUN apt-get update && \
     software-properties-common \
     apt-transport-https \
     nano \
-    emacs \
     vim \
     curl \
     netcat \
