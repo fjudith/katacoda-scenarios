@@ -25,6 +25,5 @@ fi
 sudo systemctl enable sawtooth-validator
 sudo systemctl enable sawtooth-settings-tp
 sudo systemctl enable sawtooth-rest-api
-sudo systemctl enable sawtooth-intkey-tp-python
 
 exec "$@"
