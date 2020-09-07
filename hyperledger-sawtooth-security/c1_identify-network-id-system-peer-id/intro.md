@@ -11,4 +11,4 @@ host | services
 `chsa-c1-02` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
 `chsa-c1-loadgen` | Intkey load generator
 
-
+The goal is retro-architecture the network topology using a top down approach.
