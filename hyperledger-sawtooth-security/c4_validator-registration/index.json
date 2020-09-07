@@ -71,7 +71,6 @@
         "showdashboard": true,
         "dashboards": [
             {"name": "Grafana", "port": "53000"}
-            // {"name": "Grafana", "href": "https://[[HOST_SUBDOMAIN]]-53000-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
         "hideintro": false,
         "uilayout": "terminal"
