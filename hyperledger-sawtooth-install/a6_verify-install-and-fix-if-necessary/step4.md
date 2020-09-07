@@ -1,6 +1,6 @@
 # Check services consistency (2)
 
-The `validator`, `settings-tp` and `rest-api` services are enabled on the initial node (i.e. `chsa-a6-00`).
+The `validator`, `settings-tp` and `rest-api` services are enabled on the genesis node (i.e. `chsa-a6-00`).
 Let's discover the status of the other peers.
 
 * Check the list of enabled and running services from the second node.
@@ -40,4 +40,4 @@ sawtooth-settings-tp.service    loaded active running Sawtooth TP Settings
 sawtooth-validator.service      loaded active running Sawtooth Validator Server
 ```
 
-> **Notice**: The third node seems aligned with the initial node.
+> **Notice**: The third node seems aligned with the genesis node.

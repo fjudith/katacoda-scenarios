@@ -54,5 +54,5 @@ sawtooth-settings-tp.service    loaded active running Sawtooth TP Settings
 sawtooth-validator.service      loaded active running Sawtooth Validator Server
 ```
 
-> **Notice**: The third node seems aligned with the initial node.
+> **Notice**: The third node seems aligned with the genesis node.
 

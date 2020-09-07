@@ -3,7 +3,7 @@
 Hyperledger Sawtooth network is considered as stable only if all participant are running the same set of transaction processors.
 It is viable then to check if all hosts are running similar services.
 
-* Check the list of enabled services from the initial node.
+* Check the list of enabled services from the genesis node.
 
 ```bash
 docker exec -it -u sysops chsa-a6-00 bash -c 'sudo systemctl list-unit-files | grep sawtooth'
