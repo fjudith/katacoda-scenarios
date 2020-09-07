@@ -73,7 +73,7 @@
             {"name": "Grafana", "port": "53000"}
         ],
         "hideintro": false,
-        "uilayout": "terminal"
+        "uilayout": "terminal-iframe"
       },
       "backend": {
         "imageid": "ubuntu"
