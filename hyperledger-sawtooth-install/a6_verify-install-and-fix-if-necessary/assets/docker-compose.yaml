@@ -2,7 +2,7 @@ version: "2.1"
 
 services:
   chsa-a6-00:
-    priviledged: true
+    privileged: true
     build: 
       context: ./
       args:
@@ -26,7 +26,7 @@ services:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
   chsa-a6-01:
-    priviledged: true
+    privileged: true
     build: 
       context: ./
       args:
@@ -50,7 +50,7 @@ services:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
   chsa-a6-02:
-    priviledged: true
+    privileged: true
     build: 
       context: ./
       args:
