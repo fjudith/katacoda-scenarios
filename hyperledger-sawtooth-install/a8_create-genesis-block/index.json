@@ -36,8 +36,6 @@
         }
     },
     "environment": {
-        "showvisualise": true,
-        "scopePort": 4040,
         "hideintro": false,
         "uilayout": "terminal"
       },

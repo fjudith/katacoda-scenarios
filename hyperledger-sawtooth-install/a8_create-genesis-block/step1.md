@@ -24,7 +24,7 @@ Generated config-genesis.batch
 * Create the Genesis block from the settings batch
 
 ```bash
-sawadm genesis config-genesis.batch
+sudo sawadm genesis config-genesis.batch
 ```{{execute}}
 
 
@@ -32,4 +32,4 @@ sawadm genesis config-genesis.batch
 
 ```bash
 sudo systemctl restart sawtooth-validator
-```
+```{{execute}}

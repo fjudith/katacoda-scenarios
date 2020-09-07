@@ -1,15 +1,21 @@
-# Connect transaction processor to validator
+# Create genesis block
 
-This exercise demontrates how to connect Transactions Processor running on third party hosts to a validator.
+This exercise demontrates how to generate the genesis block containing the settings of the blockchain.
 
-The stack include the following hosts:
+The stack includes the single host `chsa-a8-00` and run the following services.
 
-host | services
----- | --------
-`chsa-a7-00` | `validator`, `settings-tp` and `rest-api`
-`chsa-c7-01` | Where the `intkey` transaction processor will be configured
-`chsa-c7-02` | Where the `xo` transaction processor will be configured
+Service | Role
+------- | ----
+`sawtooth-validator` | Sawtooth network main component.
+`sawtooth-settings-tp` | Transaction processor providing methodology for storing on-chain configuration settings.
+`sawtooth-rest-api` | Client endpoint to  running validator, submit batches, and query the state of the ledger.
 
-Sawtooth packages are already installed on all hosts, but running only on `chsa-a7-00`.
+The Validator service reports the following error messages.
 
-The goal is to register both transactions processors in the validator.
+```
+18:47:53.975 [MainThread] genesis DEBUG] genesis_batch_file: not found
+[18:47:53.975 [MainThread] genesis DEBUG] block_chain_id: not yet specified
+[18:47:53.975 [MainThread] genesis INFO] No chain head and not the genesis node: starting in peering mode
+```
+
+The goal is to create the genesis block in order to start the validator properly.
