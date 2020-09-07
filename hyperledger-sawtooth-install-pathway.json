@@ -36,6 +36,11 @@
             "course_id": "a7_connect-transaction-processor-to-validator",
             "title": "Connect Transaction Processor to Validator",
             "description": "Learn how to register Intkey and XO transaction processor to an external validator"
+        },
+        {
+            "course_id": "a8_create-genesis-block",
+            "title": "Create genesis block",
+            "description": "Learn how to create genesis block required for the first node"
         }
     ]
 }

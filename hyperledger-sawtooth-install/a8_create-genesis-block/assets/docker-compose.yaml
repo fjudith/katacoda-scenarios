@@ -1,0 +1,25 @@
+version: "2.1"
+
+services:
+  chsa-a8-00:
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-a8-00
+    image: chsaexercises/systemd-a8-00:1.0.8-xenial
+    container_name: chsa-a8-00
+    hostname: chsa-a8-00
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
