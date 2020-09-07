@@ -58,7 +58,6 @@ sudo systemctl enable sawtooth-intkey-tp-python
 sudo systemctl enable sawtooth-xo-tp-python
 
 sudo sed -i "s/#\(SAWTOOTH_VALIDATOR_ARGS=\)/\1-vv/g"  /etc/default/sawtooth-validator
-sudo sed -i "s/\(SAWTOOTH_IDENTITY_TP_ARGS=-v\)\s\(.*\)/\1v \2/g"  /etc/default/sawtooth-identity-tp
 sudo sed -i "s/\(SAWTOOTH_SETTINGS_TP_ARGS=-v\)\s\(.*\)/\1v \2/g"  /etc/default/sawtooth-settings-tp
 
 exec "$@"
