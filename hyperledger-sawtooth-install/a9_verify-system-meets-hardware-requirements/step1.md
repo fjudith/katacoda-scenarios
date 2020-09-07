@@ -9,10 +9,11 @@ docker exec -it -u sysops chsa-a9-00 bash
 * Check the number of CPU.
 
 ```bash
-grep 'cpu cores' /proc/cpuinfo | uniq
+grep 'cpu cores' /proc/cpuinfo
 ```{{execute}}
 
 ```bash
+cpu cores       : 1
 cpu cores       : 1
 ```
 
@@ -26,8 +27,10 @@ grep 'MemTotal' /proc/meminfo
 MemTotal:        1541956 kB
 ```
 
-* Restart the Validator service
+* Check Sawtooth process consumtion.
 
 ```bash
-sudo systemctl restart sawtooth-validator
+htop
 ```
+
+> **Notice**: As the network is under load, the CPUs are not under significant load and total memory consumtion is under 500MB

@@ -23,6 +23,7 @@ RUN apt-get update && \
     systemd-cron \
     rsyslog \
     iproute2 \
+    htop \
     sudo && \
     apt-get clean && \
     rm -rf /usr/share/doc/* /usr/share/man/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
