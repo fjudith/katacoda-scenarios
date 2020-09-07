@@ -34,4 +34,3 @@ htop
 ```
 
 > **Notice**: As the network is processing transactions, the CPUs are under 1% load and RAM consumtion is under 500MB.
-
