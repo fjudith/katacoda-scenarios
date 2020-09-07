@@ -33,4 +33,5 @@ MemTotal:        1541956 kB
 htop
 ```
 
-> **Notice**: As the network is under load, the CPUs are not under significant load and total memory consumtion is under 500MB
+> **Notice**: As the network is processing transactions, the CPUs are under 1% load and RAM consumtion is under 500MB.
+
