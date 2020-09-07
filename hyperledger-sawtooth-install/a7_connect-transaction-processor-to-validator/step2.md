@@ -6,13 +6,13 @@ The Validator target is enforced by environment variable files located in `/etc/
 * Update the `sawtooth-settings-tp` service environment file.
 
 ```bash
-sudo sed -i '/s/localhost/chsa-a4-00/g' /etc/default/sawtooth-settings-tp
+sudo sed -i 's/localhost/chsa-a7-00/g' /etc/default/sawtooth-settings-tp
 ```{{execute}}
 
 * Update the `sawtooth-rest-api` service environment file.
 
 ```bash
-sudo sed -i '/s/localhost/chsa-a4-00/g' /etc/default/sawtooth-rest-api
+sudo sed -i 's/localhost/chsa-a7-00/g' /etc/default/sawtooth-rest-api
 ```{{execute}}
 
 * Restart all local sawtooth services
