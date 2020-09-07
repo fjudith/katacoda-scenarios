@@ -13,7 +13,7 @@ Service | Role
 The Validator service reports the following error messages.
 
 ```
-18:47:53.975 [MainThread] genesis DEBUG] genesis_batch_file: not found
+[18:47:53.975 [MainThread] genesis DEBUG] genesis_batch_file: not found
 [18:47:53.975 [MainThread] genesis DEBUG] block_chain_id: not yet specified
 [18:47:53.975 [MainThread] genesis INFO] No chain head and not the genesis node: starting in peering mode
 ```
