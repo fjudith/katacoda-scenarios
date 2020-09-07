@@ -12,7 +12,7 @@ docker exec -u sysops -it chsa-a7-00 bash -c 'intkey set test 10'
 
 ```bash
 docker exec -u sysops -it chsa-a7-00 bash -c 'intkey list'
-```
+```{{execute}}
 
 ```
 test: 10
