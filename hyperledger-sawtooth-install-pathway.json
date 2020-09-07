@@ -35,7 +35,7 @@
         {
             "course_id": "a7_connect-transaction-processor-to-validator",
             "title": "Connect Transaction Processor to Validator",
-            "description": "Learn how register Intkey and XO transaction processor to an external validator"
+            "description": "Learn how to register Intkey and XO transaction processor to an external validator"
         }
     ]
 }
