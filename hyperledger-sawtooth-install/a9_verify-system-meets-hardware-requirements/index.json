@@ -1,12 +1,12 @@
 {
-    "title": "Create genesis block",
-    "description": "Create the genesis block of the first Hyperledger Sawtooth network node",
+    "title": "Verify system meets hardware requirements",
+    "description": "Check available hardware capacity and process consumtion",
     "difficulty": "easy",
     "time": "4 minutes",
     "details": {
         "steps": [
             {
-                "title": "Create the genesis block",
+                "title": "Check hardware capacity and process consumtion",
                 "text": "step1.md"
             }
         ],

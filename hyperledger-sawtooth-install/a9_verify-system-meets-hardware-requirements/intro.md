@@ -1,15 +1,17 @@
-# Connect transaction processor to validator
+# Very system meets hardware requirements
 
-This exercise demontrates how to connect Transactions Processor running on third party hosts to a validator.
+A single node network has a limited resource footprint.
+But it is commonly accepted that a production network should at least own 2 CPUs and 4GB of RAM. 
 
-The stack include the following hosts:
+The stack includes the single host `chsa-a9-00` and run the following services.
 
-host | services
----- | --------
-`chsa-a7-00` | `validator`, `settings-tp` and `rest-api`
-`chsa-c7-01` | Where the `intkey` transaction processor will be configured
-`chsa-c7-02` | Where the `xo` transaction processor will be configured
+Service | Role
+------- | ----
+`sawtooth-validator` | Sawtooth network main component.
+`sawtooth-settings-tp` | Transaction processor providing methodology for storing on-chain configuration settings.
+`sawtooth-rest-api` | Client endpoint to  running validator, submit batches, and query the state of the ledger.
+`sawtooth-poet-validator-registry-tp` | Provides a way to add new validators to a network running the PoET consensus algorithm.
+`sawtooth-intkey-tp-python` | Allows users to set, increment, and decrement the value of entries stored in a state dictionary.
+`sawtooth-xo-tp-python` | Allows users to play a simple board game known variously as tic-tac-toe, noughts and crosses, and XO.
 
-Sawtooth packages are already installed on all hosts, but running only on `chsa-a7-00`.
-
-The goal is to register both transactions processors in the validator.
+The goal is to check the available hardware and estimate the resource comsumption of Hyperledger Sawtooth components.

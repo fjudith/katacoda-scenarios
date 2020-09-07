@@ -1,32 +1,30 @@
-# Step 1 - Create the genesis block
+# Step 1 - Check hardware capacity and process consumtion
 
-Creation of the genesis block requires at least the Validator key-pair to be already available.
-However it is possible to leverage the user key-pair, prefer the **use Validator keys** as only those are able to setup the PoET consensus.
-
-* Open an interactive shell session in `chsa-a8-00`.
+* Open an interactive shell session in `chsa-a9-00`.
 
 ```bash
-docker exec -it -u sysops chsa-a8-00 bash
+docker exec -it -u sysops chsa-a9-00 bash
 ```{{execute}}
 
-* Create the settings batch
+* Check the number of CPU.
 
 ```bash
-sudo sawset genesis -k /etc/sawtooth/keys/validator.priv
+grep 'cpu cores' /proc/cpuinfo | uniq
 ```{{execute}}
 
-> **Notice**: By default the settings batch file is generated in the current directory.
-
-```
-Generated config-genesis.batch
+```bash
+cpu cores       : 1
 ```
 
-* Create the Genesis block from the settings batch
+* Check the amount of Memory.
 
 ```bash
-sawadm genesis config-genesis.batch
+grep 'MemTotal' /proc/meminfo
 ```{{execute}}
 
+```bash
+MemTotal:        1541956 kB
+```
 
 * Restart the Validator service
 
