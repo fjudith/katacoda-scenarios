@@ -25,7 +25,7 @@ sawtooth-validator.service      loaded active running Sawtooth Validator Server
 * Check the list of enabled and running services from the third node.
 
 ```bash
-docker exec -it -u sysops chsa-a6-01 bash -c 'sudo systemctl list-unit-files | grep sawtooth && sudo systemctl list-units | grep sawtooth'
+docker exec -it -u sysops chsa-a6-02 bash -c 'sudo systemctl list-unit-files | grep sawtooth && sudo systemctl list-units | grep sawtooth'
 ```{{execute}}
 
 ```
