@@ -2,9 +2,9 @@
 
 set -e
 
-if sudo bash -c '[ ! -f /etc/sawtooth/keys/validator.priv ]'; then
-    sudo sawadm keygen
-fi
+# if sudo bash -c '[ ! -f /etc/sawtooth/keys/validator.priv ]'; then
+#     sudo sawadm keygen
+# fi
 
 mkdir -p /home/${USER}/.sawtooth/keys
 
