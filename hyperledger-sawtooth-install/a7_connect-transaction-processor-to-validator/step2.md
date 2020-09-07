@@ -30,7 +30,7 @@ sawtooth settings list
 ```{{execute}}
 
 ```
-tbc
+sawtooth.settings.vote.authorized_keys: 
 ```
 
 * Exit the terminal session.
