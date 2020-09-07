@@ -30,7 +30,7 @@
                 {"file": "assets/chsa-c4-02/cli.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-02/rest_api.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
                 
-                {"file": "assets/chsa-c4-grafana/dasboards.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-grafana/dashboards.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-grafana/datasources.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-grafana/sawtooth_performance.json", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
 
