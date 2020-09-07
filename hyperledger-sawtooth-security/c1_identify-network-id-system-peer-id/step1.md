@@ -1,42 +1,33 @@
-# Step 1 - Configure the genesis node
+# Step 1 - Check network ID
 
-The genesis node (i.e. that created the genesis block) is currently configured to run all services locally.
+From a block percepective a node is considered as a transaction signer.
+The Network ID correspond to the block `SIGNER` and the signer ID is nothing but the **public key of a given validator**.
 
-* Open an interactive shell session in `chsa-a5-00`.
-
-```bash
-docker exec -it -u sysops chsa-a5-00 bash
-```{{execute}}
-
-* Change the settings in the Validator configuration file `/etc/sawtooth/validator.toml`.
+* Open an interactive shell session in `chsa-c1-00`.
 
 ```bash
-sudo vim /etc/sawtooth/validator.toml
+docker exec -it -u sysops chsa-c1-00 bash
 ```{{execute}}
 
-* Type `i` to activate the `-- INSTERT --` mode, then Change the values as described below.
+* Filter the signers from the block list.
 
-```toml
-...
-bind = [
-    "network:tcp://eth0:8800",
-    "component:tcp://127.0.0.1:4004"
-]
-...
-peering = "dynamic"
-...
-endpoint = "tcp://chsa-a5-00:8800"
-...
+```bash
+sawtooth block list | awk '{print $5}' | sort -ur
+```{{execute}}
+
+```bash
+SIGNER
+03c608c4e5677f0267be16b9928655dfe0a3426cb8913bd9d51091a5c9a762d8dc
+03a4e389e6f37068a35f8740f38e740393c30474644d28a0479a5da4b771858d51
+02b13ea2968a73d904539cc43587b5d79a7f17911b962f11bf59e23fc46a899848
 ```
 
-* To save the change, type `ESC` > `:wq` > `Enter`, then restart the Validator service.
+* Confirm that the current node public key appears in the list (i.e. `chsa-c1-00`).
 
 ```bash
-sudo systemctl restart sawtooth-validator
-```{{ execute }}
-
-* Close the terminal session to switch to the second node configuration.
+sawtooth block list | awk '{print $5}' | sort -ur | grep $(sudo cat /etc/sawtooth/keys/validator.pub)
+```{{execute}}
 
 ```bash
-exit
-```{{ execute }}
+02b13ea2968a73d904539cc43587b5d79a7f17911b962f11bf59e23fc46a899848
+```

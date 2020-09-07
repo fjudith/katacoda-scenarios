@@ -22,16 +22,22 @@
                 {"file": "assets/chsa-c1-00/validator.toml", "target": "/root/assets/chsa-c1-00/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c1-00/cli.toml", "target": "/root/assets/chsa-c1-00/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c1-00/rest_api.toml", "target": "/root/assets/chsa-c1-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c1-00/validator.priv", "target": "/root/assets/chsa-c1-00/", "chmod": "+r"},
+                {"file": "assets/chsa-c1-00/validator.pub", "target": "/root/assets/chsa-c1-00/", "chmod": "+r"},
                 
                 {"file": "assets/chsa-c1-01/docker-entrypoint.sh", "target": "/root/assets/chsa-c1-01/", "chmod": "+r"},
                 {"file": "assets/chsa-c1-01/validator.toml", "target": "/root/assets/chsa-c1-01/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c1-01/cli.toml", "target": "/root/assets/chsa-c1-01/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c1-01/rest_api.toml", "target": "/root/assets/chsa-c1-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c1-01/validator.priv", "target": "/root/assets/chsa-c1-01/", "chmod": "+r"},
+                {"file": "assets/chsa-c1-01/validator.pub", "target": "/root/assets/chsa-c1-01/", "chmod": "+r"},
 
                 {"file": "assets/chsa-c1-02/docker-entrypoint.sh", "target": "/root/assets/chsa-c1-02/", "chmod": "+r"},
                 {"file": "assets/chsa-c1-02/validator.toml", "target": "/root/assets/chsa-c1-02/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c1-02/cli.toml", "target": "/root/assets/chsa-c1-02/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c1-02/rest_api.toml", "target": "/root/assets/chsa-c1-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c1-02/validator.priv", "target": "/root/assets/chsa-c1-02/", "chmod": "+r"},
+                {"file": "assets/chsa-c1-02/validator.pub", "target": "/root/assets/chsa-c1-02/", "chmod": "+r"},
                 
                 {"file": "assets/chsa-c1-loadgen/docker-entrypoint.sh", "target": "/root/assets/chsa-c1-loadgen/", "chmod": "+r"},
                 {"file": "assets/chsa-c1-loadgen/validator.toml", "target": "/root/assets/chsa-c1-loadgen/", "chmod": "a+rw"},
