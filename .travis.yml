@@ -1,7 +1,7 @@
 env:
-  global:
-  # Docker Repository
-  - REPO=docker.io/chsaexercises
+  - PATHWAY=hyperledger-sawtooth-install
+  - PATHWAY=hyperledger-sawtooth-configuration
+  - PATHWAY=hyperledger-sawtooth-security
   
 sudo: required
 services:
@@ -11,59 +11,75 @@ before_install:
   # Install Katacoda  CLI
   - npm install -g katacoda-cli
 
-jobs:
-  include:
-  - stage: Build Hyperledger Sawtooth Install
-    env:
-      - PATHWAY=hyperledger-sawtooth-install
-    script: >-
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
-      do 
-        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-        docker-compose up -d --build
-        popd
-      done
-    after_success: >-
-      echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
-      do 
-        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-        docker-compose push
-        popd
-      done
-  - stage: Build Hyperledger Sawtooth Configuration
-    env:
-      - PATHWAY=hyperledger-sawtooth-configuration
-    script: >-
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
-      do 
-        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-        docker-compose up -d --build
-        popd
-      done
-    after_success: >-
-      echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
-      do 
-        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-        docker-compose push
-        popd
-      done
-  - stage: Build Hyperledger Sawtooth Security
-    env:
-      - PATHWAY=hyperledger-sawtooth-security
-    script: >-
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
-      do 
-        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-        docker-compose up -d --build
-        popd
-      done
-    after_success: >-
-      echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
-      for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
-      do 
-        pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-        docker-compose push
-        popd
-      done
+script: >-
+  for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
+  do 
+    pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+    docker-compose up -d --build
+    popd
+  done
+after_success: >-
+  echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
+  for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
+   do 
+    pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+    docker-compose push
+    popd
+  done
+
+# jobs:
+#   include:
+#   - stage: Build Hyperledger Sawtooth Install
+#     env:
+#       - PATHWAY=hyperledger-sawtooth-install
+#     script: >-
+#       for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
+#       do 
+#         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+#         docker-compose up -d --build
+#         popd
+#       done
+#     after_success: >-
+#       echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
+#       for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
+#       do 
+#         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+#         docker-compose push
+#         popd
+#       done
+#   - stage: Build Hyperledger Sawtooth Configuration
+#     env:
+#       - PATHWAY=hyperledger-sawtooth-configuration
+#     script: >-
+#       for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
+#       do 
+#         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+#         docker-compose up -d --build
+#         popd
+#       done
+#     after_success: >-
+#       echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
+#       for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
+#       do 
+#         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+#         docker-compose push
+#         popd
+#       done
+#   - stage: Build Hyperledger Sawtooth Security
+#     env:
+#       - PATHWAY=hyperledger-sawtooth-security
+#     script: >-
+#       for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id); 
+#       do 
+#         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+#         docker-compose up -d --build
+#         popd
+#       done
+#     after_success: >-
+#       echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
+#       for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
+#       do 
+#         pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+#         docker-compose push
+#         popd
+#       done
