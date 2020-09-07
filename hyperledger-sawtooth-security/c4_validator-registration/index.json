@@ -16,21 +16,31 @@
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 
                 {"file": "assets/telegraf.conf", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/loadgen.priv", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/loadgen.pub", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/sysops.priv", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/sysops.pub", "target": "/root/assets/", "chmod": "+r"},
 
                 {"file": "assets/chsa-c4-00/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-00/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-00/validator.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-00/cli.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-00/rest_api.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-00/validator.priv", "target": "/root/assets/chsa-c4-00/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-00/validator.pub", "target": "/root/assets/chsa-c4-00/", "chmod": "+r"},
                 
                 {"file": "assets/chsa-c4-01/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-01/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-01/validator.toml", "target": "/root/assets/chsa-c4-01/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-01/cli.toml", "target": "/root/assets/chsa-c4-01/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-01/rest_api.toml", "target": "/root/assets/chsa-c4-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-01/validator.priv", "target": "/root/assets/chsa-c4-01/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-01/validator.pub", "target": "/root/assets/chsa-c4-01/", "chmod": "+r"},
 
                 {"file": "assets/chsa-c4-02/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-02/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-02/validator.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-02/cli.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
                 {"file": "assets/chsa-c4-02/rest_api.toml", "target": "/root/assets/chsa-c4-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-c4-02/validator.priv", "target": "/root/assets/chsa-c4-02/", "chmod": "+r"},
+                {"file": "assets/chsa-c4-02/validator.pub", "target": "/root/assets/chsa-c4-02/", "chmod": "+r"},
                 
                 {"file": "assets/chsa-c4-grafana/dashboards.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-grafana/datasources.yaml", "target": "/root/assets/chsa-c4-grafana/", "chmod": "+r"},
