@@ -2,9 +2,10 @@
 
 set -e
 
+# ARRAY[0]="chsa-c1-00"
+# ARRAY[1]="chsa-c1-01"
+# ARRAY[2]="chsa-c1-02"
 ARRAY[0]="chsa-c1-00"
-ARRAY[1]="chsa-c1-01"
-ARRAY[2]="chsa-c1-02"
 
 SIZE=${#ARRAY[@]}
 
