@@ -1,7 +1,10 @@
-# Step 1 - Check network ID
+# Step 1 - Demistifying network ID / System / Peer ID
 
-From a block percepective a node is considered as a transaction signer.
-The Network ID correspond to the block `SIGNER` and the signer ID is nothing but the **public key of a given validator**.
+From a block percepective:
+
+1. Each block has a **transaction signer**.
+2. The transaction signer has a **SIGNER ID** in the blockchain.
+3. This SIGNER ID is nothing but the **public key of a given validator**.
 
 * Open an interactive shell session in `chsa-c1-00`.
 
