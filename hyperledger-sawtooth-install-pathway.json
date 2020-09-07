@@ -41,6 +41,11 @@
             "course_id": "a8_create-genesis-block",
             "title": "Create genesis block",
             "description": "Learn how to create genesis block required for the first node"
+        },
+        {
+            "course_id": "a9_verify-system-meets-hardware-requirements",
+            "title": "Verify system meets hardware requirements",
+            "description": "Learn how check if the node has sufficient compute capacity to run Hyperledger Sawtooth"
         }
     ]
 }

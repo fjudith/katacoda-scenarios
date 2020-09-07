@@ -1,0 +1,38 @@
+{
+    "title": "Create genesis block",
+    "description": "Create the genesis block of the first Hyperledger Sawtooth network node",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Create the genesis block",
+                "text": "step1.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md",
+            "courseData": "background.sh",
+            "code": "foreground.sh"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "hideintro": false,
+        "uilayout": "terminal"
+      },
+      "backend": {
+        "imageid": "ubuntu"
+      }
+}
