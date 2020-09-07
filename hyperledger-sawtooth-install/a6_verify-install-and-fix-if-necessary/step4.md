@@ -41,4 +41,3 @@ sawtooth-validator.service      loaded active running Sawtooth Validator Server
 ```
 
 > **Notice**: The third node seems aligned with the initial node.
-
