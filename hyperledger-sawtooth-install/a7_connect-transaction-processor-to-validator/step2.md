@@ -1,19 +1,18 @@
 # Step 2 - Reconfigure local dependant services
 
-It is required to also change the configuration of `settings-tp` and `rest-api` services as the connect to the local host interface by default.
+It is also required to also change the configuration of `settings-tp` and `rest-api` services as the connect to the local host interface by default.
+The Validator target is enforced by environment variable files located in `/etc/default`.
 
-* Create the `settings.toml` configuration file with appropriate permissions.
+* Update the `sawtooth-settings-tp` service environment file.
 
 ```bash
-echo connect = "tcp://chsa-a7-00:4004" | sudo tee -a /etc/sawtooth/settings.toml && \
-sudo chown root:sawtooth /etc/sawtooth/settings.toml
+sudo sed -i '/s/localhost/chsa-a4-00/g' /etc/default/sawtooth-settings-tp
 ```{{execute}}
 
-* Create the `rest_api.toml` configurtaion file.
+* Update the `sawtooth-rest-api` service environment file.
 
 ```bash
-echo connect = "tcp://chsa-a7-00:4004" | sudo tee -a /etc/sawtooth/rest_api.toml && \
-sudo chown root:sawtooth /etc/sawtooth/rest_api.toml
+sudo sed -i '/s/localhost/chsa-a4-00/g' /etc/default/sawtooth-rest-api
 ```{{execute}}
 
 * Restart all local sawtooth services
