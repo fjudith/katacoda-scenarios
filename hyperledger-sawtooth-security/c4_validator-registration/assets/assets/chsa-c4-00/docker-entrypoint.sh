@@ -2,7 +2,7 @@
 
 set -e
 
-if [ ! -f /etc/sawtooth/keys/validator.priv ]; then
+if sudo bash -c '[ ! -f /etc/sawtooth/keys/validator.priv ]'; then
     sudo sawadm keygen
 fi
 
