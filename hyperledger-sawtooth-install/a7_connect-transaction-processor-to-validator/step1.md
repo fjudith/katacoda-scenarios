@@ -26,4 +26,4 @@ bind = [
 ```
 
 * Once finished, press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to normal mode
-* To exit, type `:q!`{{execute}}
+* To save and exit, type `:wq`{{execute}}

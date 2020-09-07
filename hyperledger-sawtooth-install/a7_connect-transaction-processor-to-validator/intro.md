@@ -6,9 +6,9 @@ The stack include the following hosts:
 
 host | services
 ---- | --------
-`chsa-a4-00` | `validator`, `settings-tp` and `rest-api`
-`chsa-c4-01` | Where the `intkey` transaction processor will be configured
-`chsa-c4-02` | Where the `xo` transaction processor will be configured
+`chsa-a7-00` | `validator`, `settings-tp` and `rest-api`
+`chsa-c7-01` | Where the `intkey` transaction processor will be configured
+`chsa-c7-02` | Where the `xo` transaction processor will be configured
 
 Sawtooth packages are already installed on all hosts, but running only on `chsa-a7-00`.
 
