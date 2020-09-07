@@ -2,13 +2,13 @@
 
 set -e
 
-# if sudo bash -c '[ ! -f /etc/sawtooth/keys/validator.priv ]'; then
-#     sudo sawadm keygen
-# fi
+if sudo bash -c '[ ! -f /etc/sawtooth/keys/validator.priv ]'; then
+    sudo sawadm keygen
+fi
 
 mkdir -p /home/${USER}/.sawtooth/keys
 
-if [ ! -f /home/${USER}/.sawtooth/keys/${USER}.priv ]; then
+if sudo bash -c '[ ! -f /home/${USER}/.sawtooth/keys/${USER}.priv ]'; then
     sudo sawtooth keygen --key-dir /home/${USER}/.sawtooth/keys ${USER}
     sudo chown ${USER}:${USER} /home/${USER}/.sawtooth/keys/${USER}.p*
 fi
