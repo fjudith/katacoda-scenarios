@@ -11,7 +11,6 @@ docker exec -it -u sysops chsa-a6-00 bash -c 'sudo cat /var/log/sawtooth/validat
 > **Notice**: Seems their is an issue with one of the host.
 
 ```
-docker exec -it -u sysops chsa-a6-00 bash -c 'sudo cat /var/log/sawtooth/validator-debug.log | grep interconnect'
 [10:23:01.880 [InterconnectThread-1] interconnect INFO] Listening on tcp://127.0.0.1:4004
 [10:23:01.973 [InterconnectThread-11] interconnect INFO] Listening on tcp://eth0:8800
 [10:23:02.031 [Thread-13] interconnect DEBUG] Determining whether inbound connection should be allowed. num connections: 1 max 100

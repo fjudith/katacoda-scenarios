@@ -14,6 +14,8 @@
             "host01": [
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                
+                {"file": "assets/telegraf.conf", "target": "/root/assets/", "chmod": "+r"},
 
                 {"file": "assets/chsa-c4-00/docker-entrypoint.sh", "target": "/root/assets/chsa-c4-00/", "chmod": "+r"},
                 {"file": "assets/chsa-c4-00/validator.toml", "target": "/root/assets/chsa-c4-00/", "chmod": "a+rw"},
