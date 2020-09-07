@@ -70,7 +70,8 @@
         "scopePort": 4040,
         "showdashboard": true,
         "dashboards": [
-            {"name": "Grafana", "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"}
+            {"name": "Grafana", "port": "53000"}
+            // {"name": "Grafana", "href": "https://[[HOST_SUBDOMAIN]]-53000-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
         "hideintro": false,
         "uilayout": "terminal"

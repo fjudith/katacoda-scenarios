@@ -10,7 +10,7 @@ host | services
 `chsa-c4-01` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
 `chsa-c4-02` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
 `chsa-c4-influxdb` | InfluxDB time series database
-`chsa-c4-grafana` | Grafana monitoring visualization https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com (u:admin/p:admin)
+`chsa-c4-grafana` | Grafana monitoring (u:admin/p:admin)
 `chsa-c4-loadgen` | Intkey load generator
 
 The `chsa-c4-00`, `chsa-c4-01` and `chsa-c4-02` are currently forming the network. The goal is to add the `chsa-c4-03` host.
