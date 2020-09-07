@@ -44,7 +44,7 @@ sudo systemctl enable sawtooth-validator sawtooth-settings-tp sawtooth-rest-api
 sudo systemctl start sawtooth-validator sawtooth-settings-tp sawtooth-rest-api
 ```{{ execute }}
 
-* Close the terminal session to switch to the initial node for peering checks.
+* Close the terminal session to switch to the genesis node for peering checks.
 
 ```bash
 exit

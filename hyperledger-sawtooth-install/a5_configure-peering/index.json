@@ -6,7 +6,7 @@
     "details": {
         "steps": [
             {
-                "title": "Configure the initial node",
+                "title": "Configure the genesis node",
                 "text": "step1.md"
             },
             {

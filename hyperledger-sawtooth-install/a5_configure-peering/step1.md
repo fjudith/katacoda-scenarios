@@ -1,6 +1,6 @@
-# Step 1 - Configure the initial node
+# Step 1 - Configure the genesis node
 
-The initial node (i.e. that created the genesis block) is currently configured to run all services locally.
+The genesis node (i.e. that created the genesis block) is currently configured to run all services locally.
 
 * Open an interactive shell session in `chsa-a5-00`.
 
