@@ -6,9 +6,9 @@ The stack includes the following hosts:
 
 host | services
 ---- | --------
-`chsa-c2-00` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
-`chsa-c2-01` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
-`chsa-c2-02` | `validator`, `identity-tp`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
+`chsa-c2-00` | `validator`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
+`chsa-c2-01` | `validator`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
+`chsa-c2-02` | `validator`, `settings-tp`, `intkey-tp-python`, `xo-tp-python` and `rest-api`
 `chsa-c2-loadgen` | Intkey load generator
 
 The `chsa-c2-loadgen` currently raise the following error messages repeatedly.
