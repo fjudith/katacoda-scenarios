@@ -14,11 +14,9 @@ sudo vim /etc/sawtooth/policy/policy.example
 
 * Switch to insert mode by typing `i`{{execute no-newline}}, then add the instruction **at the top** of the file as shown below.
 
-```toml
+```bash
 PERMIT_KEY 020aeb8bfa270f90c01961df6f25f084c61b1854bcc3285d8594380920ab841b44
-...
-DENY_KEY *
-```
+```{{copy}}
 
 * Once finished, press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to normal mode
 * To save and exit, type `:wq`{{execute}}
