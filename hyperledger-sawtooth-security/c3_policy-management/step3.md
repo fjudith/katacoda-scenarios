@@ -9,9 +9,10 @@ docker exec -u sysops -it chsa-c3-00 bash
 * Enable `sysops` user to submit Identity transactions
 
 ```bash
-sawset proposal create \
+sudo sawset proposal create \
+-k /etc/sawtooth/validator.priv \
 sawtooth.identity.allowed_keys=$(cat ~/.sawtooth/keys/sysops.pub)
-```
+```{{execute}}
 
 * Create a policy which **allow** the current `sysops` user, **deny** `loadgen` public keys. While denying any other keys.
 
