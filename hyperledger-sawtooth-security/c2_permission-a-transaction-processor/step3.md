@@ -1,6 +1,6 @@
-# Step 3 - Retreive the load generator user public key
+# Step 3 - Retrieve the load generator user public key
 
-The `loadgen` user public key needs to be retreived in order add it to permitted keys in the policy file of **each** Validator nodes.
+The `loadgen` user public key needs to be retrieved in order add it to permitted keys in the policy file of **each** Validator nodes.
 
 * Open an interactive shell session in `chsa-c2-loadgen`.
 
