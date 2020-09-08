@@ -10,7 +10,7 @@ docker exec -u sysops -it chsa-c3-00 bash
 
 ```bash
 sudo sawset proposal create \
--k /etc/sawtooth/validator.priv \
+-k /etc/sawtooth/keys/validator.priv \
 sawtooth.identity.allowed_keys=$(cat ~/.sawtooth/keys/sysops.pub)
 ```{{execute}}
 
