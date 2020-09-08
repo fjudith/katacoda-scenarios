@@ -7,4 +7,6 @@ Visit https://www.katacoda.com/fjudith to view the profile and interactive scena
 
 ## Scenarios
 
-* [Hyperledger Sawtooth](./hyperledger-sawtooth)
+* [Hyperledger Sawtooth - Install](./hyperledger-sawtooth-install)
+* [Hyperledger Sawtooth - Configuration](./hyperledger-sawtooth-configuration)
+* [Hyperledger Sawtooth - Security](./hyperledger-sawtooth-security)
