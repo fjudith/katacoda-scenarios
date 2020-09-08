@@ -1,5 +1,5 @@
 {
-  "title": "Hyperledger Sawtooth Security",
+ s "title": "Hyperledger Sawtooth Security",
   "description": "Secure Hyperledger Sawtooth",
   "courses": [
     {
@@ -10,7 +10,12 @@
     {
       "course_id": "c2_permission-a-transaction-processor",
       "title": "Permission a transaction processor",
-      "description": "Discover off-chain RBAC"
+      "description": "Manage RBAC off-chain"
+    },
+    {
+      "course_id": "c3_policy-management",
+      "title": "Policy management",
+      "description": "Manage RBAC on-chain"
     },
     {
       "course_id": "c4_validator-registration",
