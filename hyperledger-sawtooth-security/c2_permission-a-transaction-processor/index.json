@@ -28,7 +28,7 @@
             {
                 "title": "Validate from load generator logs",
                 "text": "step6.md"
-            },
+            }
         ],
         "assets": {
             "host01": [

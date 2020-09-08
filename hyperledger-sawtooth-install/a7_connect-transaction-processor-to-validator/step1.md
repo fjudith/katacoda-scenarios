@@ -14,7 +14,7 @@ docker exec -it -u sysops chsa-a7-00 bash
 sudo vim /etc/sawtooth/validator.toml
 ```{{execute}}
 
-* Switch to insert mode by typing `i`{{execute no-newline}}, , then change the values as described below.
+* Switch to insert mode by typing `i`{{execute no-newline}}, then change the values as described below.
 
 ```toml
 ...
