@@ -80,6 +80,8 @@ services:
       - /run/lock
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./assets/chsa-c1-02/validator.priv:/etc/sawtooth/keys/validator.priv:ro
+      - ./assets/chsa-c1-02/validator.pub:/etc/sawtooth/keys/validator.pub:ro
 
   chsa-c1-loadgen:
     privileged: true
@@ -94,5 +96,3 @@ services:
     volumes:
       - ./assets/loadgen.priv:/home/loadgen/.sawtooth/keys/loadgen.priv
       - ./assets/loadgen.pub:/home/loadgen/.sawtooth/keys/loadgen.pub
-      - ./assets/chsa-c1-02/validator.priv:/etc/sawtooth/keys/validator.priv:ro
-      - ./assets/chsa-c1-02/validator.pub:/etc/sawtooth/keys/validator.pub:ro
