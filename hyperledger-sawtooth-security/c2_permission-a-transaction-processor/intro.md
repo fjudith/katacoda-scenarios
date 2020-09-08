@@ -1,6 +1,6 @@
 # Permission a transaction processor
 
-This exercise demonstrates how to enabled a transaction processor in a permissionned Sawtooth network.
+This exercise demonstrates how to enable a transaction processor in a permissionned Sawtooth network.
 
 The stack includes the following hosts:
 
