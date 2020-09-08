@@ -8,6 +8,11 @@
       "description": "Discover components on-chain"
     },
     {
+      "course_id": "c2_permission-a-transaction-processor",
+      "title": "Permission a transaction processor",
+      "description": ""
+    },
+    {
       "course_id": "c4_validator-registration",
       "title": "Validator Registration",
       "description": "Register a Validator in an existing active network"
