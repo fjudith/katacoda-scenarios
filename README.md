@@ -7,6 +7,8 @@ Visit https://www.katacoda.com/fjudith to view the profile and interactive scena
 
 ## Scenarios
 
-* [Hyperledger Sawtooth - Install](./hyperledger-sawtooth-install)
-* [Hyperledger Sawtooth - Configuration](./hyperledger-sawtooth-configuration)
-* [Hyperledger Sawtooth - Security](./hyperledger-sawtooth-security)
+<img alt='Hyperledger Sawtooth' src='./docs/media/sawtooth_banner.png' style="width:200px"/>
+
+* [Installation](https://katacoda.com/fjudith/courses/hyperledger-sawtooth-install)
+* [Configuration](https://katacoda.com/fjudith/courses/hyperledger-sawtooth-configuration)
+* [Security](https://katacoda.com/fjudith/courses/hyperledger-sawtooth-security)
