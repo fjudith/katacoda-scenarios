@@ -17,7 +17,9 @@ sudo systemctl restart sawtooth-validator
 * Configure the third node.
 
 ```bash
+docker exec -u sysops -it chsa-c2-02 bash -c "
 sudo sed -ie '1iPERMIT_KEY 020aeb8bfa270f90c01961df6f25f084c61b1854bcc3285d8594380920ab841b44\' /etc/sawtooth/policy/policy.example && \
 sudo cat /etc/sawtooth/policy/policy.example && \
 sudo systemctl restart sawtooth-validator
+"
 ```{{execute}}

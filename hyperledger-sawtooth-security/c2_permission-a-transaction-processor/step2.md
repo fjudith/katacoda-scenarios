@@ -6,10 +6,10 @@ Those entries are processed sequentially from the top to the down.
 * Display the policy file content.
 
 ```bash
-sudo tail /etc/sawtooth/policy/policy.exampe
+sudo tail /etc/sawtooth/policy/policy.example
 ```{{execute}}
 
-> **Notice**: As usual, the last instruction ; `DENY *`; consist to reject any key that is not already permitted previously.
+> **Notice**: As usual, the last instruction ; `DENY *`; consists to reject any key that is not already permitted previously.
 
 ```bash
 PERMIT_KEY 02224f6a0f739d6fae27bab08f214132560acbd1c908caeeeafd09b455280ca20d
@@ -19,7 +19,7 @@ DENY_KEY *
 * The permitted key correspond to public key of the sysops user.
 
 ```bash
-grep "$(cat ~/.sawtooth/keys/sysops.pub) /etc/sawtooth/policy/policy.example
+grep "$(cat ~/.sawtooth/keys/sysops.pub)" /etc/sawtooth/policy/policy.example
 ```{{execute}}
 
 ```bash

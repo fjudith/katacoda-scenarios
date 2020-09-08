@@ -12,7 +12,7 @@ docker exec -it -u loadgen chsa-c2-loadgen bash
 
 ```bash
 cat ~/.sawtooth/keys/loadgen.pub
-```
+```{{execute}}
 
 ```bash
 020aeb8bfa270f90c01961df6f25f084c61b1854bcc3285d8594380920ab841b44

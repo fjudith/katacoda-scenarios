@@ -73,6 +73,7 @@
     },
     "environment": {
         "showvisualise": true,
+        "showdashboard": false,
         "hideintro": false,
         "terminals": [
             {"name": "Load Generator", "command": "docker logs -f chsa-c2-loadgen", "target": "host01"}

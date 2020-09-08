@@ -9,7 +9,7 @@ docker exec -u sysops -it chsa-c2-00 bash
 * Edit the policy file.
 
 ```bash
-sudo vim /etc/sawtooth/keys/policy.example
+sudo vim /etc/sawtooth/policy/policy.example
 ```{{execute}}
 
 * Switch to insert mode by typing `i`{{execute no-newline}}, then add the instruction **at the top** of the file as shown below.
