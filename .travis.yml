@@ -1,7 +1,7 @@
 env:
-  - PATHWAY=hyperledger-sawtooth-install
-  - PATHWAY=hyperledger-sawtooth-configuration
-  - PATHWAY=hyperledger-sawtooth-security
+  - PATHWAY=hsa_hyperledger-sawtooth-install
+  - PATHWAY=hsb_hyperledger-sawtooth-configuration
+  - PATHWAY=hsc_hyperledger-sawtooth-security
   
 sudo: required
 services:
