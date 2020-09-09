@@ -48,8 +48,6 @@ RUN groupadd --gid ${GROUPID} ${GROUP} && \
     useradd --uid ${USERID} --gid ${GROUPID} --shell /bin/bash --create-home ${USER} && \
     echo "sysops ALL=(ALL:ALL) NOPASSWD:ALL" | tee -a /etc/sudoers.d/${USER}
 
-# VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
-
 STOPSIGNAL SIGRTMIN+3
 
 # Activate custom user
