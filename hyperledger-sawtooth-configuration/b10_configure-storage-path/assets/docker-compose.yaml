@@ -1,15 +1,15 @@
 version: "2.1"
 
 services:
-  chsa-b1-00:
+  chsa-b10-00:
     privileged: true
     build: 
       context: ./
       args:
-        ASSET_PATH: assets/chsa-b1-00
-    image: chsaexercises/systemd-b1-00:1.0.8-xenial
-    container_name: chsa-b1-00
-    hostname: chsa-b1-00
+        ASSET_PATH: assets/chsa-b10-00
+    image: chsaexercises/systemd-b10-00:1.0.8-xenial
+    container_name: chsa-b10-00
+    hostname: chsa-b10-00
     expose:
       - 8800
       - 4004
@@ -25,15 +25,15 @@ services:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
-  chsa-b1-01:
+  chsa-b10-01:
     privileged: true
     build: 
       context: ./
       args:
-        ASSET_PATH: assets/chsa-b1-01
-    image: chsaexercises/systemd-b1-01:1.0.8-xenial
-    container_name: chsa-b1-01
-    hostname: chsa-b1-01
+        ASSET_PATH: assets/chsa-b10-01
+    image: chsaexercises/systemd-b10-01:1.0.8-xenial
+    container_name: chsa-b10-01
+    hostname: chsa-b10-01
     expose:
       - 8800
       - 4004
@@ -49,15 +49,15 @@ services:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
-  chsa-b1-02:
+  chsa-b10-02:
     privileged: true
     build: 
       context: ./
       args:
-        ASSET_PATH: assets/chsa-b1-02
-    image: chsaexercises/systemd-b1-02:1.0.8-xenial
-    container_name: chsa-b1-02
-    hostname: chsa-b1-02
+        ASSET_PATH: assets/chsa-b10-02
+    image: chsaexercises/systemd-b10-02:1.0.8-xenial
+    container_name: chsa-b10-02
+    hostname: chsa-b10-02
     expose:
       - 8800
       - 4004

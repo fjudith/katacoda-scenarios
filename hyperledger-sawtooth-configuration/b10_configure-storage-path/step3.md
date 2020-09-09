@@ -6,22 +6,22 @@
 
 ```bash
 sudo -u sawtooth cp -va /etc/sawtooth/keys/. /home/sawtooth/keys/
-```{{execute}}
+```{{ execute }}
 
 2. Migrate Sawtooth databases
 
 ```bash
 sudo -u sawtooth cp -va /var/lib/sawtooth/. /home/sawtooth/data/
-```{{execute}}
+```{{ execute }}
 
 3. Migrate Sawtooth log files
 
 ```bash
 sudo -u sawtooth cp -va /var/log/sawtooth/. /home/sawtooth/logs/
-```{{execute}}
+```{{ execute }}
 
 4. Migrate Sawtooth policy files
 
 ```bash
 sudo -u sawtooth cp -va /etc/sawtooth/policy/. /home/sawtooth/policy/
-```{{execute}}
+```{{ execute }}

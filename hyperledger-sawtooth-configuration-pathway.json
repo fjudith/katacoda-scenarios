@@ -1,9 +1,9 @@
 {
-  "title": "Hyperledger Sawtooth Configuration",
+  "title": "Hyperledger Sawtooth: 2. Configuration",
   "description": "Configure Hyperledger Sawtooth",
   "courses": [
     {
-      "course_id": "b1_configure-storage-path",
+      "course_id": "b10_configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"
     }

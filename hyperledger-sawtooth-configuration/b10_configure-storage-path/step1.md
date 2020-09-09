@@ -18,4 +18,4 @@ sudo -u sawtooth mkdir -p \
 
 ```bash
 sudo ls -l /home/sawtooth/
-```
+```{{ execute }}

@@ -9,4 +9,4 @@ sawtooth-settings-tp \
 sawtooth-rest-api \
 sawtooth-xo-tp-python \
 sawtooth-intkey-tp-python
-```{{execute}}
+```{{ execute }}
