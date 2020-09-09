@@ -20,7 +20,7 @@ sudo apt-get update -y && sudo apt-get install -y python3-sawtooth-identity
 ```bash
 sudo systemctl enable sawtooth-identity-tp && \
 sudo systemctl start sawtooth-identity-tp
-```
+```{{execute}}
 
 * Check the `sawtooth_identity` transaction family registration from the validator logs.
 

@@ -15,11 +15,11 @@
             },
             {
                 "title": "Configure on-chain permissions",
-                "text": "step4.md"
+                "text": "step3.md"
             },
             {
                 "title": "Validate from load generator logs",
-                "text": "step6.md"
+                "text": "step4.md"
             }
         ],
         "assets": {
