@@ -15,11 +15,19 @@ sudo systemctl start sawtooth-validator sawtooth-settings-tp sawtooth-xo-tp-pyth
 '
 ```{{ execute }}
 
+> **Notice**: Wait 20-40 seconds, the time for the network to form the mesh.
 
 * Check the peering status from each node.
 
 ```bash
-docker exec -u sysops -it chsa-b1-00 bash -c 'sawtooth peer list'
-docker exec -u sysops -it chsa-b1-01 bash -c 'sawtooth peer list'
+sleep 20 && \
+docker exec -u sysops -it chsa-b1-00 bash -c 'sawtooth peer list' && \
+docker exec -u sysops -it chsa-b1-01 bash -c 'sawtooth peer list' && \
 docker exec -u sysops -it chsa-b1-02 bash -c 'sawtooth peer list'
 ```{{ execute }}
+
+```bash
+tcp://chsa-b1-02:8800,tcp://chsa-b1-01:8800
+tcp://chsa-b1-00:8800,tcp://chsa-b1-02:8800
+tcp://chsa-b1-01:8800,tcp://chsa-b1-00:8800
+```
