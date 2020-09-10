@@ -3,6 +3,11 @@
   "description": "Configure Hyperledger Sawtooth",
   "courses": [
     {
+      "course_id": "b1_configure-validator-peering-and-network",
+      "title": "Configure validator peering and network",
+      "description": "Configure a Sawtooth network leveraging dynamic peering"
+    },
+    {
       "course_id": "b10_configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"

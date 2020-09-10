@@ -1,27 +1,25 @@
-# Step 3 - Copy the configuration files and data
+# Step 3 - Configure the third node and validate the peering
 
-> Note: ervice configuration files located at the root of the `/etc/sawtooth` folder cannot be moved.
+The third node will be configured remotely to demonstrate how to operate at scale.
 
-1. Migrate Validator keys
+* Run the following command to configured the last node.
 
 ```bash
-sudo -u sawtooth cp -va /etc/sawtooth/keys/. /home/sawtooth/keys/
+sudo sed \
+-e "s#\(network:tcp://\).*\(:8800\)#\1eth0\2#g" \
+-e "s#\(endpoint\s\=\s\"tcp://\).*\(:8800\"\)#\1$(hostname)\2#g" \
+-e "s#\(peering\s\=\s\"\).*\(\"\)#\1dynamic\2#g" \
+-e "s#\(seeds\s\=\s\[\"\).*\(\"\]\)#\1tcp://chsa-b1-00:8800\2#g" \
+/etc/sawtooth/validator.toml && \
+sudo systemctl enable sawtooth-validator sawtooth-settings-tp sawtooth-xo-tp-python sawtooth-rest-api && \
+sudo systemctl start sawtooth-validator sawtooth-settings-tp sawtooth-xo-tp-python sawtooth-rest-api
 ```{{ execute }}
 
-2. Migrate Sawtooth databases
+
+* Check the peering status from each node.
 
 ```bash
-sudo -u sawtooth cp -va /var/lib/sawtooth/. /home/sawtooth/data/
-```{{ execute }}
-
-3. Migrate Sawtooth log files
-
-```bash
-sudo -u sawtooth cp -va /var/log/sawtooth/. /home/sawtooth/logs/
-```{{ execute }}
-
-4. Migrate Sawtooth policy files
-
-```bash
-sudo -u sawtooth cp -va /etc/sawtooth/policy/. /home/sawtooth/policy/
+docker exec -u sysops -it chsa-b1-00 bash -c 'sawtooth peer list'
+docker exec -u sysops -it chsa-b1-01 bash -c 'sawtooth peer list'
+docker exec -u sysops -it chsa-b1-02 bash -c 'sawtooth peer list'
 ```{{ execute }}

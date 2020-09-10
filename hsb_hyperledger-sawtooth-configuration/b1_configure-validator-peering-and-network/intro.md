@@ -1,11 +1,13 @@
 # Install Sawtooth Packages
 
-This exercise demonstrates how to install the various storage directories in Hyperledger Sawtooth.
+This exercise demonstrates how to configure a Hyperledger Sawtooth network using **dynamic** peering.
 
-The Goal is to move all configuration files and data in the `sawtooth` home directory.
+The stack includes the following hosts:
 
-Run the following command to open an interactive shell session in the `chsa-b1-00` container.
+host | services | status
+---- | -------- | ------
+`chsa-b1-00` | `validator`,`settings-tp`, `xo-tp-python` and `rest-api` | Running
+`chsa-b1-01` | `validator`,`settings-tp`, `xo-tp-python` and `rest-api` | Installed
+`chsa-b1-02` | `validator`,`settings-tp`, `xo-tp-python` and `rest-api` | Installed
 
-```bash
-docker exec -it -u sysops chsa-b1-00 bash
-```{{execute}}
+The goal is to add the two remaining nodes to the network.
