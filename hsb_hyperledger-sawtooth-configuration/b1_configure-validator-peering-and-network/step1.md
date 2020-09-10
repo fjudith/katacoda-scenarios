@@ -17,14 +17,14 @@ docker exec -u sysops -it chsa-b1-00 bash
 
 ```bash
 sudo grep -E "network:.*|endpoint\s=|peering\s=|seeds\s=" /etc/sawtooth/validator.toml
-```
+```{{ execute }}
 
 > **Notice**: The `seeds` list is disabled **only** on the genesis node as no other node is currently capable to share the topology.
 
 ```toml
-  "network:tcp://eth0:8800",
-peering = "dynamic"
-endpoint = "tcp://chsa-b1-00:8800"
+  "network:tcp://127.0.0.1:8800",
+peering = "static"
+endpoint = "tcp://127.0.0.1:8800"
 # seeds = ["tcp://127.0.0.1:8801"]
 ```
 

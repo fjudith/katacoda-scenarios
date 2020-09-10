@@ -5,14 +5,14 @@ The third node will be configured remotely to demonstrate how to operate at scal
 * Run the following command to configured the last node.
 
 ```bash
-sudo sed \
--e "s#\(network:tcp://\).*\(:8800\)#\1eth0\2#g" \
--e "s#\(endpoint\s\=\s\"tcp://\).*\(:8800\"\)#\1$(hostname)\2#g" \
--e "s#\(peering\s\=\s\"\).*\(\"\)#\1dynamic\2#g" \
--e "s#\(seeds\s\=\s\[\"\).*\(\"\]\)#\1tcp://chsa-b1-00:8800\2#g" \
-/etc/sawtooth/validator.toml && \
+docker exec -u sysops -it chsa-b1-02 bash -c '
+sudo sed -i "s#\(network:tcp://\).*\(:8800\)#\1eth0\2#g" /etc/sawtooth/validator.toml && \
+sudo sed -i "s#\(endpoint\s\=\s\"tcp://\).*\(:8800\"\)#\1$(hostname)\2#g" /etc/sawtooth/validator.toml && \
+sudo sed -i "s#\(peering\s\=\s\"\).*\(\"\)#\1dynamic\2#g" /etc/sawtooth/validator.toml && \
+sudo sed -i "s#\(seeds\s\=\s\[\"\).*\(\"\]\)#\1tcp://chsa-b1-00:8800\2#g" /etc/sawtooth/validator.toml && \
 sudo systemctl enable sawtooth-validator sawtooth-settings-tp sawtooth-xo-tp-python sawtooth-rest-api && \
 sudo systemctl start sawtooth-validator sawtooth-settings-tp sawtooth-xo-tp-python sawtooth-rest-api
+'
 ```{{ execute }}
 
 

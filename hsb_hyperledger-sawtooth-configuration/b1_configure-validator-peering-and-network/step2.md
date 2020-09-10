@@ -12,9 +12,9 @@ docker exec -u sysops -it chsa-b1-01 bash
 
 ```bash
 sudo vim /etc/sawtooth/validator.toml
-```
+```{{ execute }}
 
-* Type `i` to activate the `-- INSTERT --` mode, then Change the values as described below.
+* Switch to insert mode by typing `i`{{execute no-newline}}, then change the values as described below.
 
 ```toml
 ...
@@ -31,7 +31,8 @@ seeds = ["tcp://chsa-b1-00:8800"]
 ...
 ```
 
-* To save the change, type `ESC` > `:wq` > `Enter`.
+* Once finished, press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to normal mode
+* To save and exit, type `:wq`{{execute}}
 
 * Enable and start required services
 
