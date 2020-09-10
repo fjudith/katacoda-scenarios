@@ -1,4 +1,4 @@
-# Step 2 - Configure the Validator service
+# Step 2 - Configure and start the Validator service
 
 The PoET consensus works with either `static` or `dynamic` peering modes.
 The **dynamic** peering will be used as it is faster to setup.

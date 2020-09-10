@@ -10,12 +10,16 @@
                 "text": "step1.md"
             },
             {
-                "title": "Configure and start the second node",
+                "title": "Configure and start the Validator service",
                 "text": "step2.md"
             },
             {
-                "title": "Bootstrep the third node and validate",
+                "title": "Configure remaining nodes",
                 "text": "step3.md"
+            },
+            {
+                "title": "Validate",
+                "text": "step4.md"
             }
         ],
         "assets": {
