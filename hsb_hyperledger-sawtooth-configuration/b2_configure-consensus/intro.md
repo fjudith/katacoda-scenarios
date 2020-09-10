@@ -10,4 +10,4 @@ host | services | status
 `chsa-b2-01` | `validator`,`settings-tp`, `intkey-tp-python` and `rest-api` | Installed
 `chsa-b2-02` | `validator`,`settings-tp`, `intkey-tp-python` and `rest-api` | Installed
 
-The goal is to cover the complete steps required to setup a PoET enabled Sawtooth network.
+The goal is to cover the complete steps required to setup a **fresh** PoET enabled Sawtooth network.

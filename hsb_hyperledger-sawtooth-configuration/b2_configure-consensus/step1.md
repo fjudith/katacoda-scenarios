@@ -14,16 +14,14 @@ docker exec -u sysops -it chsa-b2-00 bash
 * Check the Registry transaction processor service availability.
 
 ```bash
-sudo systemctl list-unit-files | grep sawtooth
-```
+sudo systemctl list-unit-files | grep registy-tp
+```{{ execute }}
 
 > **Notice**: The `sawtooth-poet-validator-registry-tp` service comes at part of the `sawtooth` package installation.
 
 ```bash
-...
 sawtooth-poet-validator-registry-tp.service disabled
-...
-```{{ execute }}
+```
 
 * Create Validator key-pair.
 
