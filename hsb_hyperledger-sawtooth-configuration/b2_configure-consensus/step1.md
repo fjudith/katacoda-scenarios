@@ -46,9 +46,9 @@ sudo -u sawtooth poet registration create -k /etc/sawtooth/keys/validator.priv \
 ```bash
 sudo sawset proposal create -k /etc/sawtooth/keys/validator.priv \
 sawtooth.consensus.algorithm=poet \
-sawtooth.poet.report_public_key_pem=$(cat /etc/sawtooth/simulator_rk_pub.pem) \
-sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement) \
-sawtooth.poet.valid_enclave_basenames=$(poet enclave basename) \
+sawtooth.poet.report_public_key_pem="$(cat /etc/sawtooth/simulator_rk_pub.pem)" \
+sawtooth.poet.valid_enclave_measurements="$(poet enclave measurement)" \
+sawtooth.poet.valid_enclave_basenames="$(poet enclave basename)" \
 -o config.batch
 ```{{ execute }}
 
@@ -57,16 +57,17 @@ sawtooth.poet.valid_enclave_basenames=$(poet enclave basename) \
 ```bash
 sudo sawset genesis --key /etc/sawtooth/keys/validator.priv \
 -o config-genesis.batch
-```{{ execute}}
+```{{ execute }}
 
 * Create the genesis block.
 
 ```bash
-sudo sawadm genesis /tmp/poet.batch config.batch config-genesis.batch
-```
+sudo sawadm genesis config.batch config-genesis.batch /tmp/poet.batch 
+```{{ execute }}
 
 ```bash
-
+Processing /tmp/poet.batch...
+Processing config.batch...
+Processing config-genesis.batch...
+Generating /var/lib/sawtooth/genesis.batch
 ```
-
-* Create the 
