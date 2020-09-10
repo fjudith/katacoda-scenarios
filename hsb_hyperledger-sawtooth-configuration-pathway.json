@@ -8,6 +8,11 @@
       "description": "Configure a Sawtooth network leveraging dynamic peering"
     },
     {
+      "course_id": "b2_configure-consensus",
+      "title": "Configure consensus",
+      "description": "Configure a PoET enabled Sawtooth network"
+    },
+    {
       "course_id": "b10_configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"

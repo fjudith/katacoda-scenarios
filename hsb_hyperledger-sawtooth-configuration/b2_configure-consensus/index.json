@@ -1,0 +1,56 @@
+{
+    "title": "Configure consensus",
+    "description": "Run a network leveraging the PoET algorithm",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Configure the genesis node",
+                "text": "step1.md"
+            },
+            {
+                "title": "Configure and start the second node",
+                "text": "step2.md"
+            },
+            {
+                "title": "Bootstrep the third node and validate",
+                "text": "step3.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+
+                {"file": "assets/chsa-b2-00/docker-entrypoint.sh", "target": "/root/assets/chsa-b2-00/", "chmod": "+r"},
+                {"file": "assets/chsa-b2-00/validator.toml", "target": "/root/assets/chsa-b2-00/", "chmod": "a+rw"},
+                
+                {"file": "assets/chsa-b2-01/docker-entrypoint.sh", "target": "/root/assets/chsa-b2-01/", "chmod": "+r"},
+                {"file": "assets/chsa-b2-01/validator.toml", "target": "/root/assets/chsa-b2-01/", "chmod": "a+rw"},
+
+                {"file": "assets/chsa-b2-02/docker-entrypoint.sh", "target": "/root/assets/chsa-b2-02/", "chmod": "+r"},
+                {"file": "assets/chsa-b2-02/validator.toml", "target": "/root/assets/chsa-b2-02/", "chmod": "a+rw"},
+
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md",
+            "courseData": "background.sh",
+            "code": "foreground.sh"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "showvisualise": true,
+        "hideintro": false,
+        "uilayout": "terminal"
+      },
+      "backend": {
+        "imageid": "ubuntu"
+      }
+}
