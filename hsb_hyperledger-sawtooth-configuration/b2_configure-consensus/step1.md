@@ -61,8 +61,10 @@ sudo sawset genesis --key /etc/sawtooth/keys/validator.priv \
 
 * Create the genesis block.
 
+> **Notice**: The batch ordering is important. Always begin by the `config-genesis.bath`.
+
 ```bash
-sudo sawadm genesis config.batch config-genesis.batch /tmp/poet.batch 
+sudo sawadm genesis config-genesis.batch config.batch /tmp/poet.batch 
 ```{{ execute }}
 
 ```bash
