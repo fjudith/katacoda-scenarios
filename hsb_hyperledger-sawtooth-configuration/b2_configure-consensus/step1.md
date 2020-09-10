@@ -14,7 +14,7 @@ docker exec -u sysops -it chsa-b2-00 bash
 * Check the Registry transaction processor service availability.
 
 ```bash
-sudo systemctl list-unit-files | grep registy-tp
+sudo systemctl list-unit-files | grep registry-tp
 ```{{ execute }}
 
 > **Notice**: The `sawtooth-poet-validator-registry-tp` service comes at part of the `sawtooth` package installation.
@@ -46,7 +46,7 @@ sudo -u sawtooth poet registration create -k /etc/sawtooth/keys/validator.priv \
 ```bash
 sudo sawset proposal create -k /etc/sawtooth/keys/validator.priv \
 sawtooth.consensus.algorithm=poet \
-sawtooth.poet.report_public_key_pem=$(cat /etc/sawtooth/simulator_rk_pub.pem)
+sawtooth.poet.report_public_key_pem=$(cat /etc/sawtooth/simulator_rk_pub.pem) \
 sawtooth.poet.valid_enclave_measurements=$(poet enclave measurement) \
 sawtooth.poet.valid_enclave_basenames=$(poet enclave basename) \
 -o config.batch
@@ -64,3 +64,9 @@ sudo sawset genesis --key /etc/sawtooth/keys/validator.priv \
 ```bash
 sudo sawadm genesis /tmp/poet.batch config.batch config-genesis.batch
 ```
+
+```bash
+
+```
+
+* Create the 
