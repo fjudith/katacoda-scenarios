@@ -6,6 +6,7 @@ The second and third nodes will be configured remotely to accelerate the operati
 
 ```bash
 docker exec -u sysops -it chsa-b2-01 bash -c '
+sudo sawadm keygen && \
 sudo sed -i "s#\(network:tcp://\).*\(:8800\)#\1eth0\2#g" /etc/sawtooth/validator.toml && \
 sudo sed -i "s#\(endpoint\s\=\s\"tcp://\).*\(:8800\"\)#\1$(hostname)\2#g" /etc/sawtooth/validator.toml && \
 sudo sed -i "s#\(peering\s\=\s\"\).*\(\"\)#\1dynamic\2#g" /etc/sawtooth/validator.toml && \
@@ -24,6 +25,7 @@ sudo systemctl start ${SVC}
 
 ```bash
 docker exec -u sysops -it chsa-b2-02 bash -c '
+sudo sawadm keygen && \
 sudo sed -i "s#\(network:tcp://\).*\(:8800\)#\1eth0\2#g" /etc/sawtooth/validator.toml && \
 sudo sed -i "s#\(endpoint\s\=\s\"tcp://\).*\(:8800\"\)#\1$(hostname)\2#g" /etc/sawtooth/validator.toml && \
 sudo sed -i "s#\(peering\s\=\s\"\).*\(\"\)#\1dynamic\2#g" /etc/sawtooth/validator.toml && \
