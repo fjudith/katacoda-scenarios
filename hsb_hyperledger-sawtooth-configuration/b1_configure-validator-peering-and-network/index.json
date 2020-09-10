@@ -1,6 +1,6 @@
 {
-    "title": "Configure storage path",
-    "description": "Configure storage path",
+    "title": "Configure Validator peering and network",
+    "description": "Establish dynamic peering",
     "difficulty": "easy",
     "time": "4 minutes",
     "details": {
