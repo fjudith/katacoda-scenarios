@@ -26,3 +26,15 @@ bind = ["chsa-b4-02:8008"]
 
 * Once finished, press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to normal mode
 * To save and exit, type `:wq`{{execute}}
+
+* Restart the REST API service.
+
+```bash
+sudo systemctl restart sawtooth-rest-api
+```{{ execute }}
+
+* Exit the terminal session.
+
+```bash
+exit
+```{{ execute }}
