@@ -9,6 +9,8 @@
                 "title": "Connect REST API to Validator",
                 "text": "step1.md",
                 "courseData": "background.sh",
+                "code": "foreground.sh",
+                "courseData": "background.sh",
                 "code": "foreground.sh"
             },
             {
