@@ -1,7 +1,8 @@
 # Step 1 - Connect REST API to Validator
 
 The REST API service default configuration is designed to access the Validator on the same host.
-The validator component address is enford by default by the REST API service environment file and has **precedence** over the configuration file.
+
+> **Notice**: The validator component URL is enforced by default by the REST API service environment file and has **precedence** over the configuration file.
 
 * Open an interactive terminal session on the host that run the rest-api service.
 
