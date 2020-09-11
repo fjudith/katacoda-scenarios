@@ -25,6 +25,6 @@ fi
 sudo systemctl enable sawtooth-validator
 sudo systemctl enable sawtooth-settings-tp
 
-sudo sed -i 's/localhost/$(hostname)/g' /etc/default/sawtooth-settings-tp
+sudo sed -i "s/localhost/$(hostname)/g" /etc/default/sawtooth-settings-tp
 
 exec "$@"

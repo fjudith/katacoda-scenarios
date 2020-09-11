@@ -6,7 +6,7 @@ It then required to add the `--url` argument to connect to a remote REST API hos
 * Open an interactive terminal session on the genesis node.
 
 ```bash
-docker exec -u sysops -it chsa-b1-00 bash
+docker exec -u sysops -it chsa-b4-00 bash
 ```{{ execute }}
 
 * Check the on-chain settings.

@@ -20,7 +20,7 @@ sudo vim /etc/default/sawtooth-rest-api
 
 ```toml
 SAWTOOTH_REST_API_ARGS=--connect tcp://chsa-b4-00:4004
-```
+```{{ copy }}
 
 * Once finished, press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to normal mode
 * To save and exit, type `:wq`{{execute}}

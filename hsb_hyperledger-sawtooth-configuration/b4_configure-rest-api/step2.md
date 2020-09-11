@@ -11,6 +11,12 @@ Counter to the Validator, REST API **cannot** be bind on a network interface (e.
 sudo cp /etc/sawtooth/rest_api.toml.example /etc/sawtooth/rest_api.toml
 ```{{ execute }}
 
+* Set the appropriate permissions
+
+```bash
+sudo chown root:sawtooth /etc/sawtooth/rest_api.toml
+```{{ execute }}
+
 * Edit the REST API environment file in order to change the Validator address.
 
 ```bash
@@ -22,7 +28,7 @@ sudo vim /etc/sawtooth/rest_api.toml
 ```toml
 # The port and host for the api to run on
 bind = ["chsa-b4-02:8008"]
-```
+```{{ copy }}
 
 * Once finished, press ESC (`^ESC`{{execute ctrl-seq}}) to switch back to normal mode
 * To save and exit, type `:wq`{{execute}}
