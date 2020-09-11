@@ -9,17 +9,27 @@ It then required to add the `--url` argument to connect to a remote REST API hos
 docker exec -u sysops -it chsa-b4-00 bash
 ```{{ execute }}
 
+## Settings transaction processor
+
 * Check the on-chain settings.
 
 ```bash
 sawtooth settings list --url http://chsa-b4-02:8008
 ```{{ execute }}
 
+## IntKey transaction processor
+
 * Test the InKey transaction processor.
 
 ```bash
 intkey set test 101 --url http://chsa-b4-02:8008
 ```{{ execute }}
+
+```bash
+intkey show test --url http://chsa-b4-02:8008
+```{{ execute }}
+
+## XO transaction processor
 
 * Test the XO transaction processor.
 
@@ -29,4 +39,8 @@ xo create test --url http://chsa-b4-02:8008
 
 ```bash
 xo take test 5 --url http://chsa-b4-02:8008
+```{{ execute }}
+
+```bash
+xo show test --url http://chsa-b4-02:8008
 ```{{ execute }}

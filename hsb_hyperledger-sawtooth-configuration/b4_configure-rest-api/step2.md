@@ -26,7 +26,6 @@ sudo vim /etc/sawtooth/rest_api.toml
 * Switch to insert mode by typing `i`{{execute no-newline}}, then change the `bind` address as described below.
 
 ```toml
-# The port and host for the api to run on
 bind = ["chsa-b4-02:8008"]
 ```{{ copy }}
 
