@@ -13,9 +13,19 @@
       "description": "Configure a PoET enabled Sawtooth network"
     },
     {
+      "course_id": "b3_configure-logging",
+      "title": "Configure logging",
+      "description": "Configure logging to a remote log collector"
+    },
+    {
       "course_id": "b4_configure-rest-api",
       "title": "Configure REST API",
       "description": "Configure a REST API for remote client access"
+    },
+    {
+      "course_id": "b6_configure-metrics",
+      "title": "Configure metrics",
+      "description": "Configure a Validator and REST API to push metrics to a TSDB"
     },
     {
       "course_id": "b10_configure-storage-path",
