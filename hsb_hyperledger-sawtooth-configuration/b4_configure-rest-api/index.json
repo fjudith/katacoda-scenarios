@@ -6,22 +6,20 @@
     "details": {
         "steps": [
             {
-                "title": "Configure the genesis node",
+                "title": "Connect REST API to Validator",
                 "text": "step1.md",
+                "courseData": "background.sh",
+                "code": "foreground.sh",
                 "courseData": "background.sh",
                 "code": "foreground.sh"
             },
             {
-                "title": "Configure and start the Validator service",
+                "title": "Expose the REST API to remote clients",
                 "text": "step2.md"
             },
             {
-                "title": "Configure remaining nodes",
-                "text": "step3.md"
-            },
-            {
                 "title": "Validate",
-                "text": "step4.md"
+                "text": "step3.md"
             }
         ],
         "assets": {
@@ -29,14 +27,14 @@
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
 
-                {"file": "assets/chsa-b2-00/docker-entrypoint.sh", "target": "/root/assets/chsa-b2-00/", "chmod": "+r"},
-                {"file": "assets/chsa-b2-00/validator.toml", "target": "/root/assets/chsa-b2-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b4-00/docker-entrypoint.sh", "target": "/root/assets/chsa-b4-00/", "chmod": "+r"},
+                {"file": "assets/chsa-b4-00/validator.toml", "target": "/root/assets/chsa-b4-00/", "chmod": "a+rw"},
                 
-                {"file": "assets/chsa-b2-01/docker-entrypoint.sh", "target": "/root/assets/chsa-b2-01/", "chmod": "+r"},
-                {"file": "assets/chsa-b2-01/validator.toml", "target": "/root/assets/chsa-b2-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b4-01/docker-entrypoint.sh", "target": "/root/assets/chsa-b4-01/", "chmod": "+r"},
+                {"file": "assets/chsa-b4-01/empty.toml", "target": "/root/assets/chsa-b4-01/", "chmod": "a+rw"},
 
-                {"file": "assets/chsa-b2-02/docker-entrypoint.sh", "target": "/root/assets/chsa-b2-02/", "chmod": "+r"},
-                {"file": "assets/chsa-b2-02/validator.toml", "target": "/root/assets/chsa-b2-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b4-02/docker-entrypoint.sh", "target": "/root/assets/chsa-b4-02/", "chmod": "+r"},
+                {"file": "assets/chsa-b4-02/empty.toml", "target": "/root/assets/chsa-b4-02/", "chmod": "a+rw"},
 
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
