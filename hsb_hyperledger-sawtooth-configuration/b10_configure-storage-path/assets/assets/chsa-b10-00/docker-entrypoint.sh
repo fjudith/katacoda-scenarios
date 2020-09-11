@@ -8,10 +8,19 @@ fi
 
 mkdir -p /home/${USER}/.sawtooth/keys
 
-sudo sawtooth keygen --key-dir /home/${USER}/.sawtooth/keys ${USER}
-sudo chown ${USER}:${USER} /home/${USER}/.sawtooth/keys
-sudo sawset genesis --key /home/${USER}/.sawtooth/keys/${USER}.priv
-sudo sawadm genesis config-genesis.batch
+if [ ! -f /home/${USER}/.sawtooth/keys/${USER}.priv ]; then
+    sudo sawtooth keygen --key-dir /home/${USER}/.sawtooth/keys ${USER}
+    sudo chown ${USER}:${USER} /home/${USER}/.sawtooth/keys/${USER}.p*
+fi
+
+if [ ! -f config-genesis.batch ]; then
+    sudo sawset genesis --key /etc/sawtooth/keys/validator.priv \
+    -o config-genesis.batch
+fi
+
+if [ ! -f /var/lib/sawtooth/config.batch ]; then
+    sudo sawadm genesis config-genesis.batch
+fi
 
 sudo systemctl enable sawtooth-validator
 sudo systemctl enable sawtooth-settings-tp
