@@ -35,7 +35,7 @@ Error: Unable to connect to "http://localhost:8008": make sure URL is correct
 
 ```bash
 intkey set test 100
-```{{ excute }}
+```{{ execute }}
 
 ```bash
 Error: Failed to connect to REST API: HTTPConnectionPool(host='127.0.0.1', port=8008): Max retries exceeded with url: /batches
@@ -47,7 +47,7 @@ Error: Failed to connect to REST API: HTTPConnectionPool(host='127.0.0.1', port=
 
 ```bash
 xo create test
-```{{ excute }}
+```{{ execute }}
 
 ```bash
 Error: Failed to connect to http://127.0.0.1:8008/batches: HTTPConnectionPool(host='127.0.0.1', port=8008): Max retries exceeded with url: /batches
