@@ -1,8 +1,21 @@
 # Step 1 - Create target directories
 
-Run the following commands to create the various configuration and data directories with the appropriate permissions.
+By default Hyperledger Sawtooth use the following directories.
 
-1. Create the folders in `sawtooth` home directory.
+* `/etc/sawtooth/`: Configuration files
+* `/etc/default/`: Systemd service environment files
+* `/etc/sawtooth/policy`: Off-chain policy files
+* `/etc/sawtooth/keys`: Validator key-pair (i.e. `sawadm keygen`)
+* `/var/lib/sawtooth`: Genesis block and Data directory (i.e. `sawadm genesis`)
+* `/var/log/sawtooth`: Log files
+
+* Open an interactive shell session in `chsa-b10-00`.
+
+```bash
+docker exec -it -u sysops chsa-b10-00 bash
+```{{execute}}
+
+* Create the folders in `sawtooth` home directory.
 
 ```bash
 sudo -u sawtooth mkdir -p \
@@ -14,7 +27,7 @@ sudo -u sawtooth mkdir -p \
 
 > `sudo -u sawtooth` is used to avoid the use of the `chown sawtooth:sawtooth -R`
 
-2. Check that that directories are porperly owned by the `sawtooth` user and group
+* Check that that directories are porperly owned by the `sawtooth` user and group.
 
 ```bash
 sudo ls -l /home/sawtooth/
