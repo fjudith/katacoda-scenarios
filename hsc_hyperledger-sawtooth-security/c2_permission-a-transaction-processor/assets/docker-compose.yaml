@@ -2,7 +2,6 @@ version: "2.1"
 
 services:
   chsa-c2-00:
-    privileged: true
     build: 
       context: ./
       args:
@@ -30,7 +29,6 @@ services:
   chsa-c2-01:
     depends_on:
       - chsa-c2-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -58,7 +56,6 @@ services:
   chsa-c2-02:
     depends_on:
       - chsa-c2-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -84,7 +81,6 @@ services:
       - ./assets/sysops.pub:/home/sysops/.sawtooth/keys/sysops.pub
 
   chsa-c2-loadgen:
-    privileged: true
     build: 
       context: ./
       dockerfile: Dockerfile.loadgen

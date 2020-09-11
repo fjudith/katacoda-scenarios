@@ -2,7 +2,6 @@ version: "2.1"
 
 services:
   chsa-c4-00:
-    privileged: true
     build: 
       context: ./
       args:
@@ -33,7 +32,6 @@ services:
   chsa-c4-01:
     depends_on:
       - chsa-c4-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -64,7 +62,6 @@ services:
   chsa-c4-02:
     depends_on:
       - chsa-c4-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -95,7 +92,6 @@ services:
   chsa-c4-03:
     depends_on:
       - chsa-c4-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -152,7 +148,6 @@ services:
       - ./assets/chsa-c4-grafana/sawtooth_performance.json:/grafana-dashboard-definitions/0/sawtooth/sawtooth_performance.json:ro
 
   chsa-c4-loadgen:
-    privileged: true
     build: 
       context: ./
       dockerfile: Dockerfile.loadgen

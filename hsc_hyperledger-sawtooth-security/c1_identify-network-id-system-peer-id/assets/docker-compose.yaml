@@ -2,7 +2,6 @@ version: "2.1"
 
 services:
   chsa-c1-00:
-    privileged: true
     build: 
       context: ./
       args:
@@ -30,7 +29,6 @@ services:
   chsa-c1-01:
     depends_on:
       - chsa-c1-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -58,7 +56,6 @@ services:
   chsa-c1-02:
     depends_on:
       - chsa-c1-00
-    privileged: true
     build: 
       context: ./
       args:
@@ -84,7 +81,6 @@ services:
       - ./assets/chsa-c1-02/validator.pub:/etc/sawtooth/keys/validator.pub:ro
 
   chsa-c1-loadgen:
-    privileged: true
     build: 
       context: ./
       dockerfile: Dockerfile.loadgen
