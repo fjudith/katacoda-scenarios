@@ -2,7 +2,6 @@ version: "2.1"
 
 services:
   chsa-b11-00:
-    privileged: true
     build: 
       context: ./
       args:
