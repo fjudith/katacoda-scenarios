@@ -17,7 +17,7 @@ sudo vim /etc/sawtooth/rest_api.toml
 
 ```toml
 # The host and port for Open TSDB database used for metrics
-opentsdb_url = "http://chsa-b6-01:8086"
+opentsdb_url = "http://chsa-b6-influxdb:8086"
 
 # The name of the database used for storing metrics
 opentsdb_db = "metrics"

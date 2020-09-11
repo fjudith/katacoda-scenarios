@@ -1,4 +1,8 @@
-version: "2.1"
+version: "3.8"
+
+secrets:
+  admin_password:
+    file: ./assets/chsa-b6-grafana/admin_password
 
 services:
   chsa-b6-00:
@@ -55,12 +59,13 @@ services:
     ports:
       - 53000:3000
     environment:
-      GF_SECURITY_ADMIN_PASSWORD__FILE: "/admin_password"
+      GF_SECURITY_ADMIN_PASSWORD__FILE: "/run/secrets/admin_password"
     volumes:
       - ./assets/chsa-b6-grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml:ro
       - ./assets/chsa-b6-grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml:ro
       - ./assets/chsa-b6-grafana/sawtooth_performance.json:/grafana-dashboard-definitions/0/sawtooth/sawtooth_performance.json:ro
-      - ./assets/chsa-b6-grafana/admin_password:/admin_password:ro
+    secrets:
+      - admin_password
 
   chsa-b6-loadgen:
     build: 
