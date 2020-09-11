@@ -1,6 +1,6 @@
 # Step 3 - Validate
 
-By default CLIs are trying to the local REST API endpoint (i.e. `http://localhost:8008).
+By default CLIs are trying to the local REST API endpoint (i.e. `http://localhost:8008`).
 It then required to add the `--url` argument to connect to a remote REST API host.
 
 * Open an interactive terminal session on the genesis node.
