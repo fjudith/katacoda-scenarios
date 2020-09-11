@@ -27,10 +27,10 @@
                 {"file": "assets/chsa-b4-00/validator.toml", "target": "/root/assets/chsa-b4-00/", "chmod": "a+rw"},
                 
                 {"file": "assets/chsa-b4-01/docker-entrypoint.sh", "target": "/root/assets/chsa-b4-01/", "chmod": "+r"},
-                {"file": "assets/chsa-b4-01/fake.toml", "target": "/root/assets/chsa-b4-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b4-01/empty.toml", "target": "/root/assets/chsa-b4-01/", "chmod": "a+rw"},
 
                 {"file": "assets/chsa-b4-02/docker-entrypoint.sh", "target": "/root/assets/chsa-b4-02/", "chmod": "+r"},
-                {"file": "assets/chsa-b4-02/fake.toml", "target": "/root/assets/chsa-b4-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b4-02/empty.toml", "target": "/root/assets/chsa-b4-02/", "chmod": "a+rw"},
 
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
