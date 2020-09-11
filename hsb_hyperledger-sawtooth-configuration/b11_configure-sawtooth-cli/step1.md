@@ -18,7 +18,8 @@ sudo cp /etc/sawtooth/cli.toml.example /etc/sawtooth/cli.toml
 * Allocate the appropriate permissions.
 
 ```bash
-sudo chown root:sawtooth /etc/sawtooth/cli.toml
+sudo chown root:sawtooth /etc/sawtooth/cli.toml && \
+sudo chmod a+r /etc/sawtooth/cli.toml
 ```{{ execute }}
 
 * Edit the Validator configuration file.
