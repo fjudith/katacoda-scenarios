@@ -13,6 +13,11 @@
       "description": "Configure a PoET enabled Sawtooth network"
     },
     {
+      "course_id": "b4_configure-rest-api",
+      "title": "Configure REST API",
+      "description": "Configure a REST API for remote client access"
+    },
+    {
       "course_id": "b10_configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"

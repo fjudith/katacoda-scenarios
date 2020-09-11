@@ -1,0 +1,74 @@
+version: "2.1"
+
+services:
+  chsa-b4-00:
+    privileged: true
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b4-00
+    image: chsaexercises/systemd-b4-00:1.0.8-xenial
+    container_name: chsa-b4-00
+    hostname: chsa-b4-00
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+  chsa-b4-01:
+    privileged: true
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b4-01
+    image: chsaexercises/systemd-b4-01:1.0.8-xenial
+    container_name: chsa-b4-01
+    hostname: chsa-b4-01
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+  chsa-b4-02:
+    privileged: true
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b4-02
+    image: chsaexercises/systemd-b4-02:1.0.8-xenial
+    container_name: chsa-b4-02
+    hostname: chsa-b4-02
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
