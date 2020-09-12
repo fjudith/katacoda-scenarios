@@ -1,0 +1,169 @@
+version: "3.8"
+
+secrets:
+  admin_password:
+    file: ./assets/chsa-b9-grafana/admin_password
+
+services:
+  chsa-b9-00:
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b9-00
+    image: chsaexercises/systemd-b9-00:1.0.8-xenial
+    container_name: chsa-b9-00
+    hostname: chsa-b9-00
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./assets/telegraf.conf:/etc/telegraf/telegraf.conf
+      - ./assets/sysops.priv:/home/sysops/.sawtooth/keys/sysops.priv:ro
+      - ./assets/sysops.pub:/home/sysops/.sawtooth/keys/sysops.pub:ro
+      - ./assets/chsa-b9-00/validator.priv:/etc/sawtooth/keys/validator.priv:ro
+      - ./assets/chsa-b9-00/validator.pub:/etc/sawtooth/keys/validator.pub:ro
+
+  chsa-b9-01:
+    depends_on:
+      - chsa-b9-00
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b9-01
+    image: chsaexercises/systemd-b9-01:1.0.8-xenial
+    container_name: chsa-b9-01
+    hostname: chsa-b9-01
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./assets/telegraf.conf:/etc/telegraf/telegraf.conf
+      - ./assets/sysops.priv:/home/sysops/.sawtooth/keys/sysops.priv:ro
+      - ./assets/sysops.pub:/home/sysops/.sawtooth/keys/sysops.pub:ro
+      - ./assets/chsa-b9-01/validator.priv:/etc/sawtooth/keys/validator.priv:ro
+      - ./assets/chsa-b9-01/validator.pub:/etc/sawtooth/keys/validator.pub:ro
+
+  chsa-b9-02:
+    depends_on:
+      - chsa-b9-00
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b9-02
+    image: chsaexercises/systemd-b9-02:1.0.8-xenial
+    container_name: chsa-b9-02
+    hostname: chsa-b9-02
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./assets/telegraf.conf:/etc/telegraf/telegraf.conf
+      - ./assets/sysops.priv:/home/sysops/.sawtooth/keys/sysops.priv:ro
+      - ./assets/sysops.pub:/home/sysops/.sawtooth/keys/sysops.pub:ro
+      - ./assets/chsa-b9-02/validator.priv:/etc/sawtooth/keys/validator.priv:ro
+      - ./assets/chsa-b9-02/validator.pub:/etc/sawtooth/keys/validator.pub:ro
+
+  chsa-b9-03:
+    depends_on:
+      - chsa-b9-00
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b9-03
+    image: chsaexercises/systemd-b9-03:1.0.8-xenial
+    container_name: chsa-b9-03
+    hostname: chsa-b9-03
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - ./assets/telegraf.conf:/etc/telegraf/telegraf.conf
+      - ./assets/sysops.priv:/home/sysops/.sawtooth/keys/sysops.priv:ro
+      - ./assets/sysops.pub:/home/sysops/.sawtooth/keys/sysops.pub:ro
+
+  chsa-b9-influxdb:
+    image: amd64/influxdb:alpine
+    container_name: chsa-b9-influxdb
+    hostname: chsa-b9-influxdb
+    expose:
+      - 8086
+    environment:
+      INFLUXDB_DB: "metrics"
+      INFLUXDB_HTTP_AUTH_ENABLED: "true"
+      INFLUXDB_ADMIN_USER: "admin"
+      INFLUXDB_ADMIN_PASSWORD: "{admin-pw}"
+      INFLUXDB_USER: "lrdata"
+      INFLUXDB_USER_PASSWORD: "{lrdata-pw}"
+    command:
+      - "-config"
+      - "/etc/influxdb/influxdb.conf"
+    volumes:
+      - ./assets/chsa-b9-influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+
+  chsa-b9-grafana:
+    image: grafana/grafana:7.1.5
+    container_name: chsa-b9-grafana
+    hostname: chsa-b9-grafana
+    ports:
+      - 53000:3000
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD__FILE: "/run/secrets/admin_password"
+    volumes:
+      - ./assets/chsa-b9-grafana/datasources.yaml:/etc/grafana/provisioning/datasources/datasources.yaml:ro
+      - ./assets/chsa-b9-grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboard.yaml:ro
+      - ./assets/chsa-b9-grafana/sawtooth_performance.json:/grafana-dashboard-definitions/0/sawtooth/sawtooth_performance.json:ro
+    secrets:
+      - admin_password
+
+  chsa-b9-loadgen:
+    build: 
+      context: ./
+      dockerfile: Dockerfile.loadgen
+      args:
+        ASSET_PATH: assets/chsa-b9-loadgen
+    image: chsaexercises/systemd-b9-loadgen:1.0.8-xenial
+    container_name: chsa-b9-loadgen
+    hostname: chsa-b9-loadgen
+    volumes:
+      - ./assets/loadgen.priv:/home/loadgen/.sawtooth/keys/loadgen.priv
+      - ./assets/loadgen.pub:/home/loadgen/.sawtooth/keys/loadgen.pub

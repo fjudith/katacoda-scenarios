@@ -33,6 +33,11 @@
       "description": "Remotely configure transaction processor to access a remote validator"
     },
     {
+      "course_id": "b9_choose-parallel-sync-scheduler",
+      "title": "Choose parallel sync schduler",
+      "description": "Use parallel instead of serial scheduler to increase processing performances"
+    },
+    {
       "course_id": "b10_configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"

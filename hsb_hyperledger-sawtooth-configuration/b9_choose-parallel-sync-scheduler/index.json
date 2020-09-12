@@ -1,0 +1,88 @@
+{
+    "title": "Choose parallel sync scheduler",
+    "description": "Use parallel scheduler instead of serial",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Configure the genesis node",
+                "text": "step1.md",
+                "courseData": "background.sh",
+                "code": "foreground.sh"
+            },
+            {
+                "title": "Configure remaining nodes",
+                "text": "step2.md"
+            },
+            {
+                "title": "Validate",
+                "text": "step3.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                
+                {"file": "assets/telegraf.conf", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/loadgen.priv", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/loadgen.pub", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/sysops.priv", "target": "/root/assets/", "chmod": "+r"},
+                {"file": "assets/sysops.pub", "target": "/root/assets/", "chmod": "+r"},
+
+                {"file": "assets/chsa-b9-00/docker-entrypoint.sh", "target": "/root/assets/chsa-b9-00/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-00/validator.toml", "target": "/root/assets/chsa-b9-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-00/cli.toml", "target": "/root/assets/chsa-b9-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-00/rest_api.toml", "target": "/root/assets/chsa-b9-00/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-00/validator.priv", "target": "/root/assets/chsa-b9-00/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-00/validator.pub", "target": "/root/assets/chsa-b9-00/", "chmod": "+r"},
+                
+                {"file": "assets/chsa-b9-01/docker-entrypoint.sh", "target": "/root/assets/chsa-b9-01/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-01/validator.toml", "target": "/root/assets/chsa-b9-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-01/cli.toml", "target": "/root/assets/chsa-b9-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-01/rest_api.toml", "target": "/root/assets/chsa-b9-01/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-01/validator.priv", "target": "/root/assets/chsa-b9-01/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-01/validator.pub", "target": "/root/assets/chsa-b9-01/", "chmod": "+r"},
+
+                {"file": "assets/chsa-b9-02/docker-entrypoint.sh", "target": "/root/assets/chsa-b9-02/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-02/validator.toml", "target": "/root/assets/chsa-b9-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-02/cli.toml", "target": "/root/assets/chsa-b9-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-02/rest_api.toml", "target": "/root/assets/chsa-b9-02/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-02/validator.priv", "target": "/root/assets/chsa-b9-02/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-02/validator.pub", "target": "/root/assets/chsa-b9-02/", "chmod": "+r"},
+                
+                {"file": "assets/chsa-b9-grafana/dashboards.yaml", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-grafana/datasources.yaml", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-grafana/sawtooth_performance.json", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-grafana/admin_password", "target": "/root/assets/chsa-b6-grafana/", "chmod": "+r"},
+
+                {"file": "assets/chsa-b9-influxdb/influxdb.conf", "target": "/root/assets/chsa-b9-influxdb/", "chmod": "+r"},
+
+                {"file": "assets/chsa-b9-loadgen/docker-entrypoint.sh", "target": "/root/assets/chsa-b9-loadgen/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-loadgen/validator.toml", "target": "/root/assets/chsa-b9-loadgen/", "chmod": "a+rw"},
+
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "showvisualise": true,
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Grafana", "href": "https://[[HOST_SUBDOMAIN]]-53000-[[KATACODA_HOST]].environments.katacoda.com"}
+        ],
+        "hideintro": false,
+        "uilayout": "terminal-iframe"
+      },
+      "backend": {
+        "imageid": "ubuntu"
+      }
+}
