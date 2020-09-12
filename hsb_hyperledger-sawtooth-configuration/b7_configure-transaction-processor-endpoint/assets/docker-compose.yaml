@@ -1,0 +1,48 @@
+version: "2.1"
+
+services:
+  chsa-b7-00:
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b7-00
+    image: chsaexercises/systemd-b7-00:1.0.8-xenial
+    container_name: chsa-b7-00
+    hostname: chsa-b7-00
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+  chsa-b7-01:
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/chsa-b7-01
+    image: chsaexercises/systemd-b7-01:1.0.8-xenial
+    container_name: chsa-b7-01
+    hostname: chsa-b7-01
+    expose:
+      - 8800
+      - 4004
+      - 8008
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro

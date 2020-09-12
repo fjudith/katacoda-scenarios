@@ -28,6 +28,11 @@
       "description": "Configure a Validator and REST API to push metrics to a TSDB"
     },
     {
+      "course_id": "b7_configure-transaction-processor-endpoint",
+      "title": "Configure transaction processor endpoint",
+      "description": "Remotely configure transaction processor to access a remote validator"
+    },
+    {
       "course_id": "b10_configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"
