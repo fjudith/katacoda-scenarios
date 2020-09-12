@@ -24,7 +24,7 @@ fi
 
 sudo systemctl enable sawtooth-validator
 sudo systemctl enable sawtooth-settings-tp
-sudo systemctl enable sawtooth-settings-rest-api
+sudo systemctl enable sawtooth-rest-api
 
 sudo sed -i "s/localhost:4004/$(hostname):54321/g" /etc/default/sawtooth-settings-tp
 sudo sed -i "s/localhost:4004/$(hostname):54321/g" /etc/default/sawtooth-rest-api
