@@ -5,13 +5,15 @@
 * Create a transaction
 
 ```bash
-docker exec -u sysops -it chsa-b7-00 bash -c 'intkey set LIGHTINGFAST 300000'
+docker exec -u sysops -it chsa-b7-00 bash -c \
+'intkey set LIGHTINGFAST 300000'
 ```{{ execute }}
 
 * Validate the transaction
 
 ```bash
-docker exec -u sysops -it chsa-b7-00 bash -c 'intkey list'
+docker exec -u sysops -it chsa-b7-00 bash -c \
+'intkey list'
 ```{{ execute }}
 
 ```bash
@@ -23,19 +25,22 @@ LIGHTINGFAST: 300000
 * Create a game
 
 ```bash
-docker exec -u sysops -it chsa-b7-00 bash -c 'xo create GAME0'
+docker exec -u sysops -it chsa-b7-00 bash -c \
+'xo create GAME0'
 ```{{ execute }}
 
 * Create a transaction
 
 ```bash
-docker exec -u sysops -it chsa-b7-00 bash -c 'xo take GAME0 7'
+docker exec -u sysops -it chsa-b7-00 bash -c \
+'xo take GAME0 7'
 ```{{ execute }}
 
 * Check the transation
 
 ```bash
-docker exec -u sysops -it chsa-b7-00 bash -c  'xo show GAME0'
+docker exec -u sysops -it chsa-b7-00 bash -c  \
+'xo show GAME0'
 ```{{ execute }}
 
 ```bash
