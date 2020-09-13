@@ -55,7 +55,7 @@
                 {"file": "assets/chsa-b9-grafana/dashboards.yaml", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
                 {"file": "assets/chsa-b9-grafana/datasources.yaml", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
                 {"file": "assets/chsa-b9-grafana/sawtooth_performance.json", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
-                {"file": "assets/chsa-b9-grafana/admin_password", "target": "/root/assets/chsa-b6-grafana/", "chmod": "+r"},
+                {"file": "assets/chsa-b9-grafana/admin_password", "target": "/root/assets/chsa-b9-grafana/", "chmod": "+r"},
 
                 {"file": "assets/chsa-b9-influxdb/influxdb.conf", "target": "/root/assets/chsa-b9-influxdb/", "chmod": "+r"},
 
@@ -63,6 +63,7 @@
                 {"file": "assets/chsa-b9-loadgen/empty.toml", "target": "/root/assets/chsa-b9-loadgen/", "chmod": "a+rw"},
 
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile.loadgen", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
             ]
         },
