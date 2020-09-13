@@ -93,34 +93,6 @@ services:
       - ./assets/chsa-b9-02/validator.priv:/etc/sawtooth/keys/validator.priv:ro
       - ./assets/chsa-b9-02/validator.pub:/etc/sawtooth/keys/validator.pub:ro
 
-  chsa-b9-03:
-    depends_on:
-      - chsa-b9-00
-    build: 
-      context: ./
-      args:
-        ASSET_PATH: assets/chsa-b9-03
-    image: chsaexercises/systemd-b9-03:1.0.8-xenial
-    container_name: chsa-b9-03
-    hostname: chsa-b9-03
-    expose:
-      - 8800
-      - 4004
-      - 8008
-    security_opt:
-      - seccomp:unconfined
-    tty: true
-    user: root
-    tmpfs:
-      - /run
-      - /tmp
-      - /run/lock
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - ./assets/telegraf.conf:/etc/telegraf/telegraf.conf
-      - ./assets/sysops.priv:/home/sysops/.sawtooth/keys/sysops.priv:ro
-      - ./assets/sysops.pub:/home/sysops/.sawtooth/keys/sysops.pub:ro
-
   chsa-b9-influxdb:
     image: amd64/influxdb:alpine
     container_name: chsa-b9-influxdb
