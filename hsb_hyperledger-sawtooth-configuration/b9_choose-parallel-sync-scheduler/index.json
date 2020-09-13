@@ -1,6 +1,6 @@
 {
     "title": "Choose parallel sync scheduler",
-    "description": "Use parallel scheduler instead of serial",
+    "description": "Use parallel instead of serial scheduler to increase processing performances",
     "difficulty": "easy",
     "time": "4 minutes",
     "details": {
@@ -60,7 +60,7 @@
                 {"file": "assets/chsa-b9-influxdb/influxdb.conf", "target": "/root/assets/chsa-b9-influxdb/", "chmod": "+r"},
 
                 {"file": "assets/chsa-b9-loadgen/docker-entrypoint.sh", "target": "/root/assets/chsa-b9-loadgen/", "chmod": "+r"},
-                {"file": "assets/chsa-b9-loadgen/validator.toml", "target": "/root/assets/chsa-b9-loadgen/", "chmod": "a+rw"},
+                {"file": "assets/chsa-b9-loadgen/empty.toml", "target": "/root/assets/chsa-b9-loadgen/", "chmod": "a+rw"},
 
                 {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
                 {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
