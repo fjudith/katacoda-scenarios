@@ -6,7 +6,7 @@ Remaining nodes will be configured remotetly to save time.
 
 ```bash
 docker exec -it -u sysops chsa-b9-01 bash -c '\
-sudo -i "s/serial/parallel/g /etc/sawtooth/validator.toml && \
+sudo sed -i "s/serial/parallel/g" /etc/sawtooth/validator.toml && \
 sudo systemctl restart sawtooth-validator
 '
 ```{{execute}}
@@ -15,7 +15,7 @@ sudo systemctl restart sawtooth-validator
 
 ```bash
 docker exec -it -u sysops chsa-b9-02 bash -c '\
-sudo -i "s/serial/parallel/g /etc/sawtooth/validator.toml && \
+sudo sed -i "s/serial/parallel/g" /etc/sawtooth/validator.toml && \
 sudo systemctl restart sawtooth-validator
 '
 ```{{execute}}

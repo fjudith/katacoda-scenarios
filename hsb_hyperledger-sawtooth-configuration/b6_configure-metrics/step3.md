@@ -1,6 +1,6 @@
 # Step 3 - Validate
 
-Check the **Gafana** tab.
+Check the **Grafana** tab.
 
 * **Username**: `admin`
 * **Password**: `password`

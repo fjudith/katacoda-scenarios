@@ -1,7 +1,7 @@
 # Step 1 - Configure the genesis node
 
 The parallel scheduling can be configured only off-chain.
-It is the required to update the Validator configuration and restart de associated service.
+It is then required to update the Validator configuration and restart de associated service.
 
 * Open an interactive shell session in `chsa-b9-00`.
 
