@@ -1,6 +1,6 @@
 # Step 3 - Validate
 
-Check the **Grafana** tab, `Committed Transactions` is now.
+Check the **Grafana** tab, `Committed Transactions` is now much more linear.
 
 * **Username**: `admin`
 * **Password**: `password`
