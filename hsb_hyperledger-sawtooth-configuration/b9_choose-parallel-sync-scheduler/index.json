@@ -80,6 +80,9 @@
         "dashboards": [
             {"name": "Grafana", "href": "https://[[HOST_SUBDOMAIN]]-53000-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
+        "terminals": [
+            {"name": "Load Generator", "command": "docker logs -f chsa-b9-loadgen", "target": "host01"}
+        ],
         "hideintro": false,
         "uilayout": "terminal-iframe"
       },
