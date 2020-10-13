@@ -6,7 +6,7 @@ cd /root
 ISTIO_VERSION="1.7.3"
 curl -L https://github.com/istio/istio/releases/download/${ISTIO_VERSION}/istio-${ISTIO_VERSION}-linux-amd64.tar.gz | tar xvzf -
 chmod +x istio-${ISTIO_VERSION}/bin/istioctl
-sudo ln -s /usr/local/bin/istioctl ${PWD}/istio-${ISTIO_VERSION}/bin/istioctl
+sudo ln -s ${PWD}/istio-${ISTIO_VERSION}/bin/istioctl /usr/local/bin/istioctl
 istioctl install --set profile=demo --force
 
 # BookInfo
