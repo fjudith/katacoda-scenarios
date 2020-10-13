@@ -1,0 +1,45 @@
+{
+    "title": "Istio observability with Kiali",
+    "description": "Observe the service traffic using Istio Kiali",
+    "difficulty": "easy",
+    "time": "4 minutes",
+    "details": {
+        "steps": [
+            {
+                "title": "Generate Validator key-pair",
+                "text": "step1.md",
+                "courseData": "background.sh",
+                "code": "foreground.sh"
+            },
+            {
+                "title": "Generate User key-pair",
+                "text": "step2.md"
+            },
+            {
+                "title": "Enable, start and check services startup",
+                "text": "step3.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "hideintro": false,
+        "uilayout": "terminal-terminal"
+      },
+      "backend": {
+        "imageid": "kubernetes-cluster-running:1.18"
+      }
+}

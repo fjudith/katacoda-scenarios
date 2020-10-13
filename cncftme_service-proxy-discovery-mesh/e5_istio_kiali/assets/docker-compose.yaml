@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  bookinfo-load-test:
+    build: 
+      context: ./
+      args:
+        ASSET_PATH: assets/istio-e5-00
+    image: cncfexercises/bookinfo-load-test
+    container_name: istio-e5-00
+    hostname: istio-e5-00
+    expose:
+      - 8089
+    security_opt:
+      - seccomp:unconfined
+    tty: true

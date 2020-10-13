@@ -1,0 +1,11 @@
+{
+  "title": "CNCF Trailmap Service Proxy, Discovery, & Mesh",
+  "description": "CNCF Trailmap: step 5",
+  "courses": [
+    {
+      "course_id": "cncftme_service-proxy-discovery-mesh",
+      "title": "Istio observability with Kiali",
+      "description": "Visualize your mesh"
+    }
+  ]
+}
