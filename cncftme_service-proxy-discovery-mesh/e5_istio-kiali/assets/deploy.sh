@@ -31,3 +31,4 @@ kubectl apply --wait -f bookinfo-ingress.yaml
 
 # Kiali
 bash <(curl -L https://kiali.io/getLatestKialiOperator) --accessible-namespaces '**' --auth-strategy 'anonymous'
+kubectl apply --wait -f kiali-ingress.yaml
