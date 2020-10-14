@@ -23,8 +23,8 @@
         "assets": {
             "host01": [
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"}
-                {"file": "bookinfo-ingress", "target": "/root/", "chmod": "+x"}
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "bookinfo-ingress", "target": "/root/", "chmod": "+r"}
             ]
         },
         "intro": {
