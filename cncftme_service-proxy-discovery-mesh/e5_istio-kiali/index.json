@@ -40,7 +40,8 @@
         "showdashboard": true,
         "dashboards": [
             {"name": "Kiali", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/kiali"},
-            {"name": "Bookinfo", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/productpage"}
+            {"name": "Bookinfo", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/productpage"},
+            {"name": "Loadgenerator", "href": "https://[[HOST_SUBDOMAIN]]-8089-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
         "hideintro": false,
         "uilayout": "terminal-iframe"

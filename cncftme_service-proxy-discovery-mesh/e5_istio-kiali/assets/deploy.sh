@@ -30,11 +30,13 @@ kubectl apply --wait -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 
 # BookInfo
-kubectl label namespace default istio-injection=true
+kubectl label namespace default istio-injection="enabled"
 kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl apply --wait -f bookinfo-ingress.yaml
 
 # Kiali
 kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/prometheus.yaml
+kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/jaeger.yaml
+kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/grafana.yaml
 bash <(curl -L https://kiali.io/getLatestKialiOperator) --accessible-namespaces '**' --auth-strategy 'anonymous'
 kubectl apply --wait -f kiali-ingress.yaml
