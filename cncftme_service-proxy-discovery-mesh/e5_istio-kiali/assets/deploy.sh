@@ -36,6 +36,5 @@ kubectl apply --wait -f bookinfo-ingress.yaml
 
 # Kiali
 kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/prometheus.yaml
-kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/jaeger.yaml
 bash <(curl -L https://kiali.io/getLatestKialiOperator) --accessible-namespaces '**' --auth-strategy 'anonymous'
 kubectl apply --wait -f kiali-ingress.yaml
