@@ -11,7 +11,9 @@ wait_file() {
 
 echo "done" >> /root/katacoda-finished
 
-sleep 5
+wait_file /usr/local/bin/deploy.sh
+wait_file /root/bookinfo-ingress.yaml
+wait_file /root/kiali-ingress.yaml
 
 /usr/local/bin/deploy.sh
 

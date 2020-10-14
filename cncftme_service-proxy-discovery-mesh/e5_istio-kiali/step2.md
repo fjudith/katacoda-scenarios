@@ -6,7 +6,7 @@
 
 ```bash
 docker container run --rm  -p 8089:8089 --network 'host' --name 'loadgenerator' cncfexercises/bookinfo-load-test  -d 5 -h http://$(hostname) -u 4500 -r 100.0
-```{{ exectute }}
+```{{ execute }}
 
 * Select the **Load generator** tab, then full-fill the form with the following parameters.
   * **Number of total users to simulate**: `5000`{{ copy }}
@@ -19,4 +19,6 @@ Begining at 2000 user the amount of failures will raise.
 This is a normal situation as web servers/api gateways are usually hits their limits around 1500 requests per seconds.
 
 ## Observe where the error happens
+
+* Select the **Kiali** tab.
 
