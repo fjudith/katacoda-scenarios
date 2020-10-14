@@ -3,7 +3,7 @@
   "description": "CNCF Trailmap: step 5",
   "courses": [
     {
-      "course_id": "e5_istio_kiali",
+      "course_id": "e5_istio-kiali",
       "title": "Istio observability with Kiali",
       "description": "Visualize your mesh"
     }
