@@ -2,6 +2,11 @@
 
 cd /root
 
+# Helm
+curl -fsSL -o ${PWD}/get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod +x ${PWD}/get_helm.sh
+${PWD}/get_helm.sh
+
 # Istio
 export ISTIO_VERSION="1.7.3"
 curl -L https://github.com/istio/istio/releases/download/${ISTIO_VERSION}/istio-${ISTIO_VERSION}-linux-amd64.tar.gz | tar xvzf -
