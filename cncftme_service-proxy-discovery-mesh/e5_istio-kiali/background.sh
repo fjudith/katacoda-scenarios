@@ -9,11 +9,11 @@ wait_file() {
   ((++wait_seconds))
 }
 
-echo "done" >> /root/katacoda-finished
-
 wait_file /usr/local/bin/deploy.sh
 wait_file /root/bookinfo-ingress.yaml
 wait_file /root/kiali-ingress.yaml
+
+echo "done" >> /root/katacoda-finished
 
 /usr/local/bin/deploy.sh
 
