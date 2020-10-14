@@ -12,11 +12,11 @@
                 "code": "foreground.sh"
             },
             {
-                "title": "Generate User key-pair",
+                "title": "Get acquainted",
                 "text": "step2.md"
             },
             {
-                "title": "Enable, start and check services startup",
+                "title": "Get acquainted",
                 "text": "step3.md"
             }
         ],

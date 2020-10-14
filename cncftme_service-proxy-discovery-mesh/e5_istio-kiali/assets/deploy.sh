@@ -25,7 +25,7 @@ spec:
 EOF
 
 ## Contour
-kubectl label node controlplane ingress-ready="true"
+kubectl label node $(hostname) ingress-ready="true"
 kubectl apply --wait -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 

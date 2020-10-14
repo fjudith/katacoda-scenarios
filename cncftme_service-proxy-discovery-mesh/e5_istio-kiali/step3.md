@@ -1,8 +1,12 @@
-# Step 1 - Explore Kiali
+# Step 3 - Explore Kiali
 
-Check the **Kiali** tab.
+## Reduce the load
 
-* **Username**: `admin`
-* **Password**: `password`
+* Select the **Load generator** tab.
+* In the top bar, click on **Edit** and full-fill the form with the following parameters.
+  * **Number of total users to simulate**: `1500`{{ copy }}
+  * **Spawn rate**: `100`{{ copy }}
+* Click on the **Start swarming** button
+* In the menu bar, select **Charts** to visualise the load progression.
 
-> **Notice**: Changing the password is optional.
+The amount of failure effectively falls arount 2000 rps.
