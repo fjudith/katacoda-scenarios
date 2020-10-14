@@ -6,7 +6,7 @@
     "details": {
         "steps": [
             {
-                "title": "Generate Validator key-pair",
+                "title": "Get acquainted",
                 "text": "step1.md",
                 "courseData": "background.sh",
                 "code": "foreground.sh"

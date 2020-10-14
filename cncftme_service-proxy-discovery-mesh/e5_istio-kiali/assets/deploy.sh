@@ -30,7 +30,7 @@ kubectl apply --wait -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 
 # BookInfo
-kubectl label namespace default isio-injection=true
+kubectl label namespace default istio-injection=true
 kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl apply --wait -f bookinfo-ingress.yaml
 
