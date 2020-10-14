@@ -38,10 +38,12 @@
         }
     },
     "environment": {
-        "hideintro": false,
+        "showvisualise": true,
+        "showdashboard": true,
         "dashboards": [
             {"name": "Kiali", "href": "https://[[HOST_SUBDOMAIN]]-53000-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
+        "hideintro": false,
         "uilayout": "terminal-terminal"
       },
       "backend": {
