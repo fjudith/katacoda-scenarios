@@ -9,11 +9,6 @@ wait_file() {
   ((++wait_seconds))
 }
 
-wait_file docker-compose.yaml
-wait_file Dockerfile
-
 echo "done" >> /root/katacoda-finished
-
-/usr/local/bin/deploy.sh
 
 echo "done" >> /root/katacoda-background-finished
