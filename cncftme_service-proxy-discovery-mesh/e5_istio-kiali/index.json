@@ -24,6 +24,7 @@
             "host01": [
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+                {"file": "bookinfo-ingress", "target": "/root/", "chmod": "+x"}
             ]
         },
         "intro": {
@@ -40,7 +41,7 @@
             {"name": "Kiali", "href": "https://[[HOST_SUBDOMAIN]]-20001-[[KATACODA_HOST]].environments.katacoda.com"}
         ],
         "hideintro": false,
-        "uilayout": "terminal-terminal"
+        "uilayout": "terminal-iframe"
       },
       "backend": {
         "imageid": "kubernetes-cluster-running:1.18"

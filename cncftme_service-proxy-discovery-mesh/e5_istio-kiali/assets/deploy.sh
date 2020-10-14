@@ -3,7 +3,7 @@
 cd /root
 
 # Istio
-ISTIO_VERSION="1.7.3"
+export ISTIO_VERSION="1.7.3"
 curl -L https://github.com/istio/istio/releases/download/${ISTIO_VERSION}/istio-${ISTIO_VERSION}-linux-amd64.tar.gz | tar xvzf -
 chmod +x istio-${ISTIO_VERSION}/bin/istioctl
 sudo ln -s ${PWD}/istio-${ISTIO_VERSION}/bin/istioctl /usr/local/bin/istioctl
@@ -19,10 +19,15 @@ spec:
   profile: demo
 EOF
 
+## Contour
+kubectl label node controlplane ingress-ready="true"
+kubectl apply --wait -f https://projectcontour.io/quickstart/contour.yaml
+kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
+
 # BookInfo
 kubectl label namespace default isio-injection=true
-kubectl apply -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/bookinfo.yaml --wait
-kubectl apply -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/productpage-nodeport.yaml --wait
+kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply --wait -f bookinfo-ingress.yaml
 
 # Kiali
-kubectl apply -f istio-${ISTIO_VERSION}/samples/addons/kiali.yaml --wait
+bash <(curl -L https://kiali.io/getLatestKialiOperator) --accessible-namespaces '**' --auth-strategy 'anonymous'
