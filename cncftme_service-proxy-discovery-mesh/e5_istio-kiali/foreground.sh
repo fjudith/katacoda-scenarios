@@ -1,5 +1,15 @@
 #!/bin/bash
 
-sleep 2; wait.sh
+echo "Deploying lab components:"
+echo " "
+echo "|----------+--------------------|"
+echo "| Istio    | service mesh       |"
+echo "|----------+--------------------|"
+echo "| Contour  | ingress controller |"
+echo "|----------+--------------------|"
+echo "| Bookinfo | sample application |"
+echo "|----------+--------------------|"
 
-/usr/local/bin/deploy.sh
+sleep 2
+
+wait.sh
