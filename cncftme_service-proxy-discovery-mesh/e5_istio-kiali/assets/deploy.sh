@@ -27,19 +27,39 @@ spec:
   profile: demo
 EOF
 
+kubectl wait --for=condition="Ready" -n istio-system  pod -l app=istiod
+kubectl wait --for=condition="Ready" -n istio-system  pod -l app=istio-ingressgateway
+kubectl wait --for=condition="Ready" -n istio-system  pod -l app=istio-egressgateway
+
+
 ## Contour
 kubectl label node $(hostname) ingress-ready="true"
-kubectl apply --wait -f https://projectcontour.io/quickstart/contour.yaml
+kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
+
+kubectl wait --for=condition="Ready" -n projectcontour pod -l app=envoy
+
 
 # BookInfo
 kubectl label namespace default istio-injection="enabled"
-kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/bookinfo.yaml
-kubectl apply --wait -f bookinfo-ingress.yaml
+sleep 3
+kubectl apply -f istio-${ISTIO_VERSION}/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply -f bookinfo-ingress.yaml
+
+kubectl wait --for=condition="Ready" -n default pod -l app=details
+kubectl wait --for=condition="Ready" -n default pod -l app=productpage
+kubectl wait --for=condition="Ready" -n default pod -l app=ratings
+kubectl wait --for=condition="Ready" -n default pod -l app=reviews
+
 
 # Kiali
-kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/prometheus.yaml
-kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/jaeger.yaml
-kubectl apply --wait -f istio-${ISTIO_VERSION}/samples/addons/grafana.yaml
+kubectl apply -f istio-${ISTIO_VERSION}/samples/addons/prometheus.yaml
+kubectl apply -f istio-${ISTIO_VERSION}/samples/addons/jaeger.yaml
+kubectl apply -f istio-${ISTIO_VERSION}/samples/addons/grafana.yaml
 bash <(curl -L https://kiali.io/getLatestKialiOperator) --accessible-namespaces '**' --auth-strategy 'anonymous'
-kubectl apply --wait -f kiali-ingress.yaml
+kubectl apply -f kiali-ingress.yaml
+
+kubectl wait --for=condition="Ready" -n istio-system pod -l app=prometheus
+kubectl wait --for=condition="Ready" -n istio-system pod -l app=jager
+kubectl wait --for=condition="Ready" -n istio-system pod -l app=grafana
+kubectl wait --for=condition="Ready" -n istio-system pod -l app=kiali
