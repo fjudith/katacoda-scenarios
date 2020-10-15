@@ -1,4 +1,4 @@
-# Step 3 - Scale
+# Step 4 - Observe & Scale
 
 The known max amount of simultanous user is 2000.
 Therefore increasing the number of replica of the `productpage` deployment should resolve the issue.

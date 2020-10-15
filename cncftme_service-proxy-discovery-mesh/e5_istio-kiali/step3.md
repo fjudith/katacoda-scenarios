@@ -1,4 +1,4 @@
-# Step 3 - Explore Kiali
+# Step 3 - Manage Locust load
 
 ## Reduce the load
 

@@ -6,18 +6,18 @@
     "details": {
         "steps": [
             {
-                "title": "Get acquainted",
                 "text": "step1.md",
                 "courseData": "background.sh",
                 "code": "foreground.sh"
             },
             {
-                "title": "Get acquainted",
                 "text": "step2.md"
             },
             {
-                "title": "Analyse",
                 "text": "step3.md"
+            },
+            {
+                "text": "step4.md"
             }
         ],
         "assets": {
