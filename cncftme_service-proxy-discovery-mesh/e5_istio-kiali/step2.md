@@ -22,3 +22,4 @@ This is a normal situation as web servers/api gateways are usually hits their li
 
 * Select the **Kiali** tab.
 
+We can see that the `productpage` frontend microservice is the bottleneck.
