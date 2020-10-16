@@ -15,7 +15,7 @@ docker container run --rm  -p 8089:8089 --network 'host' --name 'loadgenerator' 
 * Select the **Load generator** tab, then full-fill the form with the following parameters.
   * **Number of total users to simulate**: `5000`{{ copy }}
   * **Spawn rate**: `500`{{ copy }}
-  * **Host**: `http://master`{{ copy }}
+  * **Host**: _do not change it_
 * Click on the **Start swarming** button
 * In the menu bar, select **Charts** to visualise the load progression.
 
