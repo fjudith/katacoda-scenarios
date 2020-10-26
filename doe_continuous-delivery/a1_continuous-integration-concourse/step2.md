@@ -1,29 +1,34 @@
-## Chargement du Pipeline.
+## Lancemment de l'environnement de travail
 
-> **Note**
-> Les images sur envoyée dans le registre Docker Hub <https://hub.docker.com/r/testruction>.
-
-Intialisé la variable d'environnement contenant votre prénom et nom
+Lancer la commander suivante pour valider l'ouverture de session dans le conteneur.
 
 ```bash
-USERNAME="prenom-nom"
-````{{copy}}
-
-Exécuter la commande suivante pour charger la configuration du pipeline dans le serveur Concourse
-
-```bash
-fly -t concourse set-pipeline --config './concourse.yaml' --pipeline "${USERNAME}-draw.io" -v 'registry-email=admin@example.com' -v 'registry-username=testruction' -v 'registry-password=T3structi0n' -v 'registry-repo=testruction'
+docker container exec -it onepoint bash
 ```{{execute}}
 
-### Lancement du pipeline
+## Chargement de la CI
 
-Le pipleline d'intégration peut être soumis de 2 manière.
-
-1. Manuellement depuis l'interface Web <https://ci.testruction.io>, puis en cliquant sur le bouton **Play**.
-2. Depuis la ligne de commande:
+Authentification au group `doe` (Devops Enthusiastic).
 
 ```bash
-fly -t concourse unpause-pipeline -p "${USERNAME}-draw.io
-```
+fly -t concourse login -c https://ci.testruction.io -n doe
+```{{execute}}
 
-> Le processus d'intégration dure environ **15 minutes**.
+Choisir la méthode OIDC/Oauth
+* **username**: _p.nom_
+* **password**: _mot de passe_
+
+## Téléchargement de la base de code de déploiement
+
+Exécuter la commande suivante pour télécharger le projet:
+
+```bash
+git clone https://github.com/fjudith/docker-draw.io
+cd docker-draw.io/
+```{{execute}}
+
+Charger la banche `onepoint`:
+
+```bash
+git checkout "onepoint"
+```{{execute}}
