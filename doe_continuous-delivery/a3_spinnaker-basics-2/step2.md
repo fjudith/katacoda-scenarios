@@ -10,7 +10,7 @@ Cliquer sur le bouton **Add stage**, puis compléter le formulaire tels qu'indiq
 Coller, puis _modifier_ le message suivant dans la zone de texte **Instructions**.
 
 ```html
-Please validate that the staging application cluster look <b>OK</b>. Test and inspect <a href="USERNAME-draw-staging.testruction.io">the staging release</a> before approving the release to the production environment.
+Please validate that the staging application cluster look <b>OK</b>. Test and inspect <a href="https://USERNAME-draw-staging.testruction.io">the staging release</a> before approving the release to the production environment.
 ```
 
 Cliquer sur le bouton **Save Changes**.
