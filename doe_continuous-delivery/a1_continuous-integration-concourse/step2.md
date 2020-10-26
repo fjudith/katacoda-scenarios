@@ -7,7 +7,7 @@ Intialisé la variable d'environnement contenant votre prénom et nom
 
 ```bash
 USERNAME="prenom-nom"
-````{{copy}}
+```{{copy}}
 
 Exécuter la commande suivante pour charger la configuration du pipeline dans le serveur Concourse
 
