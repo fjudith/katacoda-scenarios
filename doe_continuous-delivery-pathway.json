@@ -9,13 +9,13 @@
     },
     {
       "course_id": "a2_spinnaker-basics",
-      "title": "Livraison continue avec Spinnaker (Non-production)",
-      "description": "Lancement d'un conteneur Draw.io dans Kubernetes avec Spinnaker (Non-Produciton)"
+      "title": "Livraison continue avec Spinnaker",
+      "description": "[Non-production]: Lancement d'un conteneur Draw.io dans Kubernetes avec Spinnaker"
     },
     {
       "course_id": "a3_spinnaker-basics-2",
-      "title": "Livraison continue avec Spinnaker (Production)",
-      "description": "Lancement d'un conteneur Draw.io dans Kubernetes avec Spinnaker"
+      "title": "Livraison continue avec Spinnaker",
+      "description": "[Production] Lancement d'un conteneur Draw.io dans Kubernetes avec Spinnaker"
     }
   ]
 }
