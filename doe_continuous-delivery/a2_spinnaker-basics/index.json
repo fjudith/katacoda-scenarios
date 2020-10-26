@@ -1,0 +1,62 @@
+{
+    "title": "Spinnaker",
+    "description": "Création d'un pipeline de déploiement continue dans Spinnaker (Non-production)",
+    "difficulty": "easy",
+    "time": "30 minutes",
+    "details": {
+        "steps": [
+            {
+                "text": "step1.md",
+                "courseData": "background.sh",
+                "code": "foreground.sh"
+            },
+            {
+                "text": "step2.md"
+            },
+            {
+                "text": "step3.md"
+            },
+            {
+                "text": "step4.md"
+            },
+            {
+                "text": "step5.md"
+            },
+            {
+                "text": "step6.md"
+            },
+            {
+                "text": "step7.md"
+            },
+            {
+                "text": "step8.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "Dockerfile", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "showvisualise": true,
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Concourse", "href": "https://ci.testruction.io"}
+        ],
+        "hideintro": false,
+        "uilayout": "terminal-iframe"
+      },
+      "backend": {
+        "imageid": "ubuntu"
+      }
+}

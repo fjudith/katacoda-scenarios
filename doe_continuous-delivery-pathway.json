@@ -3,9 +3,14 @@
   "description": "DOE-CD exercices",
   "courses": [
     {
-      "course_id": "a1_continuous-integration-concourse",
-      "title": "Continous Integration using Concourse",
-      "description": "Build draw.io using Concourse and Docker"
+      "course_id": "a1_concourse-basics",
+      "title": "Intégration continue avec Concourse",
+      "description": "Génération d'un conteneur Draw.io avec Concourse et Docker Hub"
+    },
+    {
+      "course_id": "a2_spinnaker-basics",
+      "title": "Déploiement continue avec Spinnaker",
+      "description": "Déploiement d'un conteneur Draw.io dans Kubernetes avec Spinnaker"
     }
   ]
 }

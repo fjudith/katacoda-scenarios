@@ -1,0 +1,18 @@
+version: "2.1"
+
+services:
+  doe-a1-00:
+    build: ./
+    image: docker.io/fjudith/continuous-delivery-tools:latest
+    container_name: onepoint
+    hostname: onepoint
+    security_opt:
+      - seccomp:unconfined
+    tty: true
+    user: root
+    tmpfs:
+      - /run
+      - /tmp
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
