@@ -33,8 +33,13 @@
         }
     },
     "environment": {
+        "showvisualise": true,
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Concourse", "href": "https://ci.testruction.io"}
+        ],
         "hideintro": false,
-        "uilayout": "terminal"
+        "uilayout": "terminal-iframe"
       },
       "backend": {
         "imageid": "ubuntu"
