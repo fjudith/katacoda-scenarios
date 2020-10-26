@@ -8,6 +8,7 @@ Compléter le formulaire tel qu'indiqué ci-dessous:
 
 * **Type**: Git
 * **Repo Type**: github
+* **Organization or User**: `fjudith`{{copy}}
 * **Project**: `docker-draw.io`
 * **Branch**: `onepoint`{{copy}}
 * **Secret**: `spinnaker`{{copy}}
