@@ -16,7 +16,7 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 * **Depends On**: Service + Deployment
 * **Account**: default
 * **Override Namespace**: _Activé_
-* **Namepsace**: _USERNAME_`-draw-io-staging`
+* **Namepsace**: _USERNAME_`-drawio-staging`
 * **Manifest Source**: Text
 
 Coller, puis _modifier_ la déclaration YAML suivante dans la zone de texte **Manifest**.
@@ -46,7 +46,7 @@ spec:
     secretName: drawio-staging-cert
 ```{{copy}}
 
-## Exemple
+#### Exemple
 
 ```text
 apiVersion: networking.k8s.io/v1

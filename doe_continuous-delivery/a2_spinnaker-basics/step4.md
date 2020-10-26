@@ -1,6 +1,6 @@
 ## Stage 1 - Namespace
 
-Le Namespace est la zone dans laquelle l'application est déployée.
+Le [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) est la zone dans laquelle l'application est déployée.
 
 ### Mise en oeuvre
 
@@ -12,7 +12,7 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 * **Stage name**: `Namespace`{{copy}}
 * **Account**: default
 * **Override Namespace**: _Activé_
-* **Namepsace**: _USERNAME_`-draw-io-staging`
+* **Namepsace**: _USERNAME_`-drawio-staging`
 * **Manifest Source**: Text
 
 Coller, puis _modifier_ la déclaration YAML suivante dans la zone de texte **Manifest**.
@@ -24,7 +24,7 @@ metadata:
   name: USERNAME-drawio-staging
 ```{{copy}}
 
-## Exemple
+#### Exemple
 
 ```text
 apiVersion: v1

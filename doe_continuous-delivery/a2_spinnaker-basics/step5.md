@@ -1,6 +1,6 @@
-### Stage 2 - Deployment
+## Stage 2 - Deployment
 
-Le déploiement est une ressource qui définit où et comment l'application doit être lancée.
+Le [Déploiement](https://kubernetes.io/fr/docs/concepts/workloads/controllers/deployment/) est une ressource qui définit où et comment l'application doit être lancée.
 
 ### Mise en oeuvre
 
@@ -13,7 +13,7 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 * **Depends On**: Namespace
 * **Account**: default
 * **Override Namespace**: _Activé_
-* **Namepsace**: _USERNAME_`-draw-io-staging`
+* **Namepsace**: _USERNAME_`-drawio-staging`
 * **Manifest Source**: **Artifact**
 * **Manfest Artifact**: Deployment
 

@@ -14,7 +14,7 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 * **Depends On**: Namespace
 * **Account**: default
 * **Override Namespace**: _Activé_
-* **Namepsace**: _USERNAME_`-draw-io-staging`
+* **Namepsace**: _USERNAME_`-drawio-staging`
 * **Manifest Source**: **Artifact**
 * **Manfest Artifact**: Service
 
