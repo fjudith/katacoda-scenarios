@@ -9,13 +9,11 @@ Cliquer sur le bouton **Add stage**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
-Nom | Valeur
---- | -----
-**Type** | **Deploy (Manifest)**
-**Stage name** | `Service`{{copy}}
-**Depends On** | `Namespace`
-**Account** | `default`
-**Manifest Source** | **Artifact**
-**Manfest Artifact** | `Service`
+* **Type**: **Deploy (Manifest)**
+* **Stage name**: `Service`{{copy}}
+* **Depends On**: Namespace
+* **Account**: default
+* **Manifest Source**: **Artifact**
+* **Manfest Artifact**: Service
 
 Cliquer sur **Save Changes**.

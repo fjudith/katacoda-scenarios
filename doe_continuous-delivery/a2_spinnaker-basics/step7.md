@@ -10,13 +10,12 @@ Cliquer sur le bouton **Add stage**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
-Nom | Valeur
---- | -----
-Type | **Deploy (Manifest)**
-Stage name | `Ingress`{{copy}}
-Account | `default`
-Depends On | `Service`, `Deployment`
-Manifest Source | Text
+
+* **Type**: **Deploy (Manifest)**
+* **Stage name**: `Ingress`{{copy}}
+* **Account**: default
+* **Depends On**: Service + Deployment
+* **Manifest Source**: Text
 
 Coller, puis modifier la déclaration YAML suivante dans la zone de texte **Manifest**.
 

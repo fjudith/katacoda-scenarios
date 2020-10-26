@@ -8,12 +8,10 @@ Cliquer sur le bouton **Add stage**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
-Nom | Valeur
---- | -----
-Type | **Deploy (Manifest)**
-Stage name | `Namespace`{{copy}}
-Account | default
-Manifest Source | Text
+* **Type**: **Deploy (Manifest)**
+* **Stage name**: `Namespace`{{copy}}
+* **Account**: default
+* **Manifest Source**: Text
 
 Coller, puis modifier la déclaration YAML suivante dans la zone de texte **Manifest**.
 

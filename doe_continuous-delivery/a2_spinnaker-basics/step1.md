@@ -13,13 +13,11 @@ Cliquer sur le bouton **Action**, puis selectionner **Create Application**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
-Champ | Valeure
---- | ---
-**Name** | _USERNAME_`-drawio`
-**Owner Email** | _Votre adresse email_
-**Repo Type** | `Github`{{copy}}
-**Repo Project** | `fjudith`{{copy}}
-**Repo Name** | `docker-draw.io`{{copy}}
-**Descripton** | `Draw.io continuous deployment`{{copy}}
+* **Name**: _USERNAME_`-drawio`
+* **Owner Email**: _Votre adresse email_
+* **Repo Type**: `Github`{{copy}}
+* **Repo Project**: `fjudith`{{copy}}
+* **Repo Name**: `docker-draw.io`{{copy}}
+* **Descripton**: `Draw.io continuous delivery`{{copy}}
 
 Cliquer sur le bouton **Create**.

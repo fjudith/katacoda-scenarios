@@ -1,6 +1,7 @@
 ## Création du pipeline
 
-Sélectionner **PIPELINES** dans la barre de menu, puis cliquer sur **Configure New Pipeline**.
+Dans la barre latérale gauche, sélectionner **PIPELINES** puis cliquer sur **Configure New Pipeline**.
+
 Compléter le formulaire tels qu'indiquer ci-dessous:
 
 * **Type**: Pipeline
