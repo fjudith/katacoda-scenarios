@@ -1,0 +1,29 @@
+## Chargement du Pipeline.
+
+> **Note**
+> Les images sur envoyée dans le registre Docker Hub <https://hub.docker.com/r/testruction>.
+
+Intialisé la variable d'environnement contenant votre prénom et nom
+
+```bash
+USERNAME="prenom-nom"
+````{{copy}}
+
+Exécuter la commande suivante pour charger la configuration du pipeline dans le serveur Concourse
+
+```bash
+fly -t concourse set-pipeline --config './concourse.yaml' --pipeline "${USERNAME}-draw.io" -v 'registry-email=admin@example.com' -v 'registry-username=testruction' -v 'registry-password=T3structi0n' -v 'registry-repo=testruction'
+```{{execute}}
+
+### Lancement du pipeline
+
+Le pipleline d'intégration peut être soumis de 2 manière.
+
+1. Manuellement depuis l'interface Web <https://ci.testruction.io>, puis en cliquant sur le bouton **Play**.
+2. Depuis la ligne de commande:
+
+```bash
+fly -t concourse unpause-pipeline -p "${USERNAME}-draw.io
+```
+
+> Le processus d'intégration dure environ **15 minutes**.

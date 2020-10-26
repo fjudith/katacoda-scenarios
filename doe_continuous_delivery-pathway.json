@@ -1,0 +1,11 @@
+{
+  "title": "DOE: Continuous Delivery",
+  "description": "DOE-CD exercices",
+  "courses": [
+    {
+      "course_id": "a1_continuous-integration-concourse",
+      "title": "Continous Integration using Concourse",
+      "description": "Build draw.io using Concourse and Docker"
+    }
+  ]
+}
