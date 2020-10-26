@@ -8,11 +8,12 @@ Cliquer sur le bouton **Add stage**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
-
 * **Type**: **Deploy (Manifest)**
 * **Stage name**: `Deployment`{{copy}}
 * **Depends On**: Namespace
 * **Account**: default
+* **Override Namespace**: _Activé_
+* **Namepsace**: _USERNAME_`-draw-io-staging`
 * **Manifest Source**: **Artifact**
 * **Manfest Artifact**: Deployment
 

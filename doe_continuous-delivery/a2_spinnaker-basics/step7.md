@@ -13,11 +13,13 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 
 * **Type**: **Deploy (Manifest)**
 * **Stage name**: `Ingress`{{copy}}
-* **Account**: default
 * **Depends On**: Service + Deployment
+* **Account**: default
+* **Override Namespace**: _Activé_
+* **Namepsace**: _USERNAME_`-draw-io-staging`
 * **Manifest Source**: Text
 
-Coller, puis modifier la déclaration YAML suivante dans la zone de texte **Manifest**.
+Coller, puis _modifier_ la déclaration YAML suivante dans la zone de texte **Manifest**.
 
 ```yaml
 apiVersion: networking.k8s.io/v1

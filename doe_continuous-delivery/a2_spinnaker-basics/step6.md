@@ -13,7 +13,10 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 * **Stage name**: `Service`{{copy}}
 * **Depends On**: Namespace
 * **Account**: default
+* **Override Namespace**: _Activé_
+* **Namepsace**: _USERNAME_`-draw-io-staging`
 * **Manifest Source**: **Artifact**
 * **Manfest Artifact**: Service
+
 
 Cliquer sur **Save Changes**.

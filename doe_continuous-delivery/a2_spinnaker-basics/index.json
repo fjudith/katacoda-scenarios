@@ -1,6 +1,6 @@
 {
     "title": "Spinnaker",
-    "description": "Création d'un pipeline de déploiement continue dans Spinnaker (Non-production)",
+    "description": "Création d'un pipeline de livraison continue dans Spinnaker (Non-production)",
     "difficulty": "easy",
     "time": "30 minutes",
     "details": {
