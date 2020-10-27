@@ -67,9 +67,12 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: drawio
-          servicePort: 8080
+          service:
+            name: drawio
+            port:
+              number: 8080
         path: /
+        pathType: Prefix
   tls:
   - hosts:
     - jane-doe-draw-staging.testruction.io
