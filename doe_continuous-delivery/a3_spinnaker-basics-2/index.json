@@ -48,11 +48,8 @@
         }
     },
     "environment": {
-        "showvisualise": true,
-        "showdashboard": true,
-        "dashboards": [
-            {"name": "Concourse", "href": "https://ci.testruction.io"}
-        ],
+        "showvisualise": false,
+        "showdashboard": false,
         "hideintro": false,
         "uilayout": "terminal-iframe"
       },

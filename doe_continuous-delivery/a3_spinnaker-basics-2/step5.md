@@ -10,5 +10,6 @@ Modifier le formulaire tels qu'indiqué ci-dessous:
 
 * **Override Namespace**: _Activé_
 * **Namepsace**: _USERNAME_`-drawio`
+* **Manfest Artifact**: Deployment
 
 Cliquer sur le bouton **Save Changes**.
