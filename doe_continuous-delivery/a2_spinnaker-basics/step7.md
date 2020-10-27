@@ -37,9 +37,11 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: drawio
-          servicePort: 8080
+          service:
+          name: drawio
+          port: 8080
         path: /
+        pathType: Prefix
   tls:
   - hosts:
     - USERNAME-draw-staging.testruction.io
