@@ -38,8 +38,9 @@ spec:
       paths:
       - backend:
           service:
-          name: drawio
-          port: 8080
+            name: drawio
+            port:
+              number: 8080
         path: /
         pathType: Prefix
   tls:
