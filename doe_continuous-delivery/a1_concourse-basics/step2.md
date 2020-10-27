@@ -11,8 +11,10 @@ USERNAME="prenom-nom"
 
 Exécuter la commande suivante pour charger la configuration du pipeline dans le serveur Concourse
 
+> Note: Remplacer le mot de passe **[[PASSWORD]]**, par celui fournie par l'instructeur
+
 ```bash
-fly -t concourse set-pipeline --config './concourse.yaml' --pipeline "${USERNAME}-draw.io" -v 'registry-email=admin@example.com' -v 'registry-username=testruction' -v 'registry-password=T3structi0n' -v 'registry-repo=testruction'
+fly -t concourse set-pipeline --config './concourse.yaml' --pipeline "${USERNAME}-draw.io" -v 'registry-email=admin@example.com' -v 'registry-username=T3struct10n' -v 'registry-password=[[PASSWORD]]' -v 'registry-repo=testruction'
 ```{{execute}}
 
 ### Lancement du pipeline
