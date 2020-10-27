@@ -6,7 +6,7 @@ Une fois le pipeline terminé, se rendre sur https://hub.docker.com/r/testructio
 Cliquer sur le bouton **Sign In**, puis entrer le compte suivant:
 
 * Username: `testruction`
-* Password: `T3structi0n`
+* Password: `[[PASSWORD]]`
 
 Sélectionner votre projet (i.e "${USERNAME}-draw.io"), puis consulter les images crées depuis l'onglet **Tags**.
 Valider que deux images sont présentes:
