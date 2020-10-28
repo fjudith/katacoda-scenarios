@@ -1,4 +1,4 @@
-# Install Argo
+# Configure Argo
 
 [Argo](https://argoproj.github.io/projects/argo) can be installed using either [Helm](https://github.com/argoproj/argo-helm), [Kustomize](https://github.com/argoproj/argo/tree/stable/manifests) and straight forward [kubectl](https://github.com/argoproj/argo/tree/stable/manifests).
 
@@ -28,16 +28,4 @@ artifactRepository:
       key: "secretkey"
     insecure: "true"
 EOF
-```{{execute}}
-
-* Add Argo's Helm charts repository:
-
-`helm repo add argo https://argoproj.github.io/argo-helm`{{execute}}
-
-* Deploy Argo components:
-
-```bash
-helm upgrade --install argo --namespace argo \
---values values.yaml \
-"argo/argo" --wait --timeout 5m
 ```{{execute}}

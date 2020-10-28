@@ -18,21 +18,22 @@ curl -fsSL -o ${PWD}/get_helm.sh https://raw.githubusercontent.com/helm/helm/mas
 chmod +x ${PWD}/get_helm.sh && \
 ${PWD}/get_helm.sh
 
-## OpenEBS
-kubectl create ns openebs && \
-helm repo add openebs https://openebs.github.io/charts && \
-helm repo update && \
-helm install --namespace openebs openebs openebs/openebs --wait && \
-kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
-
-kubectl wait --for=condition="Ready" -n openebs pod -l component=localpv-provisioner
-
 ## Contour
 kubectl label node $(hostname) ingress-ready="true"
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 
 kubectl wait --for=condition="Ready" -n projectcontour pod -l app=envoy
+
+## OpenEBS
+kubectl create ns openebs && \
+helm repo add openebs https://openebs.github.io/charts && \
+helm repo update && \
+helm upgrade --install openebs --namespace openebs openebs/openebs --wait && \
+
+kubectl wait --for=condition="Ready" -n openebs pod -l component=localpv-provisioner
+
+kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
 ## Minio Client
 MINIO_CLIENT_VERSION="RELEASE.2020-10-03T02-54-56Z"

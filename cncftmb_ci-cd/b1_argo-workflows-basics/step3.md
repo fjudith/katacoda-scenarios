@@ -1,22 +1,13 @@
-# Step 3 - Manage Locust load
+# Install Argo
 
-## Reduce the load
+* Add Argo's Helm charts repository:
 
-* Select the **Load generator** tab.
-* In the top bar, click on **Edit** and full-fill the form with the following parameters.
-  * **Number of total users to simulate**: `1500`{{ copy }}
-  * **Spawn rate**: `100`{{ copy }}
-* Click on the **Start swarming** button
-* In the menu bar, select **Charts** to visualise the load progression.
+`helm repo add argo https://argoproj.github.io/argo-helm`{{execute}}
 
-The amount of failure effectively falls arount 2000 rps.
+* Deploy Argo components:
 
-## Restore the peak load
-
-* In the top bar, click on **Edit** and full-fill the form with the following parameters.
-  * **Number of total users to simulate**: `4500`{{ copy }}
-  * **Spawn rate**: `100`{{ copy }}
-* Click on the **Start swarming** button
-* In the menu bar, select **Charts** to visualise the load progression.
-
-The amout of failures raise again.
+```bash
+helm upgrade --install argo --namespace argo \
+--values values.yaml \
+"argo/argo" --wait --timeout 5m
+```{{execute}}
