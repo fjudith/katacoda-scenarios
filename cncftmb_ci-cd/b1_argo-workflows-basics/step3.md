@@ -2,7 +2,9 @@
 
 * Add Argo's Helm charts repository:
 
-`helm repo add argo https://argoproj.github.io/argo-helm`{{execute}}
+````bash
+helm repo add argo https://argoproj.github.io/argo-helm
+```{{execute}}
 
 * Deploy Argo components:
 
@@ -14,8 +16,12 @@ helm upgrade --install argo --namespace argo \
 
 * Deploy the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to access the Web UI.
 
-`kubectl apply -f argo-ingress.yaml
+```
+kubectl apply -f argo-ingress.yaml
+```
 
 * Check the Argo deployment:
 
-`kubectl -n argo get pods,service,configmap,ingress`{{execute}}
+```bash
+kubectl -n argo get pods,service,configmap,ingress
+```{{execute}}

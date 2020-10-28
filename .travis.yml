@@ -1,6 +1,7 @@
 env:
-  - PATHWAY=doe_continuous-delivery
+  - PATHWAY=cncftmb_ci-cd
   - PATHWAY=cncftme_service-proxy-discovery-mesh
+  - PATHWAY=doe_continuous-delivery
   - PATHWAY=hsa_hyperledger-sawtooth-install
   - PATHWAY=hsb_hyperledger-sawtooth-configuration
   - PATHWAY=hsc_hyperledger-sawtooth-security

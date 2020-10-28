@@ -23,7 +23,7 @@ kubectl label node $(hostname) ingress-ready="true" --overwrite
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 
-kubectl wait --for=condition="Ready" -n projectcontour pod -l app=envoy --timeout "2m"
+kubectl wait --for=condition="Ready" -n projectcontour pod -l app=envoy --timeout "5m"
 
 ## OpenEBS
 kubectl create ns openebs && \
@@ -31,7 +31,7 @@ helm repo add openebs https://openebs.github.io/charts && \
 helm repo update && \
 helm upgrade --install openebs --namespace openebs openebs/openebs --wait && \
 
-kubectl wait --for=condition="Ready" -n openebs pod -l component=localpv-provisioner
+kubectl wait --for=condition="Ready" -n openebs pod -l component=localpv-provisioner --timeout "5m"
 
 kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 

@@ -24,7 +24,7 @@ helm upgrade --install minio --namespace argo \
 --set secretKey="P4ssw0rd" \
 --set ingress.enabled="true" \
 --set ingress.path="/minio" \
---set ingress.host="" \
+--set ingress.hosts[0]="" \
 --set defaultBucket.enabled="true" \
 --set defaultBucket.name="argo" \
 --set resources.requests.memory="500m" \

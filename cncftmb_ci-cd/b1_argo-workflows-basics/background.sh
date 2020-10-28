@@ -10,8 +10,7 @@ wait_file() {
 }
 
 wait_file /usr/local/bin/deploy.sh
-wait_file /root/bookinfo-ingress.yaml
-wait_file /root/kiali-ingress.yaml
+wait_file /root/argo-ingress.yaml
 
 echo "done" >> /root/katacoda-finished
 
