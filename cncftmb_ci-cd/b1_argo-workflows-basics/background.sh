@@ -10,6 +10,7 @@ wait_file() {
 }
 
 wait_file /usr/local/bin/deploy.sh
+wait_file /root/docker-compose.yaml
 wait_file /root/argo-ingress.yaml
 
 echo "done" >> /root/katacoda-finished

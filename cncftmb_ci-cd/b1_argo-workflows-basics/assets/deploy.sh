@@ -35,10 +35,9 @@ kubectl wait --for=condition="Ready" -n openebs pod -l component=localpv-provisi
 
 kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 
-## Minio Client
-MINIO_CLIENT_VERSION="RELEASE.2020-10-03T02-54-56Z"
-MINIO_CLIENT_SHA256="59e184bd4e2c3a8a19837b0f0da3977bd4e301495a24e4a5d50e291728a1de51"
-
-curl -L https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MINIO_CLIENT_VERSION} -o /usr/local/bin/mc && \
-echo "${MINIO_CLIENT_SHA256} /usr/local/bin/mc | sha256sum --check" && \
-chmod +x /usr/local/bin/mc
+## Argo tools
+cd /root/ && \
+/usr/local/bin/docker-compose pull && \
+/usr/local/bin/docker-compose up -d && \
+alias mc="docker exec argo-tools mc"
+alias argo="docker exec argo-tools argo"
