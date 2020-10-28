@@ -1,6 +1,6 @@
 {
-  "title": "CNCF Trailmap: Service Proxy, Discovery, & Mesh",
-  "description": "CNCF Trailmap: step 5",
+  "title": "CNCF Trailmap: Stage 5",
+  "description": "Service Proxy, Discovery, & Mesh",
   "courses": [
     {
       "course_id": "e5_istio-kiali",

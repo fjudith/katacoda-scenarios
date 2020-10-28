@@ -1,6 +1,6 @@
 {
-  "title": "CNCF Trailmap: CI/CD",
-  "description": "CNCF Trailmap: step 2",
+  "title": "CNCF Trailmap: Stage 2",
+  "description": "CI/CD",
   "courses": [
     {
       "course_id": "b1_argo-workflows-basics",
