@@ -28,5 +28,5 @@ helm upgrade --install minio --namespace argo \
 --set defaultBucket.name="bucket" \
 --set resources.requests.memory="500m" \
 --set persistence.size="5Gi" \
-minio/minio --wait
+minio/minio --wait --timeout 5m
 ```{{execute}}
