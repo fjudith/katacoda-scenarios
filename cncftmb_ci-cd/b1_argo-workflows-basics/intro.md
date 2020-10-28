@@ -14,7 +14,7 @@ By the end of this exercise you should be able to:
 
 * Run [Minio](https://min.io) object storage.
 * Run [Argo](https://argoproj.github.io/projects/argo) services.
-* Submit a simple worflow using Argo CLI.
+* Submit a simple workflow using Argo CLI.
 * Observe workflow execution usign the Argo UI.
 
 ## Environment
