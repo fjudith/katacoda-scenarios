@@ -15,8 +15,8 @@ Run the following commands to run the Minio server **in the same location** as t
 `helm repo add minio https://helm.min.io`{{execute}}
 
 * Deploy the Minio storage server with the following configuration:
-  * **Access key**: `argo`
-  * **Secret Key**: `P4ssw0rd`
+  * **Access key**: `argo`{{copy}}
+  * **Secret Key**: `P4ssw0rd`{{copy}}
 
 ```bash
 helm upgrade --install minio --namespace argo \
@@ -24,9 +24,9 @@ helm upgrade --install minio --namespace argo \
 --set secretKey="P4ssw0rd" \
 --set ingress.enabled="true" \
 --set ingress.path="/minio" \
---set ingress.host[0]="*" \
+--set ingress.host="" \
 --set defaultBucket.enabled="true" \
---set defaultBucket.name="bucket" \
+--set defaultBucket.name="argo" \
 --set resources.requests.memory="500m" \
 --set persistence.size="5Gi" \
 minio/minio --wait --timeout 5m
