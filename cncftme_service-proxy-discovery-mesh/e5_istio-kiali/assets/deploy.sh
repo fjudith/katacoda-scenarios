@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -e
+
+until kubectl get node controlplane; do printf '.' && sleep 5 ; done && \
+kubectl wait node/controlplane --for=condition=Ready --timeout "2m"
+
+until kubectl get node node01; do printf '.' && sleep 5 ; done && \
+kubectl wait node/node01 --for=condition=Ready --timeout "2m"
+
 cd /root
 
 # httpie
