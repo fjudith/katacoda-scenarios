@@ -8,6 +8,14 @@
 
 ```bash
 helm upgrade --install argo --namespace argo \
---values values.yaml \
+--values ./values.yaml \
 "argo/argo" --wait --timeout 5m
 ```{{execute}}
+
+* Deploy the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to access the Web UI.
+
+`kubectl apply -f argo-ingress.yaml
+
+* Check the Argo deployment:
+
+`kubectl -n argo get pods,service,configmap,ingress`{{execute}}

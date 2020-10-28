@@ -12,11 +12,8 @@ We will leverage the [Helm](https://github.com/argoproj/argo-helm) method as we 
 
 ```bash
 cat << EOF > values.yaml
-image:
+images:
   tag: v2.11.6
-server:
-  ingress:
-    enabled: "true"
 artifactRepository:
   archiveLogs: true
   s3:
@@ -26,6 +23,6 @@ artifactRepository:
       key: "accesskey"
     secretKeySecret:
       key: "secretkey"
-    insecure: "true"
+    insecure: true
 EOF
 ```{{execute}}
