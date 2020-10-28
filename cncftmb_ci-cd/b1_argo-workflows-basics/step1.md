@@ -6,16 +6,17 @@ Before installing the Argo component, it is recommended to already have an objec
 
 Run the following commands to run the Minio server **in the same location** as the Argo components. 
 
-* Create the Arog Namespace:
+* Create the Argo Namespace:
 
 `kubectl create namespace argo`{{execute}}
 
-* Add the Minio's Helm charts repository:
+* Add Minio's Helm charts repository:
 
 `helm repo add minio https://helm.min.io`{{execute}}
 
 * Deploy the Minio storage server with the following configuration:
-  * **Access key**: argo
+  * **Access key**: `argo`
+  * **Secret Key**: `P4ssw0rd`
 
 ```bash
 helm upgrade --install minio --namespace argo \
@@ -29,4 +30,3 @@ helm upgrade --install minio --namespace argo \
 --set persistence.size="5Gi" \
 minio/minio --wait
 ```{{execute}}
-

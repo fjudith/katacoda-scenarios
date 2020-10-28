@@ -6,13 +6,14 @@ Popular use cases of [Argo](https://argoproj.github.io/projects/argo) includes:
 
 * Continous Integration
 * Machine learning pipelines
-* Sheduled batch jobs
+* Reproducable batch scheduling
 
 ## Learning objective
 
 By the end of this exercise you should be able to:
 
-* Install [Argo Workflows](https://argoproj.github.io/projects/argo) using Helm 3.
+* Run [Minio](https://min.io) object storage.
+* Run [Argo](https://argoproj.github.io/projects/argo) services.
 * Submit a simple worflow using Argo CLI.
 * Observe workflow execution usign the Argo UI.
 
