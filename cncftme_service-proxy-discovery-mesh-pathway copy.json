@@ -1,0 +1,11 @@
+{
+  "title": "CNCF Trailmap: CI/CD",
+  "description": "CNCF Trailmap: step 2",
+  "courses": [
+    {
+      "course_id": "b1_argo-workflows-basics",
+      "title": "Argo basics",
+      "description": "Cloud native workflow automation using Argo"
+    }
+  ]
+}
