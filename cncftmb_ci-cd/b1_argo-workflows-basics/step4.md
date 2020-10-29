@@ -5,7 +5,7 @@
 * Submit a simple workflow:
 
 ```bash
-argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examples/nested-workflow.yaml --wait
+argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examples/nested-workflow.yaml --watch
 ```{{execute}}
 
 * Check the **Argo** tab to monitor the execution
@@ -15,5 +15,5 @@ argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examp
 * Submit the workflow to compare Gzip, Zip, and 7zip compression performances.
 
 ```bash
-argo submit -n argo compression-workflow --wait
+argo submit -n argo compression-workflow --watch
 ```{{execute}}

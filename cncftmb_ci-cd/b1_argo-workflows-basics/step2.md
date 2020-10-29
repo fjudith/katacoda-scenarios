@@ -19,7 +19,7 @@ useStaticCredentials: True
 artifactRepository:
   archiveLogs: true
   s3:
-    endpoint: "http://minio.argo:9000"
+    endpoint: "minio.argo:9000"
     bucket: "argo"
     accessKeySecret:
       name: minio
