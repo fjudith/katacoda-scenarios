@@ -16,4 +16,4 @@ services:
       - /run/lock
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      - /root/.kube/config:/root/.kube/config
+      - /root:/root
