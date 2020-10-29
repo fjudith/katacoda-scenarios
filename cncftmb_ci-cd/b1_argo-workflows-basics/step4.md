@@ -1,17 +1,19 @@
-# Step 4 - Submit workflow
+# Step 4 - Submit workflows
 
-The known max amount of simultanous user is 2000.
-Therefore increasing the number of replica of the `productpage` deployment should resolve the issue.
+## Simple DAG workflow 
 
-* **Open a new terminal** tab, then run the following command.
+* Submit a simple workflow:
 
 ```bash
-kubectl scale deployment productpage-v1 --replicas 3
-```{{ execute }}
+argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examples/nested-workflow.yaml --wait
+```{{execute}}
 
-## Check Kiali
+* Check the **Argo** tab to monitor the execution
 
-* Select the **Kiali** tab.
+## Workflow with artifact exchanges
 
-The failure should now affect the `reviews` microservice.
-**But wait** some times for the traffic to stabilize.
+* Submit the workflow to compare Gzip, Zip, and 7zip compression performances.
+
+```bash
+argo submit -n argo compression-workflow --wait
+```{{execute}}

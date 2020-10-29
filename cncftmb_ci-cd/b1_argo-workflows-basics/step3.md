@@ -25,3 +25,12 @@ kubectl apply -f argo-ingress.yaml
 ```bash
 kubectl -n argo get pods,service,configmap,ingress
 ```{{execute}}
+
+> To accelerate the deployment the required CLI were downloaded using a dedicated container
+
+* Create CLI aliases:
+
+```bash
+alias mc="docker exec argo-tools mc" && \
+alias argo="docker exec argo-tools argo"
+```{{execute}}

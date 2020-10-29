@@ -14,14 +14,18 @@ We will leverage the [Helm](https://github.com/argoproj/argo-helm) method as we 
 cat << EOF > values.yaml
 images:
   tag: v2.11.6
+useDefaultArtifactRepo: True
+useStaticCredentials: True
 artifactRepository:
   archiveLogs: true
   s3:
     endpoint: "http://minio.argo:9000"
     bucket: "argo"
     accessKeySecret:
+      name: minio
       key: "accesskey"
     secretKeySecret:
+      name: minio
       key: "secretkey"
     insecure: true
 EOF
