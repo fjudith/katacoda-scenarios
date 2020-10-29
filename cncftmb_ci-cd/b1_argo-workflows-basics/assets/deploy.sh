@@ -19,14 +19,16 @@ chmod +x ${PWD}/get_helm.sh && \
 ${PWD}/get_helm.sh
 
 ## Contour
+sleep 3 && \
 kubectl label node $(hostname) ingress-ready="true" --overwrite
 kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
 kubectl patch daemonsets -n projectcontour envoy -p '{"spec":{"template":{"spec":{"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
 
-kubectl wait --for=condition="Ready" -n projectcontour pod -l app=envoy --timeout "5m"
+# kubectl wait --for=condition="Ready" -n projectcontour pod -l app=envoy --timeout "5m"
 
 ## OpenEBS
-kubectl create ns openebs && \
+sleep 3 && \
+kubectl create namespace openebs && \
 helm repo add openebs https://openebs.github.io/charts && \
 helm repo update && \
 helm upgrade --install openebs --namespace openebs openebs/openebs --wait && \
@@ -39,5 +41,5 @@ kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"st
 cd /root/ && \
 /usr/local/bin/docker-compose pull && \
 /usr/local/bin/docker-compose up -d && \
-alias mc="docker exec argo-tools mc"
+alias mc="docker exec argo-tools mc" && \
 alias argo="docker exec argo-tools argo"

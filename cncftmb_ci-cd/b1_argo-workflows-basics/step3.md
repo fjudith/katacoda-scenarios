@@ -16,9 +16,9 @@ helm upgrade --install argo --namespace argo \
 
 * Deploy the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource to access the Web UI.
 
-```
+```bash
 kubectl apply -f argo-ingress.yaml
-```
+```{{execute}}
 
 * Check the Argo deployment:
 

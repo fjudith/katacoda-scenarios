@@ -1,0 +1,228 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: compression-benchmark-
+  labels:
+    workflows.argoproj.io/archive-strategy: "always"
+spec:
+  entrypoint: diamond
+  templates:
+  - name: diamond
+    dag:
+      tasks:
+      - name: download
+        template: download-json
+        
+      - name: zip
+        dependencies: [download]
+        template: zip-json
+        arguments:
+          artifacts:
+            - name: zip-json-in-artifact
+              from: "{{tasks.download.outputs.artifacts.out-artifact}}"
+
+      - name: tar
+        dependencies: [download]
+        template: tar-json
+        arguments:
+          artifacts:
+            - name: tar-json-in-artifact
+              from: "{{tasks.download.outputs.artifacts.out-artifact}}"
+      
+      - name: sevenZip
+        dependencies: [download]
+        template: sevenZip-json
+        arguments:
+          artifacts:
+            - name: sevenZip-json-in-artifact
+              from: "{{tasks.download.outputs.artifacts.out-artifact}}"
+
+      - name: unzip
+        dependencies: [zip]
+        template: unzip-json
+        arguments:
+          artifacts:
+            - name: unzip-json-in-artifact
+              from: "{{tasks.zip.outputs.artifacts.out-artifact}}"
+
+      - name: untar
+        dependencies: [tar]
+        template: untar-json
+        arguments:
+          artifacts:
+            - name: untar-json-in-artifact
+              from: "{{tasks.tar.outputs.artifacts.out-artifact}}"
+
+      - name: unsevenZip
+        dependencies: [sevenZip]
+        template: unsevenZip-json
+        arguments:
+          artifacts:
+            - name: unsevenZip-json-in-artifact
+              from: "{{tasks.sevenZip.outputs.artifacts.out-artifact}}"
+
+      - name: check
+        dependencies: [unzip, untar, unsevenZip]
+        template: check-size
+        arguments:
+          artifacts:
+            - name: untar-json-in-artifact
+              from: "{{tasks.tar.outputs.artifacts.out-artifact}}"
+            - name: unzip-json-in-artifact
+              from: "{{tasks.zip.outputs.artifacts.out-artifact}}"
+            - name: unsevenZip-json-in-artifact
+              from: "{{tasks.sevenZip.outputs.artifacts.out-artifact}}"
+
+  - name: download-json
+    serviceAccountName: default
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      command: ['wget']
+      args:
+      - "https://www.data.gouv.fr/fr/datasets/r/9681b2a4-6d87-4f2c-b6a2-8951d52080ab"
+      - "--output-document=/tmp/paris-metro-stations.json"
+    outputs:
+      artifacts:
+      - name: out-artifact
+        path: /tmp/paris-metro-stations.json
+  
+  - name: zip-json
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: zip-json-in-artifact
+        path: /tmp/paris-metro-stations.json
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      command: ["/bin/sh", "-c"]
+      args:
+      - > 
+        apk add --no-cache zip &&
+        zip
+        /tmp/paris-metro-stations.zip
+        /tmp/paris-metro-stations.json
+    outputs:
+      artifacts:
+      - name: out-artifact
+        path: /tmp/paris-metro-stations.zip
+
+  - name: tar-json
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: tar-json-in-artifact
+        path: /tmp/paris-metro-stations.json
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      command: ["tar"]
+      args:
+      - "-cvzf"
+      - "/tmp/paris-metro-stations.tar.gz"
+      - "/tmp/paris-metro-stations.json"
+    outputs:
+      artifacts:
+      - name: out-artifact
+        path: /tmp/paris-metro-stations.tar.gz
+    
+  - name: sevenZip-json
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: sevenZip-json-in-artifact
+        path: /tmp/paris-metro-stations.json
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      command: ["/bin/sh", "-c"]
+      args:
+      - >
+        apk add --no-cache p7zip &&
+        7z a
+        /tmp/paris-metro-stations.7z
+        /tmp/paris-metro-stations.json
+    outputs:
+      artifacts:
+      - name: out-artifact
+        path: /tmp/paris-metro-stations.7z
+  
+  - name: unzip-json
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: unzip-json-in-artifact
+        path: /tmp/dataset.zip
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      env:
+      - name: TARGET
+        value: '/var/lib/dataset'
+      command: ["/bin/sh", "-c"]
+      args:
+      - >
+        apk add --no-cache unzip &&
+        mkdir -p ${TARGET} &&
+        ls /tmp &&
+        unzip /tmp/dataset.zip -d ${TARGET} &&
+        ls -lh ${TARGET}
+
+  - name: untar-json
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: untar-json-in-artifact
+        path: /tmp/dataset.tar.gz
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      env:
+      - name: TARGET
+        value: '/var/lib/dataset'
+      command: ["/bin/sh", "-c"]
+      args:
+      - >
+        mkdir -p ${TARGET} &&
+        ls /tmp &&
+        tar -xvzf /tmp/dataset.tar.gz -C ${TARGET} &&
+        ls -lh ${TARGET}
+  
+  - name: unsevenZip-json
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: unsevenZip-json-in-artifact
+        path: /tmp/dataset.7z
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      env:
+      - name: TARGET
+        value: '/var/lib/dataset'
+      command: ["/bin/sh", "-c"]
+      args:
+      - >
+        apk add --no-cache p7zip &&
+        mkdir -p ${TARGET} &&
+        ls /tmp &&
+        7z e /tmp/dataset.7z -o${TARGET} &&
+        ls -lh ${TARGET}
+  
+  - name: check-size
+    serviceAccountName: default
+    inputs:
+      artifacts:
+      - name: untar-json-in-artifact
+        path: /tmp/dataset.tar.gz
+      - name: unzip-json-in-artifact
+        path: /tmp/dataset.zip
+    container:
+      image: docker.io/amd64/alpine:3
+      imagePullPolicy: Always
+      env:
+      - name: TARGET
+        value: '/var/lib/dataset'
+      command: ["ls", "-lh", "/tmp"]
+    

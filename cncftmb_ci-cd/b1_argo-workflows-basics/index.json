@@ -25,6 +25,7 @@
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "docker-compose.yaml", "target": "root/", "chmod": "+r"},
+                {"file": "compression-workflow.yaml", "target": "root/", "chmod": "+r"},
                 {"file": "argo-ingress.yaml", "target": "/root/", "chmod": "+r"}
             ]
         },
