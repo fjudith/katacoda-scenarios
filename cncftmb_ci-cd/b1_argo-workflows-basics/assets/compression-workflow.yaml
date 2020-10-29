@@ -218,6 +218,8 @@ spec:
         path: /tmp/dataset.tar.gz
       - name: unzip-json-in-artifact
         path: /tmp/dataset.zip
+      - name: unsevenzip-json-in-artifact
+        path: /tmp/dataset.7z
     container:
       image: docker.io/amd64/alpine:3
       imagePullPolicy: Always
