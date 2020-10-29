@@ -22,10 +22,12 @@ script: >-
     popd
   done
 after_success: >-
-  echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
-  for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
-   do 
-    pushd ${PATHWAY}/${SCENARIO}/assets/ && 
-    docker-compose push
-    popd
-  done
+  if [[ $TRAVIS_PULL_REQUEST != "false" ]]; then
+    echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin &&
+    for SCENARIO in $(cat ${PATHWAY}-pathway.json | jq -r .courses[].course_id);
+    do 
+      pushd ${PATHWAY}/${SCENARIO}/assets/ && 
+      docker-compose push
+      popd
+    done
+  fi
