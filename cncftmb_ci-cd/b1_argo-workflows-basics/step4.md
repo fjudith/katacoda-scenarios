@@ -15,5 +15,5 @@ argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examp
 * Submit the workflow to compare Gzip, Zip, and 7zip compression performances.
 
 ```bash
-argo submit -n argo compression-workflow.yaml --watch
+argo submit -n argo /root/compression-workflow.yaml --watch
 ```{{execute}}
