@@ -27,7 +27,7 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: contour
     kubernetes.io/tls-acme: "true"
   name: drawio
   namespace: drawio
