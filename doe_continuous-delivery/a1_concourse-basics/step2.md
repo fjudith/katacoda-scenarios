@@ -14,7 +14,7 @@ Exécuter la commande suivante pour charger la configuration du pipeline dans le
 > Note: Remplacer le mot de passe **[[PASSWORD]]**, par celui fournie par l'instructeur
 
 ```bash
-fly -t concourse set-pipeline --config './concourse.yaml' --pipeline "${USERNAME}-draw.io" -v 'registry-email=admin@example.com' -v 'registry-username=doe' -v 'registry-password=[[PASSWORD]]' -v 'registry-repo=doe' -v 'registry-repo=harbor.testruction.io/${USERNAME}'
+fly -t concourse set-pipeline --config './concourse.yaml' --pipeline "${USERNAME}-draw.io" -v 'registry-email=admin@example.com' -v 'registry-username=doe' -v 'registry-password=[[PASSWORD]]' -v 'registry-repo=harbor.testruction.io/${USERNAME}'
 ```{{copy}}
 
 ### Lancement du pipeline
