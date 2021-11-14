@@ -25,7 +25,7 @@ Le pipleline d'intégration peut être soumis de 2 manière.
 2. Depuis la ligne de commande:
 
 ```bash
-fly -t concourse unpause-pipeline -p "${USERNAME}-draw.io
+fly -t concourse unpause-pipeline -p "${USERNAME}-draw.io"
 ```{{execute}}
 
 > Le processus d'intégration dure environ **15 minutes**.
