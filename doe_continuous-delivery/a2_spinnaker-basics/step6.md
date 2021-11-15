@@ -1,22 +1,20 @@
-## Stage 3 - Service
+## Stage 2 - Deployment
 
-Par défaut, une application n'est pas joignable dans Kubernetes.
-Un [Service](https://kubernetes.io/docs/concepts/services-networking/service/) permet d'exposer le port d'écoute de l'application à l'intérieur du cluster.
+Le [Déploiement](https://kubernetes.io/fr/docs/concepts/workloads/controllers/deployment/) est une ressource qui définit où et comment l'application doit être lancée.
 
-Dans le shéma du pipeline, sélectionner **Namespace**.
+### Mise en oeuvre
 
 Cliquer sur le bouton **Add stage**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
 * **Type**: **Deploy (Manifest)**
-* **Stage name**: `Service`{{copy}}
+* **Stage name**: `Deployment`{{copy}}
 * **Depends On**: Namespace
 * **Account**: default
 * **Override Namespace**: _Activé_
 * **Namepsace**: _USERNAME_`-drawio-staging`
 * **Manifest Source**: **Artifact**
-* **Manfest Artifact**: Service
+* **Manfest Artifact**: Deployment
 
-
-Cliquer sur **Save Changes**.
+Cliquer sur le bouton **Save Changes**.

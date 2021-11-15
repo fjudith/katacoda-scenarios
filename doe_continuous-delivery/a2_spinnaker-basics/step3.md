@@ -1,4 +1,4 @@
-## Configuration
+## Déclencheur Git
 
 Dans le schéma du pipeline, sélectionner **Configuration**.
 
@@ -13,13 +13,15 @@ Compléter le formulaire tel qu'indiqué ci-dessous:
 * **Branch**: `onepoint`{{copy}}
 * **Secret**: `spinnaker`{{copy}}
 
-## Configuration des artefacts
+Cliquer sur le bouton **Save Artifact**.
 
-Les contraintes sur la base d'artefacts sécuriser le pipeline Spinnake, en ne le lassant que où ils ont été modifiés.
+## Ajout des artefacts
+
+Les contraintes sur la base d'artefacts permettent sécuriser le pipeline Spinnaker, en ne le laissant que où ils ont été modifiés.
 
 ## Artefact 1
 
-Dans le champ **Artfactifacts Constraints**, sélectionner **"Define new artifact..."**.
+Dans le champ **Artifacts Constraints**, sélectionner **"Define new artifact..."**.
 
 Compléter le formulaire tel qu'indiqué ci-dessous:
 
