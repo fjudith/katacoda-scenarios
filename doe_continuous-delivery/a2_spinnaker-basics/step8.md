@@ -10,7 +10,7 @@ Cliquer sur le bouton **Add stage**
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
-> **Attention**: _USERNAME_ correspond à votre **`prénom-nom`**.
+> **Attention**: Remplacer _USERNAME_ par votre **`prénom-nom`**.
 
 * **Type**: **Deploy (Manifest)**
 * **Stage name**: `Ingress`{{copy}}

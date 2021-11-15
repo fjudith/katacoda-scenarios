@@ -23,11 +23,12 @@ Cliquer sur le bouton **Add Trigger**, puis compléter le formulaire tels qu'ind
 
 ## Configuration des artefacts
 
-Les contraintes sur la base d'artefacts sécuriser le pipeline Spinnake, en ne le lassant que où ils ont été modifiés.
+> **Rappel**:
+> Les contraintes sur la base d'artefacts permettent sécuriser le **Contrôle d'admission** du pipeline Spinnaker, afin qu'il ne réagisse qu'en cas de modification précise du code.
 
 ## Artefact 1
 
-Dans le champ **Artfactifacts Constraints**, sélectionner **"Define new artifact..."**.
+Dans le champ **Artifacts Constraints**, sélectionner **"Define new artifact..."**.
 
 Compléter le formulaire tel qu'indiqué ci-dessous:
 
@@ -40,7 +41,7 @@ Cliquer sur le bouton **Save Artifact**.
 
 ## Artefact 2
 
-Dans le champ **Artfactifacts Constraints**, sélectionner **"Define new artifact..."**.
+Dans le champ **Artifacts Constraints**, sélectionner **"Define new artifact..."**.
 
 Compléter le formulaire tel qu'indiqué ci-dessous:
 
@@ -52,3 +53,16 @@ Compléter le formulaire tel qu'indiqué ci-dessous:
 Cliquer sur le bouton **Save Artifact**.
 
 Cliquer sur **Save Changes**.
+
+## Artefact 3
+
+Dans le champ **Artifacts Constraints**, sélectionner **"Define new artifact..."**.
+
+Compléter le formulaire tel qu'indiqué ci-dessous:
+
+* **Display Name**: `Container`{{copy}}
+* **Account**: `docker-registry`
+* **Docker image**: `harbor.testruction.io/idir-tir/draw.io`{{copy}}
+* **Use prior execution**: _Activé_
+
+Cliquer sur le bouton **Save Artifact**.

@@ -17,7 +17,7 @@ Cliquer sur le bouton **Save Artifact**.
 
 ## Ajout des artefacts
 
-Les contraintes sur la base d'artefacts permettent sécuriser le pipeline Spinnaker, en ne le laissant que où ils ont été modifiés.
+Les contraintes sur la base d'artefacts permettent sécuriser le **Contrôle d'admission** du pipeline Spinnaker, afin qu'il ne réagisse qu'en cas de modification précise du code.
 
 ## Artefact 1
 

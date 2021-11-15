@@ -1,8 +1,13 @@
 # Introduction
 
-L'objectif de cet atelier est de créer une chaine qui déploie [Draw.io](https://draw.io) dans un cluster Kubernetes et l'exposera sur Internet avec les URL suivantes à l'aide du protocole HTTPS:
+L'objectif de cet atelier est de créer une chaine qui déploie [Draw.io](https://draw.io) dans un cluster Kubernetes, puis sur Internet avec les URL suivantes à l'aide du protocole HTTPS:
 
 * **Non-production**: `https://`_prenom-nom_`-staging.testruction.cio`
+
+L'atelier démontre la mise en pratique des concepts suivants:
+
+* **Réation aux événnement**: Arbitrer les déclenchement de la chaîne sur base de messages HTTP WebHook 
+* **Contrôle d'admission**: Réguler le flux de la chaîne de déploiement
 
 ## Spinnaker
 

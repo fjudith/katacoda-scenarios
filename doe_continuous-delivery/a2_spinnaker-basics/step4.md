@@ -6,8 +6,12 @@ Dans la section **Automated Triggers**, cliquer sur bouton **Add trigger**.
 
 Compléter le formulaire tel qu'indiqué ci-dessous:
 
-* **Type**: Webhook
-* **Source**: harbor
+> **Attention**: Remplacer _USERNAME_ par votre **`prénom-nom`**.
+
+* **Type**: Docker Registry
+* **Registry Name**: harbor
+* **Organization**: _USERNAME_
+* **Image**: _USERNAME_/draw.io
 
 Cliquer sur le bouton **Save Artifact**.
 

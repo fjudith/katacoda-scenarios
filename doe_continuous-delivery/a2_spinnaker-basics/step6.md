@@ -14,7 +14,42 @@ Compléter le formulaire tels qu'indiqué ci-dessous:
 * **Account**: default
 * **Override Namespace**: _Activé_
 * **Namepsace**: _USERNAME_`-drawio-staging`
-* **Manifest Source**: **Artifact**
-* **Manfest Artifact**: Deployment
+* **Required Artifact to Bind**: **container**
+* **Manifest Source**: Text
+
+Coller la déclaration YAML suivante dans la zone de texte **Manifest**.
+
+> **Attention**: Remplacer _USERNAME_ par votre **`prénom-nom`**.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drawio
+  namespace: drawio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: draw.io
+  template:
+    metadata:
+      labels:
+        app: draw.io
+    spec:
+      containers:
+        - image: harbor.testruction.io/USERNAME/draw.io
+          imagePullPolicy: IfNotPresent
+          name: drawio
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+          ports:
+            - containerPort: 8080
+```{{copy}}
 
 Cliquer sur le bouton **Save Changes**.
