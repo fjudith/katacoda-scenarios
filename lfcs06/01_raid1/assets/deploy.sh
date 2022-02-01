@@ -8,7 +8,7 @@ sudo mkdir -p /var/lib/devices
 
 DISK_AMOUNT=12
 
-for i in {1..${DISK_AMOUNT}}
+for i in $(sec 1 ${DISK_AMOUNT})
 do
     disk_id="$(printf "%03d" ${i})"
     # assume we have want to store our iscsi disk image
@@ -36,7 +36,7 @@ systemctl restart tgt
 # optionally, verify the target is working
 tgtadm --mode target --op show
 
-for i in {1..${DISK_AMOUNT}}
+for i in $(sec 1 ${DISK_AMOUNT})
 do
     disk_id="$(printf "%03d" ${i})"
     # configure iscsi initiator
