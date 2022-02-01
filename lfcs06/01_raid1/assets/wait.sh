@@ -40,14 +40,4 @@ show_progress()
   echo "Configured"
 }
 
-echo "Waiting for controlplane server boot"
-until kubectl get node controlplane > /dev/null 2>&1 ; do printf '.' && sleep 5 ; done && \
-echo " "
-kubectl wait node/controlplane --for=condition=Ready --timeout "2m"
-
-echo "Wait for node01 server boot"
-until kubectl get node node01 > /dev/null 2>&1 ; do printf '.' && sleep 5 ; done && \
-echo " "
-kubectl wait node/node01 --for=condition=Ready --timeout "2m"
-
 show_progress
