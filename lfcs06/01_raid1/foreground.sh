@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Deploying lab components: Helm, Contour, OpenEBS"
+echo "Initializing lab environment"
 
 sleep 2; wait.sh

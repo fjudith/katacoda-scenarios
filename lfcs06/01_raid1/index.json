@@ -1,6 +1,6 @@
 {
-    "title": "Raid 1",
-    "description": "Create a Raid 1 storage device using mdam",
+    "title": "Create and manage RAID devices",
+    "description": "Create and manage RAID devices using mdadm",
     "difficulty": "easy",
     "time": "10-20 minutes",
     "details": {
