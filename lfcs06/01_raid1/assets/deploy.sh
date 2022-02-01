@@ -14,7 +14,7 @@ do
     # assume we have want to store our iscsi disk image
     # at /var/lib/devices and use a 10G disk.
     # create the disk image
-    fallocate -l 100G /var/lib/devices/disk-${disk_id}.img
+    fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
 
     # configure iscsi tgt
     # we use CHAP authentication (bidirectional) and set the initiator 
