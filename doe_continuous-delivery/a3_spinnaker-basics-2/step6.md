@@ -1,15 +1,22 @@
-## Stage 2 - Deployment
+## Stage 3 - Service
 
-La configuration du stage [Service](https://kubernetes.io/docs/concepts/services-networking/service/) doit être modifiée afin de pointer vers l'environnement de production.
+Par défaut, une application n'est pas joignable dans Kubernetes.
+Un [Service](https://kubernetes.io/docs/concepts/services-networking/service/) permet d'exposer le port d'écoute de l'application à l'intérieur du cluster.
 
-### Mise en oeuvre
+Dans le shéma du pipeline, sélectionner **Namespace**.
 
-Dans le schéma du pipeline, sélectionner **Service**.
+Cliquer sur le bouton **Add stage**
 
-Modifier le formulaire tels qu'indiqué ci-dessous:
+Compléter le formulaire tels qu'indiqué ci-dessous:
 
+* **Type**: **Deploy (Manifest)**
+* **Stage name**: `Service`{{copy}}
+* **Depends On**: Namespace
+* **Account**: default
 * **Override Namespace**: _Activé_
 * **Namepsace**: _USERNAME_`-drawio`
+* **Manifest Source**: **Artifact**
 * **Manfest Artifact**: Service
 
-Cliquer sur le bouton **Save Changes**.
+
+Cliquer sur **Save Changes**.

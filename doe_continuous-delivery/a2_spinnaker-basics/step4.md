@@ -1,36 +1,33 @@
-## Stage 1 - Namespace
+## Déclencheur Docker Registry
 
-Le [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) est la zone dans laquelle l'application est déployée.
+Dans le schéma du pipeline, sélectionner **Configuration**.
 
-### Mise en oeuvre
+Dans la section **Automated Triggers**, cliquer sur bouton **Add trigger**.
 
-Cliquer sur le bouton **Add stage**
+Compléter le formulaire tel qu'indiqué ci-dessous:
 
-Compléter le formulaire tels qu'indiqué ci-dessous:
+> **Attention**: Remplacer _USERNAME_ par votre **`prénom-nom`**.
 
-* **Type**: **Deploy (Manifest)**
-* **Stage name**: `Namespace`{{copy}}
-* **Account**: default
-* **Override Namespace**: _Activé_
-* **Namepsace**: _USERNAME_`-drawio-staging`
-* **Manifest Source**: Text
+* **Type**: Docker Registry
+* **Registry Name**: harbor
+* **Organization**: _USERNAME_
+* **Image**: _USERNAME_/draw.io
 
-Coller, puis _modifier_ la déclaration YAML suivante dans la zone de texte **Manifest**.
+Cliquer sur le bouton **Save Artifact**.
 
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: USERNAME-drawio-staging
-```{{copy}}
+## Ajout des artefacts
 
-#### Exemple
+Ajouter la contrainte suivante permetttant de filter selon l'image de conteneur souhaitée.
 
-```text
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: jane-doe-drawio-staging
-```
+## Artefact 1
 
-Cliquer sur **Save Changes**.
+Dans le champ **Artifacts Constraints**, sélectionner **"Define new artifact..."**.
+
+Compléter le formulaire tel qu'indiqué ci-dessous:
+
+* **Display Name**: `Container`{{copy}}
+* **Account**: `docker-registry`
+* **Docker image**: `harbor.testruction.io/idir-tir/draw.io`{{copy}}
+* **Use prior execution**: _Activé_
+
+Cliquer sur le bouton **Save Artifact**.

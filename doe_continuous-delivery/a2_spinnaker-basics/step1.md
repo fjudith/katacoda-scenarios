@@ -9,7 +9,7 @@ le compte fournie par le formateur pour vous connecter.
 Cliquer sur le menu **Application** situé en haut de la fenêtre.
 Cliquer sur le bouton **Action**, puis selectionner **Create Application**
 
-> **Attention**: _USERNAME_ correspond à votre **`prénom-nom`**.
+> **Attention**: Remplacer _USERNAME_ par votre **`prénom-nom`**.
 
 Compléter le formulaire tels qu'indiqué ci-dessous:
 

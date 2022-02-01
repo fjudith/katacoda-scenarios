@@ -1,6 +1,6 @@
-## Stage 2 - Deployment
+## Stage 1 - Namespace
 
-Le [Déploiement](https://kubernetes.io/fr/docs/concepts/workloads/controllers/deployment/) est une ressource qui définit où et comment l'application doit être lancée.
+Le [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) est la zone dans laquelle l'application est déployée.
 
 ### Mise en oeuvre
 
@@ -9,12 +9,28 @@ Cliquer sur le bouton **Add stage**
 Compléter le formulaire tels qu'indiqué ci-dessous:
 
 * **Type**: **Deploy (Manifest)**
-* **Stage name**: `Deployment`{{copy}}
-* **Depends On**: Namespace
+* **Stage name**: `Namespace`{{copy}}
 * **Account**: default
 * **Override Namespace**: _Activé_
 * **Namepsace**: _USERNAME_`-drawio-staging`
-* **Manifest Source**: **Artifact**
-* **Manfest Artifact**: Deployment
+* **Manifest Source**: Text
 
-Cliquer sur le bouton **Save Changes**.
+Coller, puis _modifier_ la déclaration YAML suivante dans la zone de texte **Manifest**.
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: USERNAME-drawio-staging
+```{{copy}}
+
+#### Exemple
+
+```text
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jane-doe-drawio-staging
+```
+
+Cliquer sur **Save Changes**.
