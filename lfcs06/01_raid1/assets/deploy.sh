@@ -2,8 +2,9 @@
 set -e
 
 # install tgt and open-iscsi
-apt-get update -y && \
-apt-get install -y tgt open-iscsi
+sudo apt-get update -y && \
+sudo apt-get install -y tgt open-iscsi && \
+sudo mkdir -p /var/lib/devices
 
 disk_file=(disk-001.img disk-002.img)
 
