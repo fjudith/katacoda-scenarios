@@ -3,7 +3,7 @@ set -e
 
 # install tgt and open-iscsi
 sudo apt-get update -y && \
-sudo apt-get install -y sec tgt open-iscsi && \
+sudo apt-get install -y tgt open-iscsi && \
 sudo mkdir -p /var/lib/devices
 
 DISK_AMOUNT=12
