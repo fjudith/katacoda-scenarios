@@ -19,7 +19,7 @@ do
     # configure iscsi tgt
     # we use CHAP authentication (bidirectional) and set the initiator 
     # address to only allow localhost to enhance iscsi security
-    tee -a /etc/tgt/conf.d/katacoda_iscsi.conf > /dev/null <<EOF
+    cat <<EOF | tee -a /etc/tgt/conf.d/katacoda_iscsi.conf
 <target iqn.0000-00.node-001.local:katacoda>
   backing-store /var/lib/devices/disk-${disk_id}.img
   initiator-address 127.0.0.1
@@ -41,7 +41,7 @@ do
     disk_id="$(printf "%03d" ${i})"
     # configure iscsi initiator
     iscsiadm -m discovery -t st -p 127.0.0.1
-    tee -a /etc/iscsi/nodes/iqn.0000-00.node-${disk_id}.local\:katacoda/127.0.0.1\,3260\,1/default > /dev/null <<EOF
+    cat <<EOF | tee -a /etc/iscsi/nodes/iqn.0000-00.node-${disk_id}.local\:katacoda/127.0.0.1\,3260\,1/default
 node.session.auth.authmethod = CHAP
 node.session.auth.username = iscsi-user
 node.session.auth.password = random_password
