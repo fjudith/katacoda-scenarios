@@ -1,0 +1,11 @@
+{
+  "title": "LFCS: Stage 6",
+  "description": "Storage Management",
+  "courses": [
+    {
+      "course_id": "01_raid1",
+      "title": "Raid 1",
+      "description": "Create Raid 1 storage device using mdadm"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+    "title": "Raid 1",
+    "description": "Create a Raid 1 storage device using mdam",
+    "difficulty": "easy",
+    "time": "10-20 minutes",
+    "details": {
+        "steps": [
+            {
+                "text": "step1.md",
+                "courseData": "background.sh",
+                "code": "foreground.sh"
+            },
+            {
+                "text": "step2.md"
+            },
+            {
+                "text": "step3.md"
+            },
+            {
+                "text": "step4.md"
+            }
+        ],
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "compression-workflow.yaml", "target": "/root/", "chmod": "+r"},
+                {"file": "argo-ingress.yaml", "target": "/root/", "chmod": "+r"}
+            ]
+        },
+        "intro": {
+            "text": "intro.md"
+        },
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "showvisualise": false,
+        "showdashboard": true,
+        "dashboards": [
+            {"name": "Minio", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/minio"},
+            {"name": "Argo", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/"}
+        ],
+        "hideintro": false,
+        "uilayout": "terminal-iframe"
+      },
+      "backend": {
+        "imageid": "kubernetes-cluster-running:1.18"
+      }
+}
