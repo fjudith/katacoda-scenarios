@@ -23,10 +23,7 @@
         "assets": {
             "host01": [
                 {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-                {"file": "docker-compose.yaml", "target": "/root/", "chmod": "+r"},
-                {"file": "compression-workflow.yaml", "target": "/root/", "chmod": "+r"},
-                {"file": "argo-ingress.yaml", "target": "/root/", "chmod": "+r"}
+                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"}
             ]
         },
         "intro": {
@@ -39,14 +36,10 @@
     "environment": {
         "showvisualise": false,
         "showdashboard": true,
-        "dashboards": [
-            {"name": "Minio", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/minio"},
-            {"name": "Argo", "href": "https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/"}
-        ],
         "hideintro": false,
         "uilayout": "terminal-iframe"
       },
       "backend": {
-        "imageid": "kubernetes-cluster-running:1.18"
+        "imageid": "ubuntu"
       }
 }
