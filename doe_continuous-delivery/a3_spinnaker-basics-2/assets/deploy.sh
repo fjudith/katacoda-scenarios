@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd /root/
-/usr/local/bin/docker-compose pull
-/usr/local/bin/docker-compose up -d
+/usr/bin/docker-compose pull
+/usr/bin/docker-compose up -d

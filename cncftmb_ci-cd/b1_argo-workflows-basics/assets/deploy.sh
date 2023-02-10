@@ -40,7 +40,7 @@ kubectl patch storageclass openebs-hostpath -p '{"metadata": {"annotations":{"st
 
 ## Argo tools
 cd /root/ && \
-/usr/local/bin/docker-compose pull && \
-/usr/local/bin/docker-compose up -d && \
+/usr/bin/docker-compose pull && \
+/usr/bin/docker-compose up -d && \
 alias mc="docker exec argo-tools mc" && \
 alias argo="docker exec argo-tools argo"
