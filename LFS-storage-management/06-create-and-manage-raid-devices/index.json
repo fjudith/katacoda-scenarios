@@ -5,26 +5,26 @@
     "time": "10-20 minutes",
     "details": {
         "intro": {
-            "text": "intro.md"
+            "text": "intro/README.md",
+            "foreground": "intro/foreground.sh",
+            "background": "intro/background.sh"
         },
         "steps": [
             {
-                "text": "step1.md",
-                "courseData": "background.sh",
-                "code": "foreground.sh"
+                "text": "step1/README.md"
             },
             {
-                "text": "step2.md"
+                "text": "step2/README.md"
             },
             {
-                "text": "step3.md"
+                "text": "step3/README.md"
             },
             {
-                "text": "step4.md"
+                "text": "step4/README.md"
             }
         ],
         "finish": {
-            "text": "finish.md"
+            "text": "finish/README.md"
         },
         "assets": {
             "host01": [
