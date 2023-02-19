@@ -52,7 +52,7 @@ node.session.auth.password_in = random_password_out
 EOF
 
   # enable automatic startup and the systemd service
-  sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/iqn.0000-00.node-${disk_id}.local\:killercoda/127.0.0.1\,3260\,1/default
+  sed -i 's/node.startup = manual/node.startup = automatic/g' "/etc/iscsi/nodes/iqn.0000-00.target.local\:${lun_name}/127.0.0.1\,3260\,1/default"
 done
 
 systemctl enable open-iscsi
