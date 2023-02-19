@@ -97,7 +97,7 @@ done
 
 sleep 5s
 # enable automatic startup and the systemd service
-sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:lun-*/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
+sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:lun*/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
 
 sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
