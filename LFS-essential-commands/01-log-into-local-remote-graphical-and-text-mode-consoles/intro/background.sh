@@ -9,9 +9,9 @@ wait_file() {
   ((++wait_seconds))
 }
 
-echo "done" >> /tmp/katacoda-finished
+echo "done" >> /tmp/killercoda-finished
 
 /usr/local/bin/install_sal.sh
 /usr/local/bin/iscsi.sh
 
-echo "done" >> /tmp/katacoda-background-finished
+echo "done" >> /tmp/killercoda-background-finished

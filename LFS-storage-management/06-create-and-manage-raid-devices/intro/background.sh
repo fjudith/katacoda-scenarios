@@ -9,8 +9,8 @@ wait_file() {
   ((++wait_seconds))
 }
 
-echo "done" >> /root/katacoda-finished
+echo "done" >> /root/killercoda-finished
 
 /usr/local/bin/deploy.sh
 
-echo "done" >> /root/katacoda-background-finished
+echo "done" >> /root/killercoda-background-finished
