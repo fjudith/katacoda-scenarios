@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-DISK_AMOUNT='12'
+DISK_COUNT='12'
 INITIATOR_ADDRESS='127.0.0.1'
 INITIATOR_PORT='53260'
 # ISCSI_IQN='iqn.0000-00.local.host'
@@ -17,7 +17,7 @@ sudo apt-get update -y \
 
 ISCSI_IQN=$(iscsi-iname | cut -d ':' -f 1)
 
-for i in $(seq 1 ${DISK_AMOUNT})
+for i in $(seq 1 ${DISK_COUNT})
 do
   disk_id="$(printf "%03d" ${i})"
   lun_name="lun$((${i} - 1))"
@@ -76,15 +76,15 @@ sudo systemctl daemon-reload
 sudo systemctl enable tgt.service
 sudo systemctl restart tgt.service
 
+sleep 5s
+
 # optionally, verify the target is working
 sudo tgtadm --mode target --op show
 
 # generate node configuration files
 sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
 
-sleep 5s
-
-for i in $(seq 1 ${DISK_AMOUNT})
+for i in $(seq 1 ${DISK_COUNT})
 do
   disk_id="$(printf "%03d" ${i})"
   lun_name="lun$((${i} - 1))"
@@ -105,6 +105,18 @@ sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
 sudo systemctl restart open-iscsi
 
-# wait a few seconds to mount the device and verify
 sleep 5s
+
+# format & partition disk
+for i in $(seq 1 ${DISK_COUNT})
+do
+  lun_name="lun$((${i} - 1))"
+
+  # create label
+  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${INITIATOR_PORT}-iscsi-${ISCSI_IQN}\:${lun_name}-lun-1 mklabel msdos
+  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${INITIATOR_PORT}-iscsi-${ISCSI_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
+  sudo mkfs -t ext4 /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${INITIATOR_PORT}-iscsi-${ISCSI_IQN}\:${lun_name}-lun-1-part1
+done
+
+# wait a few seconds to mount the device and verify
 lsblk
