@@ -70,6 +70,7 @@ WantedBy=multi-user.target
 EOF
 
 # enable iscsi tgt service
+sudo systemctl daemon-reload
 sudo systemctl enable tgt.service
 sudo systemctl restart tgt.service
 
@@ -90,14 +91,20 @@ node.session.auth.password = ${INCOMING_PASSWORD}
 node.session.auth.username_in = ${OUTGOING_USER}
 node.session.auth.password_in = ${OUTGOING_PASSWORD}
 EOF
+done
 
-  # enable automatic startup and the systemd service
+sleep 5s
+# enable automatic startup and the systemd service
+for i in $(seq 1 ${DISK_AMOUNT})
+do
+  lun_name="lun$((${i} - 1))"
   sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
 done
 
+sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
 sudo systemctl restart open-iscsi
 
 # wait a few seconds to mount the device and verify
-sleep 5
+sleep 5s
 lsblk
