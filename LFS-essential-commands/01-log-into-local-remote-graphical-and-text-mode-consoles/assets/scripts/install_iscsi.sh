@@ -145,12 +145,9 @@ function add_partitions()
     lun_name="lun$((${i} - 1))"
     
     # create label
-    if [ ! -f /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1 ]
-    then
-      sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
-      sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
-      sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
-    fi
+    sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
+    sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
+    sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
   done
 
   lsblk
