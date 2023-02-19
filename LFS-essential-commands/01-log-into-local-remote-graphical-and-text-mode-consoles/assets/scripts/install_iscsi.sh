@@ -80,25 +80,19 @@ sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
 
 for i in $(seq 1 ${DISK_AMOUNT})
 do
-   disk_id="$(printf "%03d" ${i})"
-   lun_name="lun$((${i} - 1))"
-   # configure iscsi initiator
-   cat <<EOF | tee -a "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
+  disk_id="$(printf "%03d" ${i})"
+  lun_name="lun$((${i} - 1))"
+  # configure iscsi initiator
+  cat <<EOF | tee -a "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
 node.session.auth.authmethod = CHAP
 node.session.auth.username = ${INCOMING_USER}
 node.session.auth.password = ${INCOMING_PASSWORD}
 node.session.auth.username_in = ${OUTGOING_USER}
 node.session.auth.password_in = ${OUTGOING_PASSWORD}
 EOF
-done
 
-sleep 5
-
-# enable automatic startup and the systemd service
-for i in $(seq 1 ${DISK_AMOUNT})
-do
-  lun_name="lun$((${i} - 1))"
-  sed -i 's/node.startup = manual/node.startup = automatic/g' "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
+  # enable automatic startup and the systemd service
+  sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
 done
 
 sudo systemctl enable open-iscsi
