@@ -103,7 +103,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
 sudo systemctl restart open-iscsi
 
-sleep 5s
+sleep 10s
 
 # format & partition disk
 # INITIATOR_IQN=$(iscsi-iname | cut -d ':' -f 1)
