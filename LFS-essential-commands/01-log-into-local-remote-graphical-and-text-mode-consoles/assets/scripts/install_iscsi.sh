@@ -4,8 +4,7 @@ set -e
 DISK_COUNT='12'
 INITIATOR_ADDRESS='127.0.0.1'
 INITIATOR_PORT='53260'
-# ISCSI_IQN='iqn.0000-00.local.host'
-# ISCSI_IQN='iqn.1993-08.org.debian'
+ISCSI_IQN='iqn.0000-00.local.host'
 INCOMING_USER='iscsi-user'
 INCOMING_PASSWORD='random_password'
 OUTGOING_USER='iscsi-target'
@@ -14,8 +13,6 @@ OUTGOING_PASSWORD='random_password_out'
 # install tgt and open-iscsi
 sudo apt-get update -y \
 && sudo apt-get install -y tgt open-iscsi
-
-ISCSI_IQN=$(iscsi-iname | cut -d ':' -f 1)
 
 for i in $(seq 1 ${DISK_COUNT})
 do
