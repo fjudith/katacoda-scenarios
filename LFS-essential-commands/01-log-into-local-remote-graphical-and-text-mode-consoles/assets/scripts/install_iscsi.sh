@@ -22,7 +22,9 @@ do
   # at /var/lib/devices and use a 10G disk.
   # create the disk image
   sudo mkdir -p /var/lib/devices
-  sudo fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
+  sudo fallocate -l 1G /var/lib/devices/disk-${disk_id}.img \
+  || logger -p syslog.error -p local0.error \
+     "Failed to create disk image \"/var/lib/devices/disk-${disk_id}.img\""
 
   # configure iscsi tgt
   # we use CHAP authentication (bidirectional) and set the initiator 
@@ -107,6 +109,8 @@ sudo systemctl restart open-iscsi
 # INITIATOR_ADDRESS='127.0.0.1'
 while [ "$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)" -ne "${DISK_COUNT}" ]
 do
+  logger -p syslog.info -p local0.info \
+  "Found  \"$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)/${DISK_COUNT}\" virtual devices"
   sleep 1s
 done
 
