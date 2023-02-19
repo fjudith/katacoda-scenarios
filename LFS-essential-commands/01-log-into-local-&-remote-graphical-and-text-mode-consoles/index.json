@@ -6,7 +6,7 @@
     "details": {
         "intro": {
             "text": "intro/README.md",
-            "foreground": "boot/foreground.sh",
+            "foreground": "intro/foreground.sh",
             "background": "intro/background.sh"
         },
         "steps": [
