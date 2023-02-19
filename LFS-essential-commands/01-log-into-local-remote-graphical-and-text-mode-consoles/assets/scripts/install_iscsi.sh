@@ -106,16 +106,16 @@ sudo systemctl restart open-iscsi
 sleep 5s
 
 # format & partition disk
-INITIATOR_IQN=$(iscsi-iname | cut -d ':' -f 1)
-INITIATOR_ADDRESS='127.0.0.1'
+# INITIATOR_IQN=$(iscsi-iname | cut -d ':' -f 1)
+# INITIATOR_ADDRESS='127.0.0.1'
 for i in $(seq 1 ${DISK_COUNT})
 do
   lun_name="lun$((${i} - 1))"
 
   # create label
-  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${TARGET_PORT}-iscsi-${INITIATOR_IQN}\:${lun_name}-lun-1 mklabel msdos
-  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${TARGET_PORT}-iscsi-${INITIATOR_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
-  sudo mkfs -t ext4 /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${TARGET_PORT}-iscsi-${INITIATOR_IQN}\:${lun_name}-lun-1-part1
+  sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
+  sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
+  sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
 done
 
 # wait a few seconds to mount the device and verify
