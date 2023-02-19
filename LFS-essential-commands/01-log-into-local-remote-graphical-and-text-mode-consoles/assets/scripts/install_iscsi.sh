@@ -76,12 +76,13 @@ sudo systemctl daemon-reload
 sudo systemctl enable tgt.service
 sudo systemctl restart tgt.service
 
+# optionally, verify the target is working
+sudo tgtadm --mode target --op show
+
+# generate node configuration files
 sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
 
 sleep 5s
-
-# optionally, verify the target is working
-# tgtadm --mode target --op show
 
 for i in $(seq 1 ${DISK_AMOUNT})
 do
