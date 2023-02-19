@@ -104,15 +104,21 @@ sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
 sudo systemctl restart open-iscsi
 
+
+# wait for open-iscsi to create virtual devices
+alias find_devs="find /dev/disk/by-path/ -name \"ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-?\""
+while [ "$(find_devs | wc -l)" -ne "${DISK_COUNT}" ]
+do
+  logger -p local0.notice \
+  "Discovered new virtual devices in \"/dev\" [$(find_devs | wc -l)/${DISK_COUNT}]"
+done
+
+logger -p local0.info \
+"Ready ISCSI virtual devices in \"/dev\" [$(find_devs | wc -l)/${DISK_COUNT}]"
+
 # format & partition disk
 # INITIATOR_IQN=$(iscsi-iname | cut -d ':' -f 1)
 # INITIATOR_ADDRESS='127.0.0.1'
-while [ "$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)" -ne "${DISK_COUNT}" ]
-do
-  logger -p syslog.info -p local0.info \
-  "Found  \"$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)/${DISK_COUNT}\" virtual devices in \"/dev\""
-done
-
 for i in $(seq 1 ${DISK_COUNT})
 do
   lun_name="lun$((${i} - 1))"
