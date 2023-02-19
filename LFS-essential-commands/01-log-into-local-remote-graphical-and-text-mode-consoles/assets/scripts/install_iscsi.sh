@@ -20,8 +20,6 @@ function install_dependencies()
 
 function configure_target()
 {
-  rm -f /etc/tgt/conf.d/killercoda_iscsi.conf
-
   for i in $(seq 1 ${DISK_COUNT})
   do
     disk_id="$(printf "%03d" ${i})"
@@ -100,7 +98,7 @@ function configure_initiator()
     disk_id="$(printf "%03d" ${i})"
     lun_name="lun$((${i} - 1))"
     # configure iscsi initiator
-    cat <<EOF | sudo tee /etc/iscsi/nodes/${TARGET_IQN}\:${lun_name}/${TARGET_ADDRESS}\,${TARGET_PORT}\,1/default
+    cat <<EOF | tee -a /etc/iscsi/nodes/${TARGET_IQN}\:${lun_name}/${TARGET_ADDRESS}\,${TARGET_PORT}\,1/default
 node.session.auth.authmethod = CHAP
 node.session.auth.username = ${INCOMING_USER}
 node.session.auth.password = ${INCOMING_PASSWORD}
