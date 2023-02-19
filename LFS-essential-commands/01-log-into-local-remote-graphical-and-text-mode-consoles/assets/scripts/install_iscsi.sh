@@ -4,8 +4,8 @@ set -e
 DISK_AMOUNT='12'
 INITIATOR_ADDRESS='127.0.0.1'
 INITIATOR_PORT='53260'
-# ISCSI_IQN='iqn.0000-00.target.local'
-ISCSI_IQN='iqn.1993-08.org.debian'
+# ISCSI_IQN='iqn.0000-00.local.host'
+# ISCSI_IQN='iqn.1993-08.org.debian'
 INCOMING_USER='iscsi-user'
 INCOMING_PASSWORD='random_password'
 OUTGOING_USER='iscsi-target'
@@ -13,8 +13,9 @@ OUTGOING_PASSWORD='random_password_out'
 
 # install tgt and open-iscsi
 sudo apt-get update -y \
-&& sudo apt-get install -y tgt open-iscsi \
-&& sudo mkdir -p /var/lib/devices
+&& sudo apt-get install -y tgt open-iscsi
+
+ISCSI_IQN=$(iscsi-iname | cut -d ':' -f 1)
 
 for i in $(seq 1 ${DISK_AMOUNT})
 do
@@ -23,6 +24,7 @@ do
   # assume we have want to store our iscsi disk image
   # at /var/lib/devices and use a 10G disk.
   # create the disk image
+  sudo mkdir -p /var/lib/devices
   sudo fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
 
   # configure iscsi tgt
@@ -95,11 +97,7 @@ done
 
 sleep 5s
 # enable automatic startup and the systemd service
-for i in $(seq 1 ${DISK_AMOUNT})
-do
-  lun_name="lun$((${i} - 1))"
-  sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
-done
+sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:lun-*/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
 
 sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
