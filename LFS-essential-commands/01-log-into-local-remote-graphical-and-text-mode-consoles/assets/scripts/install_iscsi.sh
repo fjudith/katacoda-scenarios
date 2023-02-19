@@ -37,7 +37,7 @@ do
 EOF
 done
 
-cat <<EOF | sudo tee -a /etc/systemd/system/tgt.service
+cat <<EOF | sudo tee /etc/systemd/system/tgt.service
 [Unit]
 Description=(i)SCSI target daemon
 Documentation=man:tgtd(8)
