@@ -10,8 +10,8 @@
         "steps": [
             {
                 "text": "step1.md",
-                "courseData": "deploy/scripts/background.sh",
-                "code": "deploy/scripts/foreground.sh"
+                "courseData": "boot/background.sh",
+                "code": "boot/foreground.sh"
             }
         ],
         "finish": {
