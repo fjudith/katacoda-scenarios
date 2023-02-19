@@ -20,9 +20,9 @@
     },
     "assets": {
         "host01": [
-            {"file": "deploy/scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-            {"file": "deploy/scripts/install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-            {"file": "deploy/scripts/install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+            {"file": "scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+            {"file": "scripts/install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+            {"file": "scripts/install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
         ]
     },
     "environment": {
