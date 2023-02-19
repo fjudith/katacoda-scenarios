@@ -20,6 +20,8 @@ function install_dependencies()
 
 function configure_target()
 {
+  rm -f /etc/tgt/conf.d/killercoda_iscsi.conf
+
   for i in $(seq 1 ${DISK_COUNT})
   do
     disk_id="$(printf "%03d" ${i})"
@@ -98,7 +100,7 @@ function configure_initiator()
     disk_id="$(printf "%03d" ${i})"
     lun_name="lun$((${i} - 1))"
     # configure iscsi initiator
-    cat <<EOF | tee -a /etc/iscsi/nodes/${TARGET_IQN}\:${lun_name}/${TARGET_ADDRESS}\,${TARGET_PORT}\,1/default
+    cat <<EOF | sudo tee /etc/iscsi/nodes/${TARGET_IQN}\:${lun_name}/${TARGET_ADDRESS}\,${TARGET_PORT}\,1/default
 node.session.auth.authmethod = CHAP
 node.session.auth.username = ${INCOMING_USER}
 node.session.auth.password = ${INCOMING_PASSWORD}
@@ -143,9 +145,12 @@ function add_partitions()
     lun_name="lun$((${i} - 1))"
     
     # create label
-    sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
-    sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
-    sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
+    if [ ! -f /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1 ]
+    then
+      sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
+      sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
+      sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
+    fi
   done
 
   lsblk
