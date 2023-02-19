@@ -1,0 +1,11 @@
+{
+  "title": "LFS domain 6",
+  "description": "Storage Management",
+  "courses": [
+    {
+      "course_id": "06-create-and-manage-raid-devices",
+      "title": "Create and manage RAID devices",
+      "description": "Create and manage RAID devices"
+    }
+  ]
+}
