@@ -25,8 +25,4 @@ file_client: local
 EOF
 
 sudo systemctl enable salt-minion \
-&& sudo systemctl restart salt-minion \
-&& sudo python3 -m pip install --upgrade pip \
-&& sudo pip3 install --no-cache-dir --upgrade \
-   'pyopenssl' \
-   'pylxd'
+&& sudo systemctl restart salt-minion

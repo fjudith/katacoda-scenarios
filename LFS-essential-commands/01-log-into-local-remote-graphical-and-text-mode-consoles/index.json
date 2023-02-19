@@ -20,6 +20,7 @@
         "assets": {
             "host01": [
                 {"file": "scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "scripts/install_lxc.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "scripts/install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "scripts/install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
             ]
