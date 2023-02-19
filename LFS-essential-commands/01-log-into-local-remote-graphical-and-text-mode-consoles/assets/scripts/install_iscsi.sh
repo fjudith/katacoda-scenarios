@@ -110,8 +110,7 @@ sudo systemctl restart open-iscsi
 while [ "$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)" -ne "${DISK_COUNT}" ]
 do
   logger -p syslog.info -p local0.info \
-  "Found  \"$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)/${DISK_COUNT}\" virtual devices"
-  sleep 1s
+  "Found  \"$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)/${DISK_COUNT}\" virtual devices in \"/dev\""
 done
 
 for i in $(seq 1 ${DISK_COUNT})
@@ -121,7 +120,7 @@ do
   # create label
   sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
   sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
-  sudo partprobe -s
+  sudo partprobe -s && sleep 1s
   sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
 done
 
