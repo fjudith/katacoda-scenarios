@@ -4,4 +4,4 @@ echo "Initializing lab environment"
 
 sleep 2
 
-/usr/local/bin/wait.sh
+/usr/local/bin/wait.sh '/tmp/katacoda-background-finished'
