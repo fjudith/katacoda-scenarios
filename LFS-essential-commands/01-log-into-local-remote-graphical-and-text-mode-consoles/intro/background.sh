@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 wait_file() {
   local file="$1"; shift
@@ -9,9 +9,9 @@ wait_file() {
   ((++wait_seconds))
 }
 
-echo "done" >> /root/katacoda-finished
+echo "done" >> /tmp/katacoda-finished
 
 /usr/local/bin/install_sal.sh
 /usr/local/bin/iscsi.sh
 
-echo "done" >> /root/katacoda-background-finished
+echo "done" >> /tmp/katacoda-background-finished
