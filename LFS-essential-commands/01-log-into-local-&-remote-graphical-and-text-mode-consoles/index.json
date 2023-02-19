@@ -10,8 +10,8 @@
         "steps": [
             {
                 "text": "step1.md",
-                "courseData": "/deploy/scripts/background.sh",
-                "code": "/deploy/scripts/foreground.sh"
+                "courseData": "background.sh",
+                "code": "foreground.sh"
             }
         ],
         "finish": {
@@ -20,9 +20,9 @@
     },
     "assets": {
         "host01": [
-            {"file": "/deploy/scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-            {"file": "/deploy/scripts/install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-            {"file": "/deploy/scripts/install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+            {"file": "deploy/scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+            {"file": "deploy/scripts/install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+            {"file": "deploy/scripts/install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
         ]
     },
     "environment": {
