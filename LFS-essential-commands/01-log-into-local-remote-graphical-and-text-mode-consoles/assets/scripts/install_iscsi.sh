@@ -5,6 +5,10 @@ DISK_AMOUNT='12'
 INITIATOR_ADDRESS='127.0.0.1'
 INITIATOR_PORT='53260'
 ISCSI_IQN='iqn.0000-00.target.local'
+INCOMING_USER='iscsi-user'
+INCOMING_PASSWORD='random_password'
+OUTGOING_USER='iscsi-target'
+OUTGOING_PASSWORD='random_password_out'
 
 # install tgt and open-iscsi
 sudo apt-get update -y \
@@ -18,22 +22,22 @@ do
     # assume we have want to store our iscsi disk image
     # at /var/lib/devices and use a 10G disk.
     # create the disk image
-    fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
+    sudo fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
 
     # configure iscsi tgt
     # we use CHAP authentication (bidirectional) and set the initiator 
     # address to only allow localhost to enhance iscsi security
-    cat <<EOF | tee -a /etc/tgt/conf.d/killercoda_iscsi.conf
+    cat <<EOF | sudo tee -a /etc/tgt/conf.d/killercoda_iscsi.conf
 <target ${ISCSI_IQN}:${lun_name}>
   backing-store /var/lib/devices/disk-${disk_id}.img
   initiator-address ${INITIATOR_ADDRESS}
-  incominguser iscsi-user random_password
-  outgoinguser iscsi-target random_password_out
+  incominguser ${INCOMING_USER} ${INCOMING_PASSWORD}
+  outgoinguser ${OUTGOING_USER} ${OUTGOING_PASSWORD}
 </target>
 EOF
 done
 
-cat <<EOF | tee -a /etc/systemd/system/tgt.service
+cat <<EOF | sudo tee -a /etc/systemd/system/tgt.service
 [Unit]
 Description=(i)SCSI target daemon
 Documentation=man:tgtd(8)
@@ -65,10 +69,10 @@ WantedBy=multi-user.target
 EOF
 
 # enable iscsi tgt service
-systemctl enable tgt.service
-systemctl restart tgt.service
+sudo systemctl enable tgt.service
+sudo systemctl restart tgt.service
 
-iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
+sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
 
 # optionally, verify the target is working
 # tgtadm --mode target --op show
@@ -80,18 +84,19 @@ do
     # configure iscsi initiator
     cat <<EOF | tee -a "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
 node.session.auth.authmethod = CHAP
-node.session.auth.username = iscsi-user
-node.session.auth.password = random_password
-node.session.auth.username_in = iscsi-target
-node.session.auth.password_in = random_password_out
+node.session.auth.username = ${INCOMING_USER}
+node.session.auth.password = ${INCOMING_PASSWORD}
+node.session.auth.username_in = ${OUTGOING_USER}
+node.session.auth.password_in = ${OUTGOING_PASSWORD}
 EOF
 
   # enable automatic startup and the systemd service
   sed -i 's/node.startup = manual/node.startup = automatic/g' "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
 done
 
-systemctl enable open-iscsi
-systemctl restart open-iscsi
+sudo systemctl enable open-iscsi
+sudo systemctl start open-iscsi \
+|| sudo systemctl restart open-iscsi
 
 # wait a few seconds to mount the device and verify
 sleep 10
