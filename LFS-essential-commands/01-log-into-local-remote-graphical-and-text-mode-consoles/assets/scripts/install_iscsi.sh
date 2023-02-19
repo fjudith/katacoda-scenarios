@@ -4,7 +4,8 @@ set -e
 DISK_AMOUNT='12'
 INITIATOR_ADDRESS='127.0.0.1'
 INITIATOR_PORT='53260'
-ISCSI_IQN='iqn.0000-00.target.local'
+# ISCSI_IQN='iqn.0000-00.target.local'
+ISCSI_IQN='iqn.1993-08.org.debian'
 INCOMING_USER='iscsi-user'
 INCOMING_PASSWORD='random_password'
 OUTGOING_USER='iscsi-target'
@@ -17,17 +18,17 @@ sudo apt-get update -y \
 
 for i in $(seq 1 ${DISK_AMOUNT})
 do
-    disk_id="$(printf "%03d" ${i})"
-    lun_name="lun$((${i} - 1))"
-    # assume we have want to store our iscsi disk image
-    # at /var/lib/devices and use a 10G disk.
-    # create the disk image
-    sudo fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
+  disk_id="$(printf "%03d" ${i})"
+  lun_name="lun$((${i} - 1))"
+  # assume we have want to store our iscsi disk image
+  # at /var/lib/devices and use a 10G disk.
+  # create the disk image
+  sudo fallocate -l 1G /var/lib/devices/disk-${disk_id}.img
 
-    # configure iscsi tgt
-    # we use CHAP authentication (bidirectional) and set the initiator 
-    # address to only allow localhost to enhance iscsi security
-    cat <<EOF | sudo tee -a /etc/tgt/conf.d/killercoda_iscsi.conf
+  # configure iscsi tgt
+  # we use CHAP authentication (bidirectional) and set the initiator 
+  # address to only allow localhost to enhance iscsi security
+  cat <<EOF | sudo tee -a /etc/tgt/conf.d/killercoda_iscsi.conf
 <target ${ISCSI_IQN}:${lun_name}>
   backing-store /var/lib/devices/disk-${disk_id}.img
   initiator-address ${INITIATOR_ADDRESS}
@@ -79,18 +80,22 @@ sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
 
 for i in $(seq 1 ${DISK_AMOUNT})
 do
-    disk_id="$(printf "%03d" ${i})"
-    lun_name="lun$((${i} - 1))"
-    # configure iscsi initiator
-    cat <<EOF | tee -a "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
+   disk_id="$(printf "%03d" ${i})"
+   lun_name="lun$((${i} - 1))"
+   # configure iscsi initiator
+   cat <<EOF | tee -a "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
 node.session.auth.authmethod = CHAP
 node.session.auth.username = ${INCOMING_USER}
 node.session.auth.password = ${INCOMING_PASSWORD}
 node.session.auth.username_in = ${OUTGOING_USER}
 node.session.auth.password_in = ${OUTGOING_PASSWORD}
 EOF
+done
 
-  # enable automatic startup and the systemd service
+# enable automatic startup and the systemd service
+for i in $(seq 1 ${DISK_AMOUNT})
+do
+  lun_name="lun$((${i} - 1))"
   sed -i 's/node.startup = manual/node.startup = automatic/g' "/etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default"
 done
 
@@ -98,5 +103,5 @@ sudo systemctl enable open-iscsi
 sudo systemctl restart open-iscsi
 
 # wait a few seconds to mount the device and verify
-sleep 10
+sleep 5
 lsblk
