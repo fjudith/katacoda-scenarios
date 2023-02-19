@@ -1,0 +1,30 @@
+{
+    "title": "Log into local & remote graphical and text mode consoles",
+    "description": "Create and manage RAID devices using mdadm",
+    "difficulty": "easy",
+    "time": "10-20 minutes",
+    "details": {
+        "intro": {
+            "text": "intro.md"
+        },
+        "steps": [
+            {
+                "text": "step1.md",
+                "courseData": "background.sh",
+                "code": "foreground.sh"
+            }
+        ],
+        "finish": {
+            "text": "finish.md"
+        }
+    },
+    "environment": {
+        "showvisualise": false,
+        "showdashboard": true,
+        "hideintro": false,
+        "uilayout": "terminal-iframe"
+      },
+      "backend": {
+        "imageid": "ubuntu:2004"
+      }
+}

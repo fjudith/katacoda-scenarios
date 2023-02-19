@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+{% from tpldir ~ "/map.jinja" import lxc with context %}
+
+# USERNAME TYPE BRIDGE COUNT
+{{ lxc.config.user }} veth {{ lxc.config.veth }} 10

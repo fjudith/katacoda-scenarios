@@ -1,0 +1,12 @@
+{
+    "title": "LFCS: Stage 1",
+    "description": "Essential Commands ",
+    "courses": [
+      {
+        "course_id": "01-log-into-local-&-remote-graphical-and-text-mode-consoles",
+        "title": "Log into local & remote graphical and text mode consoles",
+        "description": "Log into local & remote graphical and text mode consoles"
+      }
+    ]
+  }
+  

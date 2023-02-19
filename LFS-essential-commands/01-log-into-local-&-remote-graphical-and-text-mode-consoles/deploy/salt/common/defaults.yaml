@@ -1,0 +1,6 @@
+common:
+  enabled: true
+  common: []
+  debian:
+    - openssh-server
+  redhat: []

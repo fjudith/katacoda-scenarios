@@ -1,0 +1,7 @@
+lxc:
+  enabled: true
+  config:
+    user: root
+    group: root
+    veth: lxcbr0
+
