@@ -70,8 +70,7 @@ EOF
 
 # enable iscsi tgt service
 sudo systemctl enable tgt.service
-sudo systemctl start tgt.service \
-|| sudo systemctl restart tgt.service
+sudo systemctl restart tgt.service
 
 sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
 
@@ -96,8 +95,7 @@ EOF
 done
 
 sudo systemctl enable open-iscsi
-sudo systemctl start open-iscsi \
-|| sudo systemctl restart open-iscsi
+sudo systemctl restart open-iscsi
 
 # wait a few seconds to mount the device and verify
 sleep 10
