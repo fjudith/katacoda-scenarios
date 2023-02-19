@@ -5,17 +5,17 @@
     "time": "10-20 minutes",
     "details": {
         "intro": {
-            "text": "intro.md"
+            "text": "intro/README.md",
+            "foreground": "boot/foreground.sh",
+            "background": "intro/background.sh"
         },
         "steps": [
             {
-                "text": "step1.md",
-                "courseData": "boot/background.sh",
-                "code": "boot/foreground.sh"
+                "text": "step1/README.md"
             }
         ],
         "finish": {
-            "text": "finish.md"
+            "text": "step2/README.md"
         }
     },
     "assets": {
