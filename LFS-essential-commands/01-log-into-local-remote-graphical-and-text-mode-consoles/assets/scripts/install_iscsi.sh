@@ -92,6 +92,8 @@ node.session.auth.password_in = ${OUTGOING_PASSWORD}
 EOF
 done
 
+sleep 5
+
 # enable automatic startup and the systemd service
 for i in $(seq 1 ${DISK_AMOUNT})
 do
