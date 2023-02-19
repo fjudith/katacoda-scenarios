@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# install tgt and open-iscsi
-sudo apt-get update -y \
-&& sudo apt-get install -y tgt open-iscsi
-
 DISK_COUNT='12'
 TARGET_ADDRESS='127.0.0.1'
 TARGET_PORT='53260'
@@ -14,6 +10,13 @@ INCOMING_PASSWORD='random_password'
 OUTGOING_USER='iscsi-target'
 OUTGOING_PASSWORD='random_password_out'
 
+
+function install_dependencies()
+{
+  # install tgt and open-iscsi
+  sudo apt-get update -y \
+  && sudo apt-get install -y tgt open-iscsi
+}
 
 function configure_target()
 {
@@ -149,6 +152,7 @@ function add_partitions()
   lsblk
 }
 
+install_dependencies
 configure_target
 configure_initiator
 waitfor_devs
