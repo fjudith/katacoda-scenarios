@@ -9,7 +9,6 @@ DISK_COUNT='12'
 TARGET_ADDRESS='127.0.0.1'
 TARGET_PORT='53260'
 TARGET_IQN='iqn.0000-00.local.host'
-# TARGET_IQN='iqn.1993-08.org.debian'
 INCOMING_USER='iscsi-user'
 INCOMING_PASSWORD='random_password'
 OUTGOING_USER='iscsi-target'
@@ -103,18 +102,22 @@ sudo systemctl daemon-reload
 sudo systemctl enable open-iscsi
 sudo systemctl restart open-iscsi
 
-sleep 10s
-
 # format & partition disk
 # INITIATOR_IQN=$(iscsi-iname | cut -d ':' -f 1)
 # INITIATOR_ADDRESS='127.0.0.1'
+while [ "$(find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-1" | wc -l)" -ne "${DISK_COUNT}" ]
+do
+  sleep 1s
+done
+
 for i in $(seq 1 ${DISK_COUNT})
 do
   lun_name="lun$((${i} - 1))"
-
+  
   # create label
   sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 mklabel msdos
   sudo parted -s /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
+  sudo partprobe -s
   sudo mkfs -t ext4 /dev/disk/by-path/ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:${lun_name}-lun-1-part1
 done
 
