@@ -23,7 +23,7 @@
                 {"file": "install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
                 {"file": "install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
             ]
-        },
+        }
     },
     "environment": {
         "showvisualise": false,
