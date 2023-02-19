@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 set -e
 
+# install tgt and open-iscsi
+sudo apt-get update -y \
+&& sudo apt-get install -y tgt open-iscsi
+
 DISK_COUNT='12'
-INITIATOR_ADDRESS='127.0.0.1'
-INITIATOR_PORT='53260'
-ISCSI_IQN='iqn.0000-00.local.host'
+TARGET_ADDRESS='127.0.0.1'
+TARGET_PORT='53260'
+TARGET_IQN='iqn.0000-00.local.host'
+# TARGET_IQN='iqn.1993-08.org.debian'
 INCOMING_USER='iscsi-user'
 INCOMING_PASSWORD='random_password'
 OUTGOING_USER='iscsi-target'
 OUTGOING_PASSWORD='random_password_out'
-
-# install tgt and open-iscsi
-sudo apt-get update -y \
-&& sudo apt-get install -y tgt open-iscsi
 
 for i in $(seq 1 ${DISK_COUNT})
 do
@@ -28,9 +29,9 @@ do
   # we use CHAP authentication (bidirectional) and set the initiator 
   # address to only allow localhost to enhance iscsi security
   cat <<EOF | sudo tee -a /etc/tgt/conf.d/killercoda_iscsi.conf
-<target ${ISCSI_IQN}:${lun_name}>
+<target ${TARGET_IQN}:${lun_name}>
   backing-store /var/lib/devices/disk-${disk_id}.img
-  initiator-address ${INITIATOR_ADDRESS}
+  initiator-address ${TARGET_ADDRESS}
   incominguser ${INCOMING_USER} ${INCOMING_PASSWORD}
   outgoinguser ${OUTGOING_USER} ${OUTGOING_PASSWORD}
 </target>
@@ -52,7 +53,7 @@ ExecStartPost=/usr/sbin/tgt-admin -e -c /etc/tgt/targets.conf
 
 ExecStartPost=/usr/sbin/tgtadm --mode portal --op delete --mode portal --param portal=0.0.0.0:3260
 ExecStartPost=/usr/sbin/tgtadm --mode portal --op delete --mode portal --param portal=[::]:3260
-ExecStartPost=/usr/sbin/tgtadm --mode portal --op new --mode portal --param portal=${INITIATOR_ADDRESS}:${INITIATOR_PORT}
+ExecStartPost=/usr/sbin/tgtadm --mode portal --op new --mode portal --param portal=${TARGET_ADDRESS}:${TARGET_PORT}
 
 ExecStartPost=/usr/sbin/tgtadm --op update --mode sys --name State -v ready
 
@@ -79,14 +80,14 @@ sleep 5s
 sudo tgtadm --mode target --op show
 
 # generate node configuration files
-sudo iscsiadm -m discovery -t st -p ${INITIATOR_ADDRESS}:${INITIATOR_PORT}
+sudo iscsiadm -m discovery -t st -p ${TARGET_ADDRESS}:${TARGET_PORT}
 
 for i in $(seq 1 ${DISK_COUNT})
 do
   disk_id="$(printf "%03d" ${i})"
   lun_name="lun$((${i} - 1))"
   # configure iscsi initiator
-  cat <<EOF | tee -a /etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
+  cat <<EOF | tee -a /etc/iscsi/nodes/${TARGET_IQN}\:${lun_name}/${TARGET_ADDRESS}\,${TARGET_PORT}\,1/default
 node.session.auth.authmethod = CHAP
 node.session.auth.username = ${INCOMING_USER}
 node.session.auth.password = ${INCOMING_PASSWORD}
@@ -95,7 +96,7 @@ node.session.auth.password_in = ${OUTGOING_PASSWORD}
 EOF
 
   # enable automatic startup and the systemd service
-  sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${ISCSI_IQN}\:${lun_name}/${INITIATOR_ADDRESS}\,${INITIATOR_PORT}\,1/default
+  sed -i 's/node.startup = manual/node.startup = automatic/g' /etc/iscsi/nodes/${TARGET_IQN}\:${lun_name}/${TARGET_ADDRESS}\,${TARGET_PORT}\,1/default
 done
 
 sudo systemctl daemon-reload
@@ -105,14 +106,16 @@ sudo systemctl restart open-iscsi
 sleep 5s
 
 # format & partition disk
+INITIATOR_IQN=$(iscsi-iname | cut -d ':' -f 1)
+INITIATOR_ADDRESS='127.0.0.1'
 for i in $(seq 1 ${DISK_COUNT})
 do
   lun_name="lun$((${i} - 1))"
 
   # create label
-  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${INITIATOR_PORT}-iscsi-${ISCSI_IQN}\:${lun_name}-lun-1 mklabel msdos
-  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${INITIATOR_PORT}-iscsi-${ISCSI_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
-  sudo mkfs -t ext4 /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${INITIATOR_PORT}-iscsi-${ISCSI_IQN}\:${lun_name}-lun-1-part1
+  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${TARGET_PORT}-iscsi-${INITIATOR_IQN}\:${lun_name}-lun-1 mklabel msdos
+  sudo parted -s /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${TARGET_PORT}-iscsi-${INITIATOR_IQN}\:${lun_name}-lun-1 unit % mkpart primary ext4 0 100
+  sudo mkfs -t ext4 /dev/disk/by-path/ip-${INITIATOR_ADDRESS}\:${TARGET_PORT}-iscsi-${INITIATOR_IQN}\:${lun_name}-lun-1-part1
 done
 
 # wait a few seconds to mount the device and verify
