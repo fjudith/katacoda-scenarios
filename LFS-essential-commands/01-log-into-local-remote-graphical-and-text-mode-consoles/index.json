@@ -16,14 +16,14 @@
         ],
         "finish": {
             "text": "finish/README.md"
-        }
-    },
-    "assets": {
-        "host01": [
-            {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-            {"file": "install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-            {"file": "install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
-        ]
+        },
+        "assets": {
+            "host01": [
+                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "install_salt.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+            ]
+        },
     },
     "environment": {
         "showvisualise": false,

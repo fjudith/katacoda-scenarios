@@ -2,4 +2,6 @@
 
 echo "Initializing lab environment"
 
-sleep 2; /usr/local/binwait.sh
+sleep 2
+
+/usr/local/bin/wait.sh
