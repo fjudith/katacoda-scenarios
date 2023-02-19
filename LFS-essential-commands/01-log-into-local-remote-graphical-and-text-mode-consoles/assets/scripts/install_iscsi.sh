@@ -106,7 +106,10 @@ sudo systemctl restart open-iscsi
 
 
 # wait for open-iscsi to create virtual devices
-alias find_devs="find /dev/disk/by-path/ -name \"ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-?\""
+function find_devs()
+{
+  find /dev/disk/by-path/ -name "ip-${TARGET_ADDRESS}\:${TARGET_PORT}-iscsi-${TARGET_IQN}\:lun*-lun-?"
+}
 while [ "$(find_devs | wc -l)" -ne "${DISK_COUNT}" ]
 do
   logger -p local0.notice \
