@@ -5,7 +5,7 @@ function install_dependencies()
 {
     sudo apt-get update -y \
     && apt-get install -y \
-       'openssh-server'
+       'openssh-client'
 }
 
 function generate_keys()
