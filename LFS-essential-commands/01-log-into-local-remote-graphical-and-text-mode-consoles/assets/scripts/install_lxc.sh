@@ -35,7 +35,7 @@ function configure_lxc()
         echo "lxc.idmap = u 0 $MS_UID $ME_UID" | tee -a ~/.config/lxc/default.conf
         echo "lxc.idmap = g 0 $MS_GID $ME_GID" | tee -a ~/.config/lxc/default.conf
     fi
-    
+
     export DOWNLOAD_KEYSERVER="hkp://keyserver.ubuntu.com"
 }
 
@@ -55,3 +55,4 @@ function start_containers()
 install_dependencies
 configure_veth
 configure_lxc
+start_containers
