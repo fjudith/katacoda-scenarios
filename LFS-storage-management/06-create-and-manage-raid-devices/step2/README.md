@@ -7,13 +7,13 @@ RAID-01 (a.k.a RAID-1) allow a given hard disk drive (HDD) to mirror the data to
 * **Fault tolerance**: If the primary disk fails then it is automatically disabled and the secondary activated
 * **I/O Performance**: Fast as a single HDD. 
 
-Run the following command to list available ISCSI HDD.
+List available ISCSI HDD.
 
 ```bash
 lsblk --scsi
 ```
 
-Run the following command to create a RAID-1 device composed of the following 2 HDDs.
+Create a RAID-1 device composed of the following 2 HDDs.
 
 * `/dev/sdd1`
 * `/dev/sde1`
@@ -41,7 +41,7 @@ Format the partition.
 mkfs -t ext4 /dev/md1p1
 ```
 
-Moutn the partition for future use.
+Mount the partition for future use.
 
 ```bash
 mkdir -p /mnt/raid1

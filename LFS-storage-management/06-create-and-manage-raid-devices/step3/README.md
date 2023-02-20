@@ -10,13 +10,13 @@ Those parity blocks are used to rebuild the data once a failed HDD was replace b
 * **Fault tolerance**: Only support single HDD failure for a limited time
 * **I/O Performance**: Smaller the arrays are usually faster than large ones
 
-Run the following command to list available ISCSI HDD.
+List available SCSI HDD.
 
 ```bash
 lsblk --scsi
 ```
 
-Run the following command to create a RAID-5 device composed of the following 3 HDDs.
+Create a RAID-5 device composed of the following 3 HDDs.
 
 * `/dev/sdf1`
 * `/dev/sdg1`
@@ -47,7 +47,7 @@ Format the partition.
 mkfs -t ext4 /dev/md2p1
 ```
 
-Moutn the partition for future use.
+Mount the partition for future use.
 
 ```bash
 mkdir -p /mnt/raid5

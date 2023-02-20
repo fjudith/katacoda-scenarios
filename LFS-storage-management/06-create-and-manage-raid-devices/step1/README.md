@@ -7,7 +7,7 @@ RAID-0 strips the data accross multiple hard disk drives (HDD).
 * **Fault tolerance**: Not supported. If one the HDD fails the entire array if lost.
 * **I/O Performance**: Larger the array is, faster it will be. (n. parallization).
 
-List the available ISCSI HDD.
+List the available SCSI HDD.
 
 ```bash
 lsblk --scsi
@@ -47,7 +47,7 @@ Format the partition.
 mkfs -t ext4 /dev/md0p1
 ```
 
-Moutn the partition for future use.
+Mount the partition for future use.
 
 ```bash
 mkdir -p /mnt/raid0
