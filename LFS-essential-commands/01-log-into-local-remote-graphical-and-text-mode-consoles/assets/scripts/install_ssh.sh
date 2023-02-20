@@ -22,7 +22,7 @@ function udpate_user_data()
     SSH_KEY_FILE="${HOME}/.ssh/id_rsa_${USER_NAME}"
     
     if [ -f "/tmp/default-user-data.yml" ]; then
-        sed -i "s/__USER_SSH_PUBLIC_KEY__/$(cat $SSH_KEY_FILE)" /tmp/default-user-data.yml
+        sed -i "s/__USER_SSH_PUBLIC_KEY__/$(cat $SSH_KEY_FILE)/g" /tmp/default-user-data.yml
     fi
 }
 
