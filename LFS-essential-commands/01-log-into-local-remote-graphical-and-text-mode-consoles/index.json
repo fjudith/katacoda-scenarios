@@ -35,6 +35,6 @@
         "uilayout": "terminal-iframe"
       },
       "backend": {
-        "imageid": "ubuntu:20.04"
+        "imageid": "ubuntu2004"
       }
 }
