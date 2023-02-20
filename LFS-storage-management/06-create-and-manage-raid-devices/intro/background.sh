@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 wait_file() {
   local file="$1"; shift
@@ -9,8 +9,8 @@ wait_file() {
   ((++wait_seconds))
 }
 
-echo "done" >> /root/killercoda-finished
+echo "done" >> /tmp/killercoda-finished
 
 /usr/local/bin/install_iscsi.sh
 
-echo "done" >> /root/killercoda-background-finished
+echo "done" >> /tmp/killercoda-background-finished
