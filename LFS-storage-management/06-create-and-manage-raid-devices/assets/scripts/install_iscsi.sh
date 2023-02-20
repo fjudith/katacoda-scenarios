@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-DISK_COUNT='12'
+DISK_COUNT='16'
 TARGET_ADDRESS='127.0.0.1'
 TARGET_PORT='53260'
 TARGET_IQN='iqn.0000-00.local.host'
