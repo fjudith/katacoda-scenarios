@@ -1,13 +1,11 @@
 # Create a RAID-5 device
 
-RAID-5 allow multiple hard disk drive (HDD) to stip 
-
-RAID-5 strips the data accross multiple hard disk drives (HDD) but the equivalent of one of the disk space will be used for paritiry blocks.
+[RAID-5](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_5) strips the data accross multiple hard disk drives (HDD) but the equivalent of **one** HDD total space will be used for paritiry blocks spread in the array.
 Those parity blocks are used to rebuild the data once a failed HDD was replace by a new one.
 
 * **Number of disks**: minimum 3, maximum 16
 * **Available space**: Sum of all HDDs - 1 HDD
-* **Fault tolerance**: Only support single HDD failure for a limited time
+* **Fault tolerance**: Only support a single HDD failure for a limited time
 * **I/O Performance**: Smaller the arrays are usually faster than large ones
 
 List available SCSI HDD.

@@ -1,6 +1,6 @@
 # Create a RAID-0 device
 
-RAID-0 strips the data accross multiple hard disk drives (HDD).
+[RAID-0](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0) strips the data accross multiple hard disk drives (HDD).
 
 * **Number of disks**: minimum 2, maximum depends on the number disks that can be attached to the computer.
 * **Available space**: Sum of all HDDs

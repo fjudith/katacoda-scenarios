@@ -1,6 +1,6 @@
 # Create a RAID-01 device
 
-RAID-01 (a.k.a RAID-1) allow a given hard disk drive (HDD) to mirror the data to another one.
+[RAID-01 (a.k.a RAID-1)](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1) allow a given hard disk drive (HDD) to mirror the data to another one.
 
 * **Number of disks**: minimum 2, maximum 2
 * **Available space**: Equal to a single HDD
