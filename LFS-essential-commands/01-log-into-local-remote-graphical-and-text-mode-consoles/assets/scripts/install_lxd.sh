@@ -28,7 +28,7 @@ function start_containers()
 
     if [ "$(id -un)" = "root" ]
     then
-        CONTAINER_NAME='host02'
+        CONTAINER_NAME='lxd01'
         lxc launch "${DISTRIBUTION,,}:${RELEASE}" "${CONTAINER_NAME}" --config=user.user-data="$(cat /tmp/default-user-data.yml)"
     fi
 }
