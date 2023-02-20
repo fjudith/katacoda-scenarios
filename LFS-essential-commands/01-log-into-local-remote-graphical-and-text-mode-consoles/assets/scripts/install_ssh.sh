@@ -24,7 +24,7 @@ function udpate_user_data()
 {
     SSH_PUB_KEY_FILE="${HOME}/.ssh/id_rsa.pub"
     
-    if [ -f "/tmp/default-user-data.yml" ]; then
+    if [ -f "/tmp/default-user-data.yml" ] && [ -f "${SSH_PUB_KEY_FILE}" ]; then
         sed -i "s/__USER_SSH_PUBLIC_KEY__/$(cat $SSH_PUB_KEY_FILE)/g" /tmp/default-user-data.yml
     fi
 }
