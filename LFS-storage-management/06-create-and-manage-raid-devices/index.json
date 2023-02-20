@@ -28,8 +28,8 @@
         },
         "assets": {
             "host01": [
-                {"file": "wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
-                {"file": "deploy.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+                {"file": "scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "scripts/install_iscsi.sh", "target": "/usr/local/bin/", "chmod": "+x"}
             ]
         }
     },
@@ -40,6 +40,6 @@
         "uilayout": "terminal-iframe"
       },
       "backend": {
-        "imageid": "ubuntu"
+        "imageid": "ubuntu2024"
       }
 }

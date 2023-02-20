@@ -1,7 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-show_progress()
-{
+function show_progress () {
   echo -n "Starting"
   local -r pid="${1}"
   local -r delay='0.75'

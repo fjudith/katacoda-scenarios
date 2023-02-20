@@ -1,32 +1,21 @@
-# Configure Argo
+# Create a RAID-1 device
 
-[Argo](https://argoproj.github.io/projects/argo) can be installed using either [Helm](https://github.com/argoproj/argo-helm), [Kustomize](https://github.com/argoproj/argo/tree/stable/manifests) and straight forward [kubectl](https://github.com/argoproj/argo/tree/stable/manifests).
+RAID-1 allows multiple disk to mirror the data to a secondary standby disk.
+In case of a failure the primary disk is disable and the secondary activated.
 
-We will leverage the [Helm](https://github.com/argoproj/argo-helm) method as we need to make few adjustments to the default configuration.
+I/O performance remains equivalent to a single hard disk drive (HDD)
 
-> Like configuring the [Minio](https://min.io) storage deployed in the previous step.
-
-* Create the [**Secret**]()
-
-* Create the Helm `values.yaml` deployment customization file:
+Run the following command to list available ISCSI HDD.
 
 ```bash
-cat << EOF > values.yaml
-images:
-  tag: v2.11.6
-useDefaultArtifactRepo: True
-useStaticCredentials: True
-artifactRepository:
-  archiveLogs: true
-  s3:
-    endpoint: "minio.argo:9000"
-    bucket: "argo"
-    accessKeySecret:
-      name: minio
-      key: "accesskey"
-    secretKeySecret:
-      name: minio
-      key: "secretkey"
-    insecure: true
-EOF
-```{{execute}}
+lsblk --iscsi
+```
+
+Run the following command to create a RAID-1 device composed of the following 2 HDDs.
+
+* `/dev/sdd1`
+* `/dev/sde1`
+
+```bash
+mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sd[de]1
+```

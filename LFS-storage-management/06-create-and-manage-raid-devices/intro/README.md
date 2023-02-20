@@ -1,13 +1,14 @@
 # Introduction
 
+RAID is an assembly of storage technologies allowing to strip and/or mirror data over multiple disks in order to:
+
+* Parallelize read/write operations to enhance performances
+* Provide fault tolerance and high avalability by replicating data over multiple hard disks
+* Allow transparent failover and recovery in case of hard disk failure. 
+
 By the end of this exercise you should be able to:
 
 * Discover storage devices using `lsblk`
-* Create a RAID 1 device using `fdisk`
-* Create a partition on the RAID 1 device using `madm`
-* Format the partition using the ext4 filesystem using `mkfs.ext4`
-* Mount the filesystem using `mount`
-
-## Environment
-
-* Ubuntu 20.04
+* Create RAID devices using `madm`
+* Create partitions using `parted`
+* Apply the ext4 filesystem to partitions using `mkfs`

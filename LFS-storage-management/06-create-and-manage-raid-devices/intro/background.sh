@@ -11,6 +11,6 @@ wait_file() {
 
 echo "done" >> /root/killercoda-finished
 
-/usr/local/bin/deploy.sh
+/usr/local/bin/install_iscsi.sh
 
 echo "done" >> /root/killercoda-background-finished
