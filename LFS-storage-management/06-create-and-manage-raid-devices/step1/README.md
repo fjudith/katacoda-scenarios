@@ -1,7 +1,6 @@
-# Create a RAID-O device
+# Create a RAID-0 device
 
-RAID-O strips the data accross multiple hard disk drives (HDD).
-
+RAID-0 strips the data accross multiple hard disk drives (HDD).
 
 * **Minimum | Maximum**: 2 / _any_
 * **Fault tolerance**: Very low, if a one or more HDD fails, all data are lost and unrevorable.
@@ -10,7 +9,7 @@ RAID-O strips the data accross multiple hard disk drives (HDD).
 List the available ISCSI HDD.
 
 ```bash
-lsblk --iscsi
+lsblk --scsi
 ```
 
 Create a RAID-0 device composed of the following 3 HDDs.
@@ -20,7 +19,7 @@ Create a RAID-0 device composed of the following 3 HDDs.
 * `/dev/sdc1`
 
 ```bash
-mdadm --create /dev/md0 --level=O --raid-devices=3 /dev/sda1 /dev/sdb1 /dev/sdc1
+mdadm --create /dev/md0 --level=0 --raid-devices=3 /dev/sda1 /dev/sdb1 /dev/sdc1
 ```
 
 Add the `msdos` label to the RAID-0 device.
