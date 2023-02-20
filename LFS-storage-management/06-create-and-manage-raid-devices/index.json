@@ -40,6 +40,6 @@
         "uilayout": "terminal-iframe"
       },
       "backend": {
-        "imageid": "ubuntu2024"
+        "imageid": "ubuntu2004"
       }
 }
