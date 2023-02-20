@@ -12,3 +12,9 @@ By the end of this exercise you should be able to:
 * Create RAID devices using `madm`
 * Create partitions using `parted`
 * Apply the ext4 filesystem to partitions using `mkfs`
+* Persist the RAID configuration in `/etc/mdadm.conf`
+* Persist the mount points in `/etc/fstab`
+
+## References
+
+* <https://en.wikipedia.org/wiki/Standard_RAID_levels>
