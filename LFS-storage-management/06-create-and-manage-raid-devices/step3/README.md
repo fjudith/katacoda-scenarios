@@ -19,7 +19,7 @@ Run the following command to create a RAID-5 device composed of the following 3 
 * `/dev/sdh1`
 
 ```bash
-mdadm --create /dev/md1 --level=5 --raid-devices=3 /dev/sd[f-h]1
+mdadm --create /dev/md2 --level=5 --raid-devices=3 /dev/sd[f-h]1
 ```
 
 Labelize and partition RAID-5 device as such that only 1.5GB of space is allocated.
