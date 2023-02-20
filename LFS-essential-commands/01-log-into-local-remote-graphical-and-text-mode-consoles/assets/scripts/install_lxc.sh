@@ -41,7 +41,7 @@ function configure_lxc()
 
 function start_containers()
 {
-    DISTRIBUTION=$(ls_release -is)
+    DISTRIBUTION=$(lsb_release -is)
     RELEASE=$(lsb_release -cs)
     
     if [ "$(id -un)" = "root" ]
