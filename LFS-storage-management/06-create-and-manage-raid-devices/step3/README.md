@@ -46,6 +46,6 @@ mkfs -t ext4 /dev/md2p1
 Moutn the partition for future use.
 
 ```bash
-mkdir -p /mnt/raid2
+mkdir -p /mnt/raid5
 mount -t ext4 /dev/md2p1 /mnt/raid5
 ```
