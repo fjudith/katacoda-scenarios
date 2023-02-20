@@ -3,8 +3,9 @@
 RAID-0 strips the data accross multiple hard disk drives (HDD).
 
 * **Number of disks**: minimum 2, maximum depends on the number disks that can be attached to the computer.
-* **Fault tolerance**: Very low, if a one or more HDD fails, all data are lost and unrevorable.
-* **I/O Performance**: Very fast due to parallization.
+* **Available space**: Sum of all HDDs
+* **Fault tolerance**: Not supported. If one the HDD fails the entire array if lost.
+* **I/O Performance**: Larger the array is, faster it will be. (n. parallization).
 
 List the available ISCSI HDD.
 

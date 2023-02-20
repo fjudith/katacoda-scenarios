@@ -1,10 +1,14 @@
 # Create a RAID-5 device
 
-RAID-5 allow a given hard disk drive (HDD) to mirror the data to another one.
+RAID-5 allow multiple hard disk drive (HDD) to stip 
+
+RAID-5 strips the data accross multiple hard disk drives (HDD) but the equivalent of one of the disk space will be used for paritiry blocks.
+Those parity blocks are used to rebuild the data once a failed HDD was replace by a new one.
 
 * **Number of disks**: minimum 3, maximum 16
-* **Fault tolerance**: Good, if one disk fails, the primary disk fails then it is automatically disabled and the secondary activated.
-* **I/O Performance**: Fast as a single HDD.
+* **Available space**: Sum of all HDDs - 1 HDD
+* **Fault tolerance**: Only support single HDD failure for a limited time
+* **I/O Performance**: Smaller the arrays are usually faster than large ones
 
 Run the following command to list available ISCSI HDD.
 

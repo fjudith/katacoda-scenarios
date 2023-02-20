@@ -3,8 +3,9 @@
 RAID-01 (a.k.a RAID-1) allow a given hard disk drive (HDD) to mirror the data to another one.
 
 * **Number of disks**: minimum 2, maximum 2
-* **Fault tolerance**: Average, if the primary disk fails then it is automatically disabled and the secondary activated.
-* **I/O Performance**: Fast as a single HDD.
+* **Available space**: Equal to a single HDD
+* **Fault tolerance**: If the primary disk fails then it is automatically disabled and the secondary activated
+* **I/O Performance**: Fast as a single HDD. 
 
 Run the following command to list available ISCSI HDD.
 
