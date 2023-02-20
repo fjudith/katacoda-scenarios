@@ -30,6 +30,10 @@ function start_containers()
     then
         CONTAINER_NAME='lxd01'
         lxc launch "${DISTRIBUTION,,}:${RELEASE}" "${CONTAINER_NAME}" --config=user.user-data="$(cat /tmp/default-user-data.yml)"
+
+        CONTAINER_IP=$(lxc info "${CONTAINER_NAME}" | grep -E "eth0\:\sinet\s.*" | awk -F " " '{print $3}')
+
+        echo "${CONTAINER_IP} ${CONTAINER_NAME}" | sudo tee -a /etc/hosts
     fi
 }
 
