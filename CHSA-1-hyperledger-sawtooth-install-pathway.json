@@ -3,47 +3,47 @@
     "description": "Install Hyperledger Sawtooth",
     "courses" : [
         {
-            "course_id": "a1_install-sawtooth-packages",
+            "course_id": "01-install-sawtooth-packages",
             "title": "Install Sawtooth packages",
             "description": "Learn how to install Hyperledger Sawtooth v1.0.5 packages on Ubuntu 16.04 (Xenial)"
         },
         {
-            "course_id": "a2_start-component-services",
+            "course_id": "02-start-component-services",
             "title": "Start component services",
             "description": "Learn how to start Sawtooth base services using Systemd"
         },
         {
-            "course_id": "a3_generate-keys",
+            "course_id": "03generate-keys",
             "title": "Generate Keys",
             "description": "Learn how to generate Validator and User keys"
         },
         {
-            "course_id": "a4_register-validator",
+            "course_id": "04-register-validator",
             "title": "Register Validator",
             "description": "Learn how to register a Validator in Sawtooth Network"
         },
         {
-            "course_id": "a5_configure-peering",
+            "course_id": "05-configure-peering",
             "title": "Configure Peering",
             "description": "Learn how to configure Dynamic peering"
         },
         {
-            "course_id": "a6_verify-install-and-fix-if-necessary",
+            "course_id": "06verify-install-and-fix-if-necessary",
             "title": "Verify install and fix if necessary",
             "description": "Learn how to troubleshoot a Sawtooth network"
         },
         {
-            "course_id": "a7_connect-transaction-processor-to-validator",
+            "course_id": "07-connect-transaction-processor-to-validator",
             "title": "Connect Transaction Processor to Validator",
             "description": "Learn how to register Intkey and XO transaction processor to an external validator"
         },
         {
-            "course_id": "a8_create-genesis-block",
+            "course_id": "08-create-genesis-block",
             "title": "Create genesis block",
             "description": "Learn how to create genesis block required for the first node"
         },
         {
-            "course_id": "a9_verify-system-meets-hardware-requirements",
+            "course_id": "09-verify-system-meets-hardware-requirements",
             "title": "Verify system meets hardware requirements",
             "description": "Learn how check if the node has sufficient compute capacity to run Hyperledger Sawtooth"
         }

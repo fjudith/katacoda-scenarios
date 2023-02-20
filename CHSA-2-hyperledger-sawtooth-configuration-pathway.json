@@ -3,47 +3,47 @@
   "description": "Configure Hyperledger Sawtooth",
   "courses": [
     {
-      "course_id": "b1_configure-validator-peering-and-network",
+      "course_id": "01-configure-validator-peering-and-network",
       "title": "Configure validator peering and network",
       "description": "Configure a Sawtooth network leveraging dynamic peering"
     },
     {
-      "course_id": "b2_configure-consensus",
+      "course_id": "02-configure-consensus",
       "title": "Configure consensus",
       "description": "Configure a PoET enabled Sawtooth network"
     },
     {
-      "course_id": "b3_configure-logging",
+      "course_id": "03-configure-logging",
       "title": "Configure logging",
       "description": "Configure logging to a remote log collector"
     },
     {
-      "course_id": "b4_configure-rest-api",
+      "course_id": "04-configure-rest-api",
       "title": "Configure REST API",
       "description": "Configure a REST API for remote client access"
     },
     {
-      "course_id": "b6_configure-metrics",
+      "course_id": "05-configure-metrics",
       "title": "Configure metrics",
       "description": "Configure a Validator and REST API to push metrics to a TSDB"
     },
     {
-      "course_id": "b7_configure-transaction-processor-endpoint",
+      "course_id": "07-configure-transaction-processor-endpoint",
       "title": "Configure transaction processor endpoint",
       "description": "Remotely configure transaction processor to access a remote validator"
     },
     {
-      "course_id": "b9_choose-parallel-sync-scheduler",
+      "course_id": "09-choose-parallel-sync-scheduler",
       "title": "Choose parallel sync schduler",
       "description": "Use parallel instead of serial scheduler to increase processing performances"
     },
     {
-      "course_id": "b10_configure-storage-path",
+      "course_id": "10-configure-storage-path",
       "title": "Configure storage path",
       "description": "Configure Sawtooth component storage path and migrate data"
     },
     {
-      "course_id": "b11_configure-sawtooth-cli",
+      "course_id": "11-configure-sawtooth-cli",
       "title": "Configure sawtooth CLI",
       "description": "Configure the CLI to access remote REST API"
     }

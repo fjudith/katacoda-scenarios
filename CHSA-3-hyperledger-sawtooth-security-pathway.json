@@ -3,22 +3,22 @@
   "description": "Secure Hyperledger Sawtooth",
   "courses": [
     {
-      "course_id": "c1_identify-network-id-system-peer-id",
+      "course_id": "01-identify-network-id-system-peer-id",
       "title": "Identify network ID / System / Peer ID",
       "description": "Discover components on-chain"
     },
     {
-      "course_id": "c2_permission-a-transaction-processor",
+      "course_id": "02-permission-a-transaction-processor",
       "title": "Permission a transaction processor",
       "description": "Manage RBAC off-chain"
     },
     {
-      "course_id": "c3_policy-management",
+      "course_id": "03-policy-management",
       "title": "Policy management",
       "description": "Manage RBAC on-chain"
     },
     {
-      "course_id": "c4_validator-registration",
+      "course_id": "04-validator-registration",
       "title": "Validator Registration",
       "description": "Register a Validator in an existing active network"
     }
