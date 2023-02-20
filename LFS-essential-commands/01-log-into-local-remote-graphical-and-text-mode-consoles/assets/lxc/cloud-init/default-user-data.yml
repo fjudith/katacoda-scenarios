@@ -1,0 +1,15 @@
+#cloud-config
+package_upgrade: true
+packages:
+  - git
+  - openssh-server
+ssh_authorized_keys:
+  - __USER_SSH_PUBLIC_KEY__
+ssh_deletekeys: true
+disable_root: false
+disable_root_opts: no-port-forwarding,no-agent-forwarding,no-X11-forwarding
+allow_public_ssh_keys: true
+ssh_quiet_keygen: true
+ssh_publish_hostkeys:
+  enabled: true
+  blacklist: [dsa]
