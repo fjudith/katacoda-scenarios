@@ -3,7 +3,7 @@
 # install lxc and lxd
 function install_dependencies()
 {
-    sudo apt-get udpate -y \
+    sudo apt-get update -y \
     && apt-get install -y \
        'lxc' \
        'lxd' \
