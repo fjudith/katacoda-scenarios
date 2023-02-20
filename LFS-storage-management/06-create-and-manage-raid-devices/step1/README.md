@@ -45,3 +45,10 @@ Format the partition.
 ```bash
 mkfs -t ext4 /dev/md0p1
 ```
+
+Moutn the partition for future use.
+
+```bash
+mkdir -p /mnt/raid0
+mount -t ext4 /dev/md0p1 /mnt/raid0
+```
