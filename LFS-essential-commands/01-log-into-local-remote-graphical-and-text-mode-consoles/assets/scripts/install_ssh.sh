@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+
 function install_dependencies()
 {
     sudo apt-get update -y \
@@ -10,7 +12,7 @@ function generate_keys()
 {
     USER_NAME=$(id -un)
     HOST_NAME=$(hostname)
-    SSH_KEY_FILE="${HOME}/.ssh/id_rsa_${USER_NAME}"
+    SSH_KEY_FILE="${HOME}/.ssh/id_rsa"
     
 
     if [ -f "${SSH_KEY_FILE}" ]; then
@@ -20,7 +22,7 @@ function generate_keys()
 
 function udpate_user_data()
 {
-    SSH_PUB_KEY_FILE="${HOME}/.ssh/id_rsa_${USER_NAME}.pub"
+    SSH_PUB_KEY_FILE="${HOME}/.ssh/id_rsa.pub"
     
     if [ -f "/tmp/default-user-data.yml" ]; then
         sed -i "s/__USER_SSH_PUBLIC_KEY__/$(cat $SSH_PUB_KEY_FILE)/g" /tmp/default-user-data.yml

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # install lxc and lxd
 function install_dependencies()
@@ -9,12 +10,6 @@ function install_dependencies()
        'lxd' \
        'python3-pylxd' \
        'python3-openssl'
-}
-
-function configure_veth()
-{
-    lxc-checkconfig
-    echo "$(id -un) veth lxcbr0 10" | sudo tee -a /etc/lxc/lxc-usernet
 }
 
 # Initialize LXD
@@ -41,6 +36,5 @@ function start_containers()
 }
 
 install_dependencies
-configure_veth
 configure_lxd
 start_containers
