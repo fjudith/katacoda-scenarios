@@ -18,7 +18,6 @@ function generate_keys()
         SSH_KEY_FILE="${HOME}/.ssh/id_rsa"
     fi
     
-
     if [ ! -f "${SSH_KEY_FILE}" ]; then
         ssh-keygen -f "${SSH_KEY_FILE}" -C "${USER_NAME}@${HOST_NAME}" -q -N ''
     fi

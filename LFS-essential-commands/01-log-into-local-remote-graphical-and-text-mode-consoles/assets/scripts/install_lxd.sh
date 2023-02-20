@@ -26,12 +26,10 @@ function start_containers()
     DISTRIBUTION=$(lsb_release -is)
     RELEASE=$(lsb_release -cs)
 
-    chmod +x ~/ ~/.local ~/.local/share ~/.local/share/lxc
-
     if [ "$(id -un)" = "root" ]
     then
         CONTAINER_NAME='host02'
-        lxc launch "${DISTRIBUTION}:${RELEASE}" "${CONTAINER_NAME}" --config=user.user-data="$(cat /tmp/default-user-data.yml)"
+        lxc launch "${DISTRIBUTION,,}:${RELEASE}" "${CONTAINER_NAME}" --config=user.user-data="$(cat /tmp/default-user-data.yml)"
     fi
 }
 
