@@ -25,13 +25,13 @@ Create a RAID-5 device composed of the following 4 HDDs.
 mdadm --create /dev/md3 --level=6 --raid-devices=4 /dev/sd[i-l]1
 ```
 
-Labelize and partition RAID-6 device as such where only half of space is allocated.
+Labelize and partition RAID-6 device as such where only three quarters of space is allocated.
 
 > The `--align` parameter fine tune the block allocation on the hardware.
 
 ```bash
 parted /dev/md3 'mklabel msdos'
-parted /dev/md3 --align=optimal 'unit % mkpart primary 0 50%'
+parted /dev/md3 --align=optimal 'unit % mkpart primary 0 75%'
 ```
 
 Check if RAID-5 and partition has been successfuly detected by the operating system.
