@@ -44,11 +44,17 @@ function start_containers()
     DISTRIBUTION=$(lsb_release -is)
     RELEASE=$(lsb_release -cs)
     
+    chmod +x ~/ ~/.local ~/.local/share ~/.local/share/lxc
+
     if [ "$(id -un)" = "root" ]
     then
-        sudo lxc-create --template download --name host02 -- --dist ${DISTRIBUTION} --release "${RELEASE}" --arch amd64
+        sudo lxc-create --template download --name host02 -- --dist ${DISTRIBUTION,,} --release "${RELEASE}" --arch amd64 \
+        && sudo lxc-start host02 \
+        && sudo lxc-info host02 -iH
     else
-        systemd-run --unit=my-unit --user --scope -p "Delegate=yes" -- lxc-create --template download --name host02 -- --dist ${DISTRIBUTION} --release "${RELEASE}" --arch amd64
+        systemd-run --unit=my-unit --user --scope -p "Delegate=yes" -- lxc-create --template download --name host02 -- --dist ${DISTRIBUTION,,} --release "${RELEASE}" --arch amd64 \
+        && lxc-start --name host02 \
+        && lxc-info --name host02 --ips --no-humanize
     fi
 }
 
