@@ -28,7 +28,7 @@ function configure_target()
     # at /var/lib/devices and use a 10G disk.
     # create the disk image
     sudo mkdir -p /var/lib/devices
-    sudo fallocate -l 512 /var/lib/devices/disk-${disk_id}.img \
+    sudo fallocate -l 512MB /var/lib/devices/disk-${disk_id}.img \
     || logger -p syslog.error -p local0.error \
       "Failed to create disk image \"/var/lib/devices/disk-${disk_id}.img\""
 
