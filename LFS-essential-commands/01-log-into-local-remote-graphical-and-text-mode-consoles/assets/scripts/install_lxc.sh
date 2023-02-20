@@ -24,30 +24,31 @@ function configure_lxc()
     mkdir -p ~/.config/lxc
 
     cp /etc/lxc/default.conf ~/.config/lxc/default.conf
-    MS_UID="$(grep "$(id -un)" /etc/subuid  | cut -d : -f 2)"
-    ME_UID="$(grep "$(id -un)" /etc/subuid  | cut -d : -f 3)"
-    MS_GID="$(grep "$(id -un)" /etc/subgid  | cut -d : -f 2)"
-    ME_GID="$(grep "$(id -un)" /etc/subgid  | cut -d : -f 3)"
 
-    if [ "$(id -un)" = "root" ]
+    if [ ! "$(id -un)" = "root" ]
     then
-        echo "lxc.idmap = u 0 $MS_UID $ME_UID" | sudo tee -a /etc/lxc/default.conf
-        echo "lxc.idmap = g 0 $MS_GID $ME_GID" | sudo tee -a /etc/lxc/default.conf
-    else
+        MS_UID="$(grep "$(id -un)" /etc/subuid  | cut -d : -f 2)"
+        ME_UID="$(grep "$(id -un)" /etc/subuid  | cut -d : -f 3)"
+        MS_GID="$(grep "$(id -un)" /etc/subgid  | cut -d : -f 2)"
+        ME_GID="$(grep "$(id -un)" /etc/subgid  | cut -d : -f 3)"
+
         echo "lxc.idmap = u 0 $MS_UID $ME_UID" | tee -a ~/.config/lxc/default.conf
         echo "lxc.idmap = g 0 $MS_GID $ME_GID" | tee -a ~/.config/lxc/default.conf
-    
     fi
+    
     export DOWNLOAD_KEYSERVER="hkp://keyserver.ubuntu.com"
 }
 
 function start_containers()
 {
+    DISTRIBUTION=$(ls_release -is)
+    RELEASE=$(lsb_release -cs)
+    
     if [ "$(id -un)" = "root" ]
     then
-        sudo lxc-create --template download --name host02 -- --dist ubuntu --release DISTRO-SHORT-CODENAME --arch amd64
+        sudo lxc-create --template download --name host02 -- --dist ${DISTRIBUTION} --release "${RELEASE}" --arch amd64
     else
-        systemd-run --unit=my-unit --user --scope -p "Delegate=yes" -- lxc-create --template download --name host02 -- --dist ubuntu --release DISTRO-SHORT-CODENAME --arch amd64
+        systemd-run --unit=my-unit --user --scope -p "Delegate=yes" -- lxc-create --template download --name host02 -- --dist ${DISTRIBUTION} --release "${RELEASE}" --arch amd64
     fi
 }
 
