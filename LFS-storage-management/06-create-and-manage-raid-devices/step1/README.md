@@ -2,7 +2,7 @@
 
 RAID-0 strips the data accross multiple hard disk drives (HDD).
 
-* **Minimum | Maximum**: 2 / _any_
+* **Number of disks**: minimum 2, maximum depends on the number disks that can be attached to the computer.
 * **Fault tolerance**: Very low, if a one or more HDD fails, all data are lost and unrevorable.
 * **I/O Performance**: Very fast due to parallization.
 
