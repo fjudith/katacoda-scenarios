@@ -1,14 +1,15 @@
-# Create a RAID-1 device
+# Create a RAID-01 device
 
-RAID-1 allows multiple disk to mirror the data to a secondary standby disk.
-In case of a failure the primary disk is disable and the secondary activated.
+RAID-01 (a.k.a RAID-1) allow a given hard disk drive (HDD) to mirror the data to another one.
 
-I/O performance remains equivalent to a single hard disk drive (HDD)
+* **Number of disks**: minimum 2, maximum 2
+* **Fault tolerance**: Average, if the primary disk fails then it is automatically disabled and the secondary activated.
+* **I/O Performance**: Fast as a single HDD.
 
 Run the following command to list available ISCSI HDD.
 
 ```bash
-lsblk --iscsi
+lsblk --scsi
 ```
 
 Run the following command to create a RAID-1 device composed of the following 2 HDDs.
@@ -18,4 +19,30 @@ Run the following command to create a RAID-1 device composed of the following 2 
 
 ```bash
 mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sd[de]1
+```
+
+Labelize and partition RAID-1 device as such that the whole space is allocated.
+
+```bash
+parted /dev/md1 'mklabel msdos'
+parted /dev/md1 'mkpart primary 0% 100%'
+```
+
+Check if RAID-1 and partition has been successfuly detected by the operating system.
+
+```bash
+lsblk --merge
+```
+
+Format the partition.
+
+```bash
+mkfs -t ext4 /dev/md1p1
+```
+
+Moutn the partition for future use.
+
+```bash
+mkdir -p /mnt/raid1
+mount -t ext4 /dev/md1p1 /mnt/raid1
 ```
