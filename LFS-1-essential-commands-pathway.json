@@ -6,6 +6,11 @@
         "course_id": "01-log-into-local-remote-graphical-and-text-mode-consoles",
         "title": "Log into local & remote graphical and text mode consoles",
         "description": "Log into local & remote graphical and text mode consoles"
+      },
+      {
+        "course_id": "02-search-for-files",
+        "title": "Search for files",
+        "description": "Search for files"
       }
     ]
   }

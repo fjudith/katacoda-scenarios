@@ -1,0 +1,36 @@
+{
+    "title": "Search for files",
+    "description": "Introduction to find command",
+    "difficulty": "easy",
+    "time": "10-20 minutes",
+    "details": {
+        "intro": {
+            "text": "intro/README.md",
+            "foreground": "intro/foreground.sh",
+            "background": "intro/background.sh"
+        },
+        "steps": [
+            {
+                "text": "step1/README.md"
+            }
+        ],
+        "finish": {
+            "text": "finish/README.md"
+        },
+        "assets": {
+            "host01": [
+                {"file": "scripts/wait.sh", "target": "/usr/local/bin/", "chmod": "+x"},
+                {"file": "scripts/generate_random_files.sh", "target": "/usr/local/bin/", "chmod": "+x"}
+            ]
+        }
+    },
+    "environment": {
+        "showvisualise": false,
+        "showdashboard": true,
+        "hideintro": false,
+        "uilayout": "terminal-iframe"
+      },
+      "backend": {
+        "imageid": "ubuntu2004"
+      }
+}
